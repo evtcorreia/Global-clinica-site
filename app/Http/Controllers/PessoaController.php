@@ -25,7 +25,7 @@ use GuzzleHttp\Client;
 
         public function show()
         {
-            $client  = new Client();
+            $client = new Client();
             $response = $client->get('http://api.hml01.com.br/api/pessoa/72990385671');
             $pessoas = json_decode($response->getBody(),true);
 
