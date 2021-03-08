@@ -1,0 +1,25 @@
+body {
+    background-image: url('../img/bg/background.jpg');
+    
+}   
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #D9EFFB;
+    opacity: 0.8;
+}
+
+.menu-paciente{
+    height: 100px; 
+    width: 150px;
+    
+    
+}
+.card-menu-individual{
+    border-radius: 40px;
+    text-align: center;
+    opacity: 0.8;
+}
