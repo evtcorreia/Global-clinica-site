@@ -68,12 +68,83 @@ Informações
                 </div>
             </div>
         </div>
-
-
-
     </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div style="background-color: white;">
+            <h3 class="ml-2 pt-3">Dados Pessoais</h3>
+            <hr>
+            <div class="row ml-4">
+                <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>Numero SUS</h6>
+                    <p>{{$paciente["paciente_sus_nr"]}}</p>
+                </div>
+            </div>
+
+            <div class="row ml-4 ">
+            <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>Tipo Sanguineo</h6>
+                    <p>{{$paciente["paciente_tipo_sang"]}}</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>Fator RH</h6>
+                    <p>{{$paciente["paciente_fator_rh"]}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <div style="background-color: white;">
+            <h3 class="ml-2 pt-3">Dados Pessoais</h3>
+            <hr>
+            <div class="row ml-4">
+                <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>Nome</h6>
+                    <p>{{$pessoa["pessoa_telefone"]}}</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>Sobrenome</h6>
+                    <p>{{$pessoa["pessoa_sobrenome"]}}</p>
+                </div>
+            </div>
+
+            <div class="row ml-4 ">
+                <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>CPF</h6>
+                    <p>{{$pessoa["pessoa_cpf"]}}</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>RG</h6>
+                    <p>{{$pessoa["pessoa_rg"]}}</p>
+                </div>
+            </div>
+
+            <div class="row ml-4 ">
+                <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>CPF</h6>
+                    <p>{{$pessoa["pessoa_pai"]}}</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>RG</h6>
+                    <p>{{$pessoa["pessoa_mae"]}}</p>
+                </div>
+            </div>
+
+            <div class="row ml-4 ">
+                <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>CPF</h6>
+                    <p>{{$pessoa["pessoa_pai"]}}</p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>RG</h6>
+                    <p>{{$pessoa["pessoa_mae"]}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
