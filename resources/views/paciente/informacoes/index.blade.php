@@ -72,8 +72,7 @@ Informações
 
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
         <div style="background-color: white;">
             <h3 class="ml-2 pt-3">Dados Pessoais</h3>
             <hr>
@@ -102,46 +101,40 @@ Informações
             <hr>
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Nome</h6>
-                    <p>{{$pessoa["pessoa_telefone"]}}</p>
+                    <h6>Telefone</h6>
+
+                    @foreach ($telefones as $telefone) 
+                        <p>({{$telefone["telefone_area"]}})  {{$telefone["telefone_num"]}}</p>
+                    @endforeach                
+            
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Sobrenome</h6>
-                    <p>{{$pessoa["pessoa_sobrenome"]}}</p>
+                    <h6>Bairro</h6>
+                    <p>{{$endereco["endereco_bairro"]}}</p>
                 </div>
             </div>
 
             <div class="row ml-4 ">
                 <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>CPF</h6>
-                    <p>{{$pessoa["pessoa_cpf"]}}</p>
+                    <h6>Rua</h6>
+                    <p>{{$endereco["endereco_logradouro"]}}</p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>RG</h6>
-                    <p>{{$pessoa["pessoa_rg"]}}</p>
+                    <h6>Cidade</h6>
+                    <p>{{$endereco["endereco_cidade"]}}</p>
                 </div>
             </div>
 
             <div class="row ml-4 ">
                 <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>CPF</h6>
-                    <p>{{$pessoa["pessoa_pai"]}}</p>
+                    <h6>CEP</h6>
+                    <p>{{$endereco["endereco_cep"]}}</p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>RG</h6>
-                    <p>{{$pessoa["pessoa_mae"]}}</p>
+                    <h6>Estado</h6>
+                    <p>{{$endereco["endereco_estado"]}}</p>
                 </div>
             </div>
-
-            <div class="row ml-4 ">
-                <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>CPF</h6>
-                    <p>{{$pessoa["pessoa_pai"]}}</p>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>RG</h6>
-                    <p>{{$pessoa["pessoa_mae"]}}</p>
-                </div>
             </div>
         </div>
     </div>
