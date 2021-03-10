@@ -46,8 +46,8 @@ use GuzzleHttp\Client;
                 'paciente' => $paciente,
                 'telefones' => $telefones,
                 'endereco' => $endereco
-            ]);
-        }
+            ]);        
+       }
     }
 
     

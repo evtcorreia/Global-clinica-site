@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section('cabecalho')
-Informações
+Consultas
 @endsection
 
 @section('conteudo')
