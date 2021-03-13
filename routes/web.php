@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::get('/index','PessoaController@index');
 Route::get('/informacao','PessoaController@show');
 Route::get('/consulta','ConsultaController@consulta');
+Route::get('//paciente/consulta/descricao','ConsultaController@descricao');
