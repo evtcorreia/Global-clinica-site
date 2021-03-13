@@ -57,8 +57,7 @@ Consultas
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                             
-                            </span>
-                            
+                            </span>                          
                         
                         </li>
                     @endforeach

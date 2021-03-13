@@ -12,15 +12,28 @@ class ConsultaController extends Controller
     $response = $client->get('http://api.hml01.com.br/api/pessoa/72990385671');
     $pessoas = json_decode($response->getBody(),true);
 
-     $client = new Client();
-     $response = $client->get('http://api.hml01.com.br/api/prontuario/72990385671');
-     $consultas = json_decode($response->getBody(),true);
-     
+    $client = new Client();
+    $response = $client->get('http://api.hml01.com.br/api/prontuario/72990385671');
+    $consultas = json_decode($response->getBody(),true);
     
-     return view('/paciente/consultas/index',[
+    
+    return view('/paciente/consultas/index',[
         'pessoa' => $pessoas, 
         'consultas' => $consultas,
-     ]);
+    ]);
+
+        $client = new Client();
+        $response = $client->get('http://api.hml01.com.br/api/prontuario/72990385671');
+        $consultas = json_decode($response->getBody(),true);
+    
+        return view('/paciente/consultas/index',[
+        'consultas' => $consultas,
+        ]);
+    }
+
+    public function agendamento()
+    {
+        return view('/paciente/agendamentos/index');
     }
 
     public function descricao()

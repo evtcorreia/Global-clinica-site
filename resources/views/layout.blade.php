@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" type="text/css">
     </head>
     <body>
-  
+
 
     <div class="jumbotron jumbotron-fluid" >
         <div class="container">
