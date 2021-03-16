@@ -9,7 +9,7 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4 ">   
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
-            <a href="/informacao" >
+            <a href="/paciente/informacao" >
                 <div class="card card-menu-individual">
                     <img src="../img/usuario/usuario.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">
@@ -21,7 +21,7 @@
         </div>
         
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
-            <a href="/consulta" >
+            <a href="/paciente/consulta" >
                 <div class="card card-menu-individual">
                 <img src="../img/usuario/consulta.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="imagem logo estetoscopio azul, e um coração com coração vermelho no centro" >
                     <div class="card-body">
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
-            <a href="agendamentos/index">
+            <a href="/paciente/agendamentos/index">
                 <div class="card card-menu-individual">
                     <img src="../img/usuario/agendamento.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">

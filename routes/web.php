@@ -19,8 +19,13 @@ Route::get('/', function () {
 
 
 
-Route::get('/index','PessoaController@index');
-Route::get('/informacao','PessoaController@show');
-Route::get('/consulta','ConsultaController@consulta');
-Route::get('//paciente/consulta/descricao','ConsultaController@descricao');
-Route::get('/agendamentos/index', 'ConsultaController@agendamento');
+Route::get('/paciente/index','PessoaController@index');
+Route::get('/paciente/informacao','PessoaController@show');
+Route::get('/paciente/consulta','ConsultaController@consulta');
+Route::get('/paciente/consulta/descricao','ConsultaController@descricao');
+Route::get('/paciente/agendamentos/index', 'ConsultaController@agendamento');
+
+//Medico
+
+Route::get('/medico/index', 'PessoaController@index');
+
