@@ -132,7 +132,7 @@ Informações
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Estado</h6>
-                    <p>{{$endereco["endereco_estado"]}}</p>
+                    <p>{{$endereco["estados_estado_id"]}}</p>
                 </div>
             </div>
             </div>
