@@ -53,7 +53,7 @@ Consultas
                         {{$consulta["consulta_data"]}}
                             <span class="d-flex">
 
-                                <a href="/series/1/temporadas" class="btn btn-info btn-sm mr-1">
+                                <a href="/paciente/consulta/descricao" class="btn btn-info btn-sm mr-1">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                             

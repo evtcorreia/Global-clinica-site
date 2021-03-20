@@ -6,10 +6,6 @@ Consulta
 
 @section('conteudo')
 
-<div style="text-align:right; width:100%; padding:0;">
-    <input type="button" value="Voltar" onClick="history.go(-1)">
-</div>
-
 <ul class="nav nav-tabs" id="myTab" role="tablist" >
     <li class="nav-item col-sm-12 col-md-2 col-lg-2  mt-3" >
         <a class="nav-link active " id="consulta-tab" data-toggle="tab" href="#consulta" role="tab" aria-controls="consulta" aria-selected="true">Informações</a>
@@ -55,7 +51,7 @@ Consulta
 
     <div class="tab-pane fade" id="exames" role="tabpanel" aria-labelledby="exames-tab">
         <div style="background-color: white;">
-            <h3 class="ml-2 pt-3">Exames Realizados/Pedidos</h3>
+            <h3 class="ml-2 pt-3">Exames</h3>
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >

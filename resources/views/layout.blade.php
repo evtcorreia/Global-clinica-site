@@ -16,6 +16,9 @@
     <div class="jumbotron jumbotron-fluid" >
         <div class="container">
             <h1>@yield('cabecalho')</h1>
+            <div style="text-align:right; width:100%; padding:0;">
+                <input type="button" class="btn btn-primary" value="Voltar" onClick="history.go(-1)">
+            </div>
         </div>
     </div>
 
