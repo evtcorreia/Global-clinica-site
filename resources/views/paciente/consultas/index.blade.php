@@ -49,7 +49,7 @@ Consultas
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
                     @foreach($consultas as $consulta)
-                        <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes"> Consulta
+                        <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes"> Consultas
                         {{$consulta["consulta_data"]}}
                             <span class="d-flex">
 
