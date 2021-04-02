@@ -8,10 +8,10 @@ use GuzzleHttp\Client;
 
     class PessoaController extends Controller
     {
-        public function  index()
+        public function  index($cpf)
         {
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/72990385671');
+            $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
             $pessoas = json_decode($response->getBody(), true);
 
         return view('/paciente/index/index',[
@@ -22,22 +22,22 @@ use GuzzleHttp\Client;
         }
 
 
-        public function show()
+        public function show($cpf)
         {
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/72990385671');
+            $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
             $pessoas = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/paciente/72990385671');
+            $response = $client->get('http://api.hml01.com.br/api/paciente/'.$cpf);
             $paciente = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response  = $client->get('http://api.hml01.com.br/api/telefone/72990385671');
+            $response  = $client->get('http://api.hml01.com.br/api/telefone/'.$cpf);
             $telefones = json_decode($response->getBody(), true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/endereco/72990385671');
+            $response = $client->get('http://api.hml01.com.br/api/endereco/'.$cpf);
             $endereco = json_decode($response->getBody(),true);
 
 

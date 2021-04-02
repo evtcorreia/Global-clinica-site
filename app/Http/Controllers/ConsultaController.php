@@ -5,15 +5,17 @@ use GuzzleHttp\Client;
 
 class ConsultaController extends Controller
 {
+
     
-    public function consulta()
+    
+    public function consulta($cpf)
     {
     $client = new Client();
-    $response = $client->get('http://api.hml01.com.br/api/pessoa/72990385671');
+    $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
     $pessoas = json_decode($response->getBody(),true);
 
     $client = new Client();
-    $response = $client->get('http://api.hml01.com.br/api/prontuario/72990385671');
+    $response = $client->get('http://api.hml01.com.br/api/prontuario/'.$cpf);
     $consultas = json_decode($response->getBody(),true);
     
     
@@ -21,14 +23,14 @@ class ConsultaController extends Controller
         'pessoa' => $pessoas, 
         'consultas' => $consultas,
     ]);
-
-        $client = new Client();
-        $response = $client->get('http://api.hml01.com.br/api/prontuario/72990385671');
-        $consultas = json_decode($response->getBody(),true);
+        
+        //$client = new Client();
+       // $response = $client->get('http://api.hml01.com.br/api/prontuario/'.$cpf);
+        //$consultas = json_decode($response->getBody(),true);
     
-        return view('/paciente/consultas/index',[
-        'consultas' => $consultas,
-        ]);
+        //return view('/paciente/consultas/index',[
+        //'consultas' => $consultas,
+       // ]);
     }
 
     public function agendamento()
@@ -38,9 +40,11 @@ class ConsultaController extends Controller
 
     public function descricao()
     {
+        
+        
         $client = new Client();
         $response = $client->get('http://api.hml01.com.br/api/prontuario/72990385671');
-        $consulta = json_decode($response->getBody(),true);
+        $consulta = json_decode($response->getBody(),true);          
 
         $client = new Client();
         $response = $client->get('http://api.hml01.com.br/api/receita/2');
@@ -50,11 +54,12 @@ class ConsultaController extends Controller
         $response = $client->get('http://api.hml01.com.br/api/exame/2');
         $exames = json_decode($response->getBody(),true);
 
+
         return view('/paciente/consultas/descricao',[
             'consulta' => $consulta,
             'receitas' => $receitas, 
             'exames' => $exames,
-           
-         ]);
+        
+        ]);
     }
 }
