@@ -27,7 +27,7 @@ Consultas
                     {{$consulta["consulta_data"]}}
                             <span class="d-flex">
 
-                                <a href="/paciente/consulta/descricao/2" class="btn btn-info btn-sm mr-1">
+                                <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$pessoa['pessoa_cpf']}}" class="btn btn-info btn-sm mr-1">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>                          
                             

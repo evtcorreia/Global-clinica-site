@@ -24,8 +24,10 @@ Consulta
             <h3 class="ml-2 pt-3">Consulta Data</h3>
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Nome</h6>
-                    <p></p>
+                    <h6>Data Da consulta</h6>
+                    @foreach ($consultas as $consulta) 
+                        <p>{{$consulta["consulta_info"]}}</p>
+                    @endforeach   
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Sobrenome</h6>
@@ -37,12 +39,17 @@ Consulta
 
     <div class="tab-pane fade" id="receitas" role="tabpanel" aria-labelledby="receitas-tab" >
         <div style="background-color: white;">
-            <h3 class="ml-2 pt-3">Medicamentos</h3>
+            <h3 class="ml-2 pt-3">Medicamentos</h3>  
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
-                        <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes"> Remedio X</li>
-                        <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes"> Remedio y</li>
+                        
+                            @foreach ($receitas as $medicamento) 
+                                <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes">
+                                    <p>{{$medicamento["medicamento_nome"]}}</p>
+                                    <p>{{$medicamento["medicamento_substancia"]}}</p>                                    
+                                </li>
+                            @endforeach 
                     </ul>
                 </div>                
             </div>   
@@ -55,8 +62,12 @@ Consulta
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
-                        <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Exame X</li>
-                        <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes"> Exame Y</li>
+                    @foreach ($exames as $exame) 
+                                <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes">
+                                    <p>{{$exame["exame_data"]}}</p>
+                                    <p>{{$exame["exame_resultado"]}}</p>                                    
+                                </li>
+                            @endforeach 
                     </ul>
                 </div>                
             </div>   
