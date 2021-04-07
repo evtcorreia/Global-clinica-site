@@ -14,7 +14,7 @@
                 <div class="card card-menu-individual">
                     <img src="../../img/usuario/usuario.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Informações</h5>
+                        <h5 class="card-title">Dados Pessoais</h5>
                         <p class="card-text"></p>
                     </div>
                 </div>

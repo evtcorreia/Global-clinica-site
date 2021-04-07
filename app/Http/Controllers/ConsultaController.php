@@ -33,10 +33,7 @@ class ConsultaController extends Controller
        // ]);
     }
 
-    public function agendamento()
-    {
-        return view('/paciente/agendamentos/index');
-    }
+ 
 
     public function descricao($id, $cpf)
     {
