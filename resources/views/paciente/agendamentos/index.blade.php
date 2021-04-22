@@ -26,19 +26,19 @@ Nova consulta
         </select>
 
         <label class="mt-5" for="inputClinica">Clinica</label>
-        <select id="inputClinica" class="form-control">
+        <select name="clinica" id="clinica" class="form-control">
             <option selected>Escolher...</option>
             <option>...</option>
         </select>
 
         <label class="mt-5" for="inputEstado">Especialidade</label>
-        <select id="inputEstado" class="form-control">
+        <select name="especialidade" id="inputEspecialidade" class="form-control">
             <option selected>Escolher...</option>
             <option>...</option>
         </select>
 
         <label class="mt-5" for="inputEstado">Medico</label>
-        <select id="inputEstado" class="form-control">
+        <select name="medico" id="inputMedico" class="form-control">
             <option selected>Escolher...</option>
             <option>...</option>
         </select>
@@ -73,9 +73,7 @@ Nova consulta
 
                             //console.log(cidade);
                             $('select[name=cidade]').empty();
-                            $.each(cidade, function(key, value) {
-
-                                
+                            $.each(cidade, function(key, value) {                                
 
                                 $('select[name=cidade]').append('<option value="' + key + '">' +cidade[key]["cidade_desc"]+ '</option>');
 
@@ -87,4 +85,37 @@ Nova consulta
                 });
             });
 </script>
+
+<script>
+    $(document).ready(function() {
+
+                $('select[name="cidade"]').on('change', function() {
+
+                    var idCidade = $(this).val();
+                   // console.log(idEstado);
+
+                    $.ajax({                        
+
+                        url: '/get-clinicas/' + idCidade,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(clinica) {
+
+                            
+
+                            //console.log(cidade);
+                            $('select[name=cidade]').empty();
+                            $.each(clinica, function(key, value) {                                
+
+                                $('select[name=clinica]').append('<option value="' + key + '">' +clinica[key]["cidade_nome"]+ '</option>');
+
+                            });
+
+                        }
+                    })
+
+                });
+            });
+</script>
+
 @endsection

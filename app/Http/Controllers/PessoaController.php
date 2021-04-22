@@ -24,6 +24,8 @@ use GuzzleHttp\Client;
 
         public function show($cpf)
         {
+            $endereco = '';
+
             $client = new Client();
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
             $pessoas = json_decode($response->getBody(),true);
@@ -37,15 +39,30 @@ use GuzzleHttp\Client;
             $telefones = json_decode($response->getBody(), true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/endereco/'.$cpf);
+            $response = $client->get('http://api.hml01.com.br/api/endereco/'. $cpf);
             $endereco = json_decode($response->getBody(),true);
+
+            
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/estado/busca/' . $endereco['endereco_id'] );
+            $estado = json_decode($response->getBody(),true);
+
+
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/cidade/busca/' . $endereco['endereco_id'] );
+            $cidade = json_decode($response->getBody(),true);
+
+           //dd ($endereco['endereco_id']);
+          
 
 
             return view('/paciente/informacoes/index',[
                 'pessoa' => $pessoas,
                 'paciente' => $paciente,
                 'telefones' => $telefones,
-                'endereco' => $endereco
+                'endereco' => $endereco,
+                'estado' => $estado,
+                'cidade' => $cidade
             ]);        
        }
     }
