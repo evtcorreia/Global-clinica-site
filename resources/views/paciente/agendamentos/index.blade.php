@@ -69,13 +69,13 @@ Nova consulta
                         dataType: 'json',
                         success: function(cidade) {
 
-                            
+                        
 
                             //console.log(cidade);
                             $('select[name=cidade]').empty();
                             $.each(cidade, function(key, value) {                                
 
-                                $('select[name=cidade]').append('<option value="' + key + '">' +cidade[key]["cidade_desc"]+ '</option>');
+                                $('select[name=cidade]').append('<option value="' + cidade[key]["id"] + '">' +cidade[key]["cidade_desc"]+ '</option>');
 
                             });
 
@@ -92,22 +92,22 @@ Nova consulta
                 $('select[name="cidade"]').on('change', function() {
 
                     var idCidade = $(this).val();
-                   // console.log(idEstado);
+
 
                     $.ajax({                        
 
                         url: '/get-clinicas/' + idCidade,
                         type: 'GET',
                         dataType: 'json',
-                        success: function(clinica) {
+                        success: function(clinicas) {
 
-                            
 
                             //console.log(cidade);
-                            $('select[name=cidade]').empty();
-                            $.each(clinica, function(key, value) {                                
+                            $('select[name=clinica]').empty();
+                            $.each(clinicas, function(key, value) { 
 
-                                $('select[name=clinica]').append('<option value="' + key + '">' +clinica[key]["cidade_nome"]+ '</option>');
+
+                                $('select[name=clinica]').append('<option value="' + key + '">' +clinicas[key]["clinica_nome"]+ '</option>');
 
                             });
 
