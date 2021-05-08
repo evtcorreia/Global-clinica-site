@@ -10,7 +10,7 @@ Nova consulta
 
         <label class="mt-5" for="inputEstado">Estado</label>
         <select name="estado" id="inputEstado" class="form-control">
-            <option selected>Escolher...</option>
+            <option disabled selected value> -- Escolha um estado -- </option>
             @foreach ($estados as $estado)
             <option value="{{$estado['id']}}">
                 {{$estado["estado_nome"]}}
@@ -21,25 +21,25 @@ Nova consulta
 
         <label class="mt-5" for="inputCidade">Cidade</label>
         <select name="cidade" id="inputCidade" class="form-control">
-            <option selected>Escolher...</option>
+            <option disabled selected value> -- Escolha uma Cidade-- </option>
             <option>...</option>
         </select>
 
         <label class="mt-5" for="inputClinica">Clinica</label>
         <select name="clinica" id="clinica" class="form-control">
-            <option selected>Escolher...</option>
-            <option>...</option>
+            <option  selected value> -- Escolha uma Clinica -- </option>
+            <option >...</option>
         </select>
 
         <label class="mt-5" for="inputEstado">Especialidade</label>
         <select name="especialidade" id="inputEspecialidade" class="form-control">
-            <option selected>Escolher...</option>
+            <option  selected value> -- Escolha uma especialidade -- </option>
             <option>...</option>
         </select>
 
         <label class="mt-5" for="inputEstado">Medico</label>
         <select name="medico" id="inputMedico" class="form-control">
-            <option selected>Escolher...</option>
+            <option disabled selected value> -- Escolha um medico  -- </option>
             <option>...</option>
         </select>
 
@@ -73,6 +73,9 @@ Nova consulta
 
                             //console.log(cidade);
                             $('select[name=cidade]').empty();
+
+                            $('select[name=cidade]').append('<option  selected value> -- Escolha uma Cidade -- ' + '</option>');
+
                             $.each(cidade, function(key, value) {                                
 
                                 $('select[name=cidade]').append('<option value="' + cidade[key]["id"] + '">' +cidade[key]["cidade_desc"]+ '</option>');
@@ -104,10 +107,99 @@ Nova consulta
 
                             //console.log(cidade);
                             $('select[name=clinica]').empty();
+
+                            $('select[name=clinica]').append('<option  selected value> -- Escolha uma Clinica -- ' + '</option>');
+
                             $.each(clinicas, function(key, value) { 
+                                //alert(clinicas[key]["id"] + " - " + clinicas[key]["clinica_nome"])
 
 
-                                $('select[name=clinica]').append('<option value="' + key + '">' +clinicas[key]["clinica_nome"]+ '</option>');
+                                    $('select[name=clinica]').append('<option value="' + clinicas[key]["id"] + '">' +clinicas[key]["clinica_nome"]+ '</option>');
+
+                               
+
+                                
+                               
+
+                            });
+
+                        }
+                    })
+
+                });
+            });
+</script>
+
+<script>
+    $(document).ready(function() {
+
+                $('select[name="clinica"]').on('change', function() {
+
+                    var idClinica = $(this).val();
+                    //alert(idClinica);
+
+                    
+                    $.ajax({                        
+                        
+                        url: '/get-especialidades/' + idClinica,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(especialidades) {
+
+                            
+
+                            //console.log(cidade);
+                            $('select[name=especialidade]').empty();
+                            
+                            $('select[name=especialidade]').append('<option  selected value> -- Escolha uma especialização -- ' + '</option>');
+
+                            $.each(especialidades, function(key, value) { 
+                                //alert(especialidades[key]["id"] + " - " + especialidades[key]["especialidade_desc"])
+
+
+                                    $('select[name=especialidade]').append('<option  value="' + especialidades[key]["id"] + '">' +especialidades[key]["especialidade_desc"]+ '</option>');
+
+                                
+
+                            });
+
+                        }
+                    })
+
+                });
+            });
+</script>
+
+<script>
+    $(document).ready(function() {
+
+                $('select[name="especialidade"]').on('change', function() {
+
+                    var idEspecialidade = $(this).val();
+                   // alert(idEspecialidade);
+
+                    
+                    $.ajax({                        
+                        
+                        url: '/get-medicos/' + idEspecialidade,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(medicos) {
+
+                            
+
+                            //console.log(cidade);
+                            $('select[name=medico]').empty();
+                            
+                            $('select[name=medico]').append('<option  selected value> -- Escolha um medico -- ' + '</option>');
+
+                            $.each(medicos, function(key, value) { 
+                                //alert(medicos[key]["id"] + " - " + medicos[key]["especialidade_desc"])
+
+
+                                    $('select[name=medico]').append('<option  value="' + medicos[key]["id"] + '">' +medicos[key]["pessoa_nome"]+ '</option>');
+
+                                
 
                             });
 

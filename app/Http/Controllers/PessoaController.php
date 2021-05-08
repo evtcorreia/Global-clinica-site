@@ -52,8 +52,6 @@ use GuzzleHttp\Client;
             $response = $client->get('http://api.hml01.com.br/api/cidade/busca/' . $endereco['endereco_id'] );
             $cidade = json_decode($response->getBody(),true);
 
-           //dd ($endereco['endereco_id']);
-          
 
 
             return view('/paciente/informacoes/index',[
@@ -64,7 +62,7 @@ use GuzzleHttp\Client;
                 'estado' => $estado,
                 'cidade' => $cidade
             ]);        
-       }
+        }
     }
 
     
