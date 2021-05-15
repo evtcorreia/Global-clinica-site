@@ -26,6 +26,16 @@
         @yield('conteudo') 
     </div>
 
+        <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div style="height: 10em;"></div>
+				
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
+
         
 
         <!-- Optional JavaScript -->

@@ -29,7 +29,7 @@ Route::get('/get-clinicas/{id}', 'ClinicasController@busca');
 Route::get('/get-especialidades/{id}', 'EspecialidadesController@busca');
 Route::get('/get-medicos/{id}', 'MedicosController@busca');
 
-
+Route::Post('/consulta/salvar', 'ConsultaController@store');
 
 //Medico
 

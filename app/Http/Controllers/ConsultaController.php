@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
 {
@@ -61,5 +63,28 @@ class ConsultaController extends Controller
             'exames' => $exames,
         
         ]);
+    }
+
+
+
+    public function store(Request $request)
+    {       
+
+        //var_dump($request->medico);
+        //exit();
+
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta', [
+
+
+            'form_params' => [
+            'consulta_data' => $request->data,
+            'consulta_horario' => $request->hora,
+            'prontuarios_prontuario_cod' => '1',
+            'corpo_clinico_pessoa_pessoa_cpf' => $request->medico,
+            ]
+        ]);
+
+        
     }
 }
