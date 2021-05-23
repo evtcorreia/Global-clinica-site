@@ -8,7 +8,7 @@
 
     class AgendamentoController extends Controller
     {
-        public function agendamento()
+        public function agendamento($id)
         {
             
 
@@ -17,7 +17,8 @@
             $estados = json_decode($response->getBody(),true);
     
             return view('/paciente/agendamentos/index',[
-                'estados'=> $estados            
+                'estados'=> $estados,
+                'idProntuario'=> $id            
             ]);
         }
 

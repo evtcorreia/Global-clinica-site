@@ -48,11 +48,13 @@ Nova consulta
         <input type="date" name="data" class="form-control">
 
         <label class="mt-5">Hora da consulta</label>
-        <input type="time" name="hora" step="1200" class="form-control">
+        <input type="time" min="12:00" max="18:00" pattern="[0-9]{2}:[0-9]{2}" name="hora" step="3600" class="form-control">
 
     </div>
 
-    <input type="submit" value="Save">
+        <input type='hidden' name='id' value= "{{$idProntuario}}">
+
+        <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection
 

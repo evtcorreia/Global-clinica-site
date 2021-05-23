@@ -18,7 +18,11 @@
             <h1>@yield('cabecalho')</h1>
             <div style="text-align:right; width:100%; padding:0;">
                 <input type="button" class="btn btn-primary" value="Voltar" onClick="history.go(-1)">
+                <a href="/sair">Sair</a>
+
+                
             </div>
+            
         </div>
     </div>
 
