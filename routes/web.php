@@ -37,10 +37,17 @@ Route::Post('/consulta/salvar', 'ConsultaController@store');
 Route::get('/medico/index', 'PessoaController@index');
 
 
+//Secretaria
+
+Route::get('/secretaria/index/{cpf}','SecretariaController@index');
+Route::get('/secretaria/consultas/index/{cpf}','SecretariaController@consulta');
+
+
 //Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/entrar','EntrarController@index');
 Route::post('/verifica-login','EntrarController@verificaLogin');
 Route::get('/sair', 'SairController@logout');
+
 
