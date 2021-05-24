@@ -35,3 +35,7 @@ Route::get('/get-medicos/{id}', 'MedicosController@busca');
 
 Route::get('/medico/index', 'PessoaController@index');
 
+//Secretaria
+
+Route::get('/secretaria/index/{cpf}','SecretariaController@index');
+Route::get('/secretaria/consultas/index/{cpf}','SecretariaController@consulta');
