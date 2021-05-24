@@ -18,13 +18,27 @@
             <h1>@yield('cabecalho')</h1>
             <div style="text-align:right; width:100%; padding:0;">
                 <input type="button" class="btn btn-primary" value="Voltar" onClick="history.go(-1)">
+                <a href="/sair">Sair</a>
+
+                
             </div>
+            
         </div>
     </div>
 
     <div class="container">
         @yield('conteudo') 
     </div>
+
+        <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div style="height: 10em;"></div>
+				
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
 
         
 

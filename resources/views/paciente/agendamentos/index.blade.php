@@ -5,7 +5,8 @@ Nova consulta
 @endsection
 
 @section('conteudo')
-<form>
+<form action="/consulta/salvar" method='POST'>
+@csrf
     <div class="form-group row m-3">
 
         <label class="mt-5" for="inputEstado">Estado</label>
@@ -44,12 +45,16 @@ Nova consulta
         </select>
 
         <label class="mt-5 mb-5">Data da consulta</label>
-        <input type="date" class="form-control">
+        <input type="date" name="data" class="form-control">
 
         <label class="mt-5">Hora da consulta</label>
-        <input type="time" class="form-control">
+        <input type="time" min="12:00" max="18:00" pattern="[0-9]{2}:[0-9]{2}" name="hora" step="3600" class="form-control">
 
     </div>
+
+        <input type='hidden' name='id' value= "{{$idProntuario}}">
+
+        <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @endsection
 
@@ -116,10 +121,6 @@ Nova consulta
 
                                     $('select[name=clinica]').append('<option value="' + clinicas[key]["id"] + '">' +clinicas[key]["clinica_nome"]+ '</option>');
 
-                               
-
-                                
-                               
 
                             });
 
@@ -176,8 +177,6 @@ Nova consulta
                 $('select[name="especialidade"]').on('change', function() {
 
                     var idEspecialidade = $(this).val();
-                   // alert(idEspecialidade);
-
                     
                     $.ajax({                        
                         
@@ -197,7 +196,7 @@ Nova consulta
                                 //alert(medicos[key]["id"] + " - " + medicos[key]["especialidade_desc"])
 
 
-                                    $('select[name=medico]').append('<option  value="' + medicos[key]["id"] + '">' +medicos[key]["pessoa_nome"]+ '</option>');
+                                    $('select[name=medico]').append('<option  value="' + medicos[key]["pessoa_pessoa_cpf"] + '">' +medicos[key]["pessoa_nome"]+ '</option>');
 
                                 
 
