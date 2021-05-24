@@ -34,8 +34,8 @@ Route::Post('/consulta/salvar', 'ConsultaController@store');
 
 //Medico
 
-Route::get('/medico/index', 'PessoaController@index');
-
+Route::get('/medico/index/{cpf}', 'MedicosController@index');
+Route::get('/medico/consultas/index/{cpf}', 'MedicosController@consulta');
 
 //Secretaria
 
