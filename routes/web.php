@@ -48,6 +48,7 @@ Route::get('/secretaria/consultas/index/{cpf}','SecretariaController@consulta');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/entrar','EntrarController@index');
 Route::post('/verifica-login','EntrarController@verificaLogin');
+Route::get('/tipo-login', 'EntrarController@tipoLogin');
 Route::get('/sair', 'SairController@logout');
 
 

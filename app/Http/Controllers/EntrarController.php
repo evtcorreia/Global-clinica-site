@@ -19,11 +19,14 @@ class EntrarController extends Controller
     {
         //echo $request->cpf;
 
+            
             $result="";
 
             $client =  new Client();
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $request->cpf);
             $pessoas = json_decode($response->getBody(), true);
+
+            
 
 
             try {
@@ -31,7 +34,8 @@ class EntrarController extends Controller
                 if($request->cpf == $pessoas['pessoa_cpf'] and $request->password == $pessoas['pessoa_senha'])
                     {
                         session()->put('user', $pessoas['pessoa_cpf'] );
-                        return redirect('/paciente/index/'. $pessoas['pessoa_cpf']);
+                        //return redirect('/paciente/index/'. $pessoas['pessoa_cpf']);
+                        return redirect('/tipo-login');
                     }
                     else
                     {
@@ -49,6 +53,18 @@ class EntrarController extends Controller
             //echo $pessoas['pessoa_cpf'];
             //echo $pessoas['pessoa_senha'];
             //var_dump($ret);
+            
+    }
+
+
+    public function tipoLogin()
+    {
+
+        $tamanho ='2';
+
+
+        return view('/entrar/selecao-tipo-acesso'
+            );
             
     }
     

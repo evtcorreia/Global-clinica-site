@@ -11,14 +11,15 @@ use GuzzleHttp\Client;
         public function  index($cpf)
         {
 
-            if(!session()->has('user')){
-                return redirect('/entrar');
-            }
+            //if(!session()->has('user')){
+                //return redirect('/entrar');
+            //}
 
             $client =  new Client();
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
             $pessoas = json_decode($response->getBody(), true);
 
+            
         return view('/paciente/index/index',[
                 'pessoa' => $pessoas,
                 
