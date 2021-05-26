@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class EntrarController extends Controller
@@ -26,7 +27,11 @@ class EntrarController extends Controller
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $request->cpf);
             $pessoas = json_decode($response->getBody(), true);
 
-            
+            dd($pessoas);
+            $verifica  = Hash::check($request->cpf, $pessoas['pessoa_senha']);
+
+            var_dump($verifica);
+            exit();
 
 
             try {
@@ -35,7 +40,7 @@ class EntrarController extends Controller
                     {
                         session()->put('user', $pessoas['pessoa_cpf'] );
                         //return redirect('/paciente/index/'. $pessoas['pessoa_cpf']);
-                        return redirect('/tipo-login');
+                        return redirect('/tipo-login'.'/'.$pessoas['pessoa_cpf'] );
                     }
                     else
                     {
@@ -57,15 +62,27 @@ class EntrarController extends Controller
     }
 
 
-    public function tipoLogin()
+    public function tipoLogin($cpf)
     {
 
-        $tamanho ='2';
+        $client =  new Client();
+        $response = $client->get('http://api.hml01.com.br/api/pessoa/tipo/'. $cpf);
+        $tamanho = json_decode($response->getBody(), true);
 
+        
 
-        return view('/entrar/selecao-tipo-acesso'
+        return view('/entrar/selecao-tipo-acesso',[
+
+            'cpf' => $cpf,
+            'tamanho' => $tamanho
+        ]
             );
             
+    }
+
+    public function admin()
+    {
+        return view('/admin/index');
     }
     
 }

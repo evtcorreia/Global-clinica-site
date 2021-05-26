@@ -54,7 +54,7 @@ Nova consulta
 
         <input type='hidden' name='id' value= "{{$idProntuario}}">
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Agendar Consulta</button>
 </form>
 @endsection
 

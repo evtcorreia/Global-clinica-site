@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/pessoa/cadastrar', 'PessoaController@store');
+
 Route::get('/paciente/index/{cpf}','PessoaController@index');
 Route::get('/paciente/informacao/{cpf}','PessoaController@show');
 Route::get('/paciente/consultas/{cpf}','ConsultaController@consulta');
@@ -48,7 +50,10 @@ Route::get('/secretaria/consultas/index/{cpf}','SecretariaController@consulta');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/entrar','EntrarController@index');
 Route::post('/verifica-login','EntrarController@verificaLogin');
-Route::get('/tipo-login', 'EntrarController@tipoLogin');
+Route::get('/tipo-login/{cpf}', 'EntrarController@tipoLogin');
 Route::get('/sair', 'SairController@logout');
+
+//administrador
+Route::get('admin/glc-admin', 'EntrarController@admin');
 
 

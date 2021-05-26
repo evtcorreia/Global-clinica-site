@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Global </title>
+    <title>Administrador </title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -485,7 +485,7 @@ input:-webkit-autofill
             height: 40%;
         }
     }
-   
+
 }
 
 @media screen and (max-width: 740px) {
@@ -500,17 +500,18 @@ input:-webkit-autofill
     }
 }
     </style>
- 
-  </head>
-  <body>
 
-  <div class="container">
+    </head>
+    <body>
+
+    <div class="container">
         <div class="content first-content">
             <div class="first-column">
             <img src="../../img/logo/Logo_fundoTransparente.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                <!-- <button id="signin" class="btn btn-primary">Clique para cadastrar</button> -->
             </div>    
             <div class="second-column">
+            <h1 class="title title-second">Area Administrativa</h1>
                 <h1 class="title title-second">Acessar</h1>
                 
                 
@@ -539,32 +540,32 @@ input:-webkit-autofill
             <div class="second-column">
                 <h2 class="title title-second">Cadastrar</h2>
                 
-                <form class="form" action="/pessoa/cadastrar" method="post">             
-                    @csrf
+                <form class="form">             
+
 
                     <label class="label-input" for="">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" name="nome" placeholder="Nome">
+                        <input type="text" placeholder="Nome">
                     </label>
 
                     <label class="label-input" for="">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" name="sobrenome" placeholder="Sobrenome">
+                        <input type="text" placeholder="Sobrenome">
                     </label>
 
                     <label class="label-input" for="">
                         <i class="far fa-user icon-modify"></i>
-                        <input type="text" name="cpf" placeholder="CPF">
+                        <input type="text" placeholder="CPF">
                     </label>
                     
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="email" name="email" placeholder="Email">
+                        <input type="email" placeholder="Email">
                     </label>
                     
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" name="senha" placeholder="Senha">
+                        <input type="password" placeholder="Senha">
                     </label>
                 
                     
@@ -596,11 +597,11 @@ input:-webkit-autofill
     })
     </script>
 
-      
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 </html>

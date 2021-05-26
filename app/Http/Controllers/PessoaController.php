@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -68,6 +70,28 @@ use GuzzleHttp\Client;
                 'estado' => $estado,
                 'cidade' => $cidade
             ]);        
+        }
+
+
+        public function store(Request $request)
+        {   
+            $senha = Hash::make($request->senha);
+
+          
+            
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('POST', 'http://api.hml01.com.br/api/pessoa/cadastrar', [
+
+            'form_params' => [
+            'pessoa_nome' => $request->nome,
+            'pessoa_sobrenome' => $request->sobrenome,
+            'pessoa_cpf' => $request->cpf,
+            'pessoa_login' => $request->cpf,
+            'pessoa_mail' => $request->email,
+            'pessoa_senha' => $senha,
+            ]
+            ]);
+
         }
     }
 
