@@ -27,11 +27,11 @@ class EntrarController extends Controller
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $request->cpf);
             $pessoas = json_decode($response->getBody(), true);
 
-            dd($pessoas);
-            $verifica  = Hash::check($request->cpf, $pessoas['pessoa_senha']);
+           
+            //$verifica  = Hash::check($request->cpf, $pessoas['pessoa_senha']);
 
-            var_dump($verifica);
-            exit();
+            //var_dump($verifica);
+            //exit();
 
 
             try {
