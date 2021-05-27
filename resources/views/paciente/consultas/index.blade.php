@@ -22,22 +22,41 @@ Consultas
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
+                    
                     @foreach ($consultas as $consulta)
+                    
                     <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Consulta 
                     {{$consulta["consulta_data"]}}
                             <span class="d-flex">
 
-                                <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$pessoa['pessoa_cpf']}}" class="btn btn-info btn-sm mr-1">
+                            @if($consulta["consulta_status_status_id"]==1)
+                                <a  class=" mr-5">
+                                   <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                </a> 
+                            @elseif($consulta["consulta_status_status_id"]==2)
+
+                                   <i class="fas fa-check-double text-success"> Confirmado</i>
+                            @elseif($consulta["consulta_status_status_id"]==2)
+
+                                    <i class="fas fa-check-double text-black-50"> Finalizado</i>
+                            @endif
+                               
+                               <!--
+                                <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$pessoa['pessoa_cpf']}}" class="btn btn-info btn-sm mr-5">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>                          
-                            
-                            </span>     
+                            -->
+                            </span>
+                                
                         
                         </li>
                     @endforeach
                         <hr>
                     </ul>
-                </div>                
+                </div>
+             
+                
+                <span>            
             </div>   
         </div>
     </div>
@@ -53,20 +72,35 @@ Consultas
                         {{$consulta["consulta_data"]}}
                             <span class="d-flex">
 
+                            @if($consulta["consulta_status_status_id"]==1)
+                                <a  class=" mr-5">
+                                   <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                </a> 
+                            @elseif($consulta["consulta_status_status_id"]==2)
+
+                                   <i class="fas fa-check-double text-success"> Confirmado</i>
+                            @elseif($consulta["consulta_status_status_id"]==2)
+
+                                    <i class="fas fa-check-double text-black-50"> Finalizado</i>
+                            @endif
+
                                 <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$pessoa['pessoa_cpf']}}" class="btn btn-info btn-sm mr-1">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                            
+                                
                             </span>                          
-                        
+                            
                         </li>
                     @endforeach
+                    
                         <hr>
                     </ul>
-                </div>                
+                </div>
             </div>   
         </div>
     </div>
 </div>
 
+                        
+                               
 @endsection
