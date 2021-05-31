@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Hash;
         public function  index($cpf)
         {
 
-            //if(!session()->has('user')){
-                //return redirect('/entrar');
-            //}
+           
 
             $client =  new Client();
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
@@ -92,6 +90,22 @@ use Illuminate\Support\Facades\Hash;
             ]
             ]);
 
+        }
+
+
+        public function nome(Request $request)
+        {
+            
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'http://api.hml01.com.br/api/pessoa/nome/' . $request->nome);
+
+            $pessoas = json_decode($response->getBody(), true);
+
+            return view('/secretaria/busca-paciente/index',[
+                'pessoas' => $pessoas
+            ]);
+
+            
         }
     }
 

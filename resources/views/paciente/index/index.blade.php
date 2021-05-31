@@ -11,7 +11,7 @@
     <div class="row row-cols-1 row-cols-md-3 g-4 ">   
 
     <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
-            <a href="/paciente/agendamentos/index/{{$pessoa['prontuario_cod']}}">
+            <a href="/agendamentos/index/{{$pessoa['prontuario_cod']}}">
                 <div class="card card-menu-individual">
                     <img src="../../img/usuario/agendamento.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">

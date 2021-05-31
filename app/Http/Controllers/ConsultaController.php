@@ -86,4 +86,5 @@ class ConsultaController extends Controller
 
         
     }
+    
 }

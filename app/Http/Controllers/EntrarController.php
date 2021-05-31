@@ -22,10 +22,19 @@ class EntrarController extends Controller
 
             
             $result="";
+        try{
 
             $client =  new Client();
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $request->cpf);
             $pessoas = json_decode($response->getBody(), true);
+
+        }catch(Exception $e){
+
+            session()->flash('erro', 'usuario ou senha errados');
+            return redirect('/entrar');
+
+        }
+           
 
            
             //$verifica  = Hash::check($request->cpf, $pessoas['pessoa_senha']);
@@ -38,8 +47,13 @@ class EntrarController extends Controller
 
                 if($request->cpf == $pessoas['pessoa_cpf'] and $request->password == $pessoas['pessoa_senha'])
                     {
-                        session()->put('user', $pessoas['pessoa_cpf'] );
+                        session()->put('user', $pessoas['pessoa_cpf']  );
                         //return redirect('/paciente/index/'. $pessoas['pessoa_cpf']);
+
+                        if($request->tipo == 4 and $pessoas['pessoa_tipo'])
+                        {
+                            return redirect('/admin/glc-admin'.'/'.$pessoas['pessoa_cpf'] );
+                        }
                         return redirect('/tipo-login'.'/'.$pessoas['pessoa_cpf'] );
                     }
                     else
@@ -67,20 +81,20 @@ class EntrarController extends Controller
 
         $client =  new Client();
         $response = $client->get('http://api.hml01.com.br/api/pessoa/tipo/'. $cpf);
-        $tamanho = json_decode($response->getBody(), true);
+        $pessoa = json_decode($response->getBody(), true);
 
         
 
         return view('/entrar/selecao-tipo-acesso',[
 
             'cpf' => $cpf,
-            'tamanho' => $tamanho
+            'pessoas' => $pessoa
         ]
             );
             
     }
 
-    public function admin()
+    public function admin($cpf)
     {
         return view('/admin/index');
     }

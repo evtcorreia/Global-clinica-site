@@ -526,6 +526,10 @@ input:-webkit-autofill
                         <i class="fas fa-lock icon-modify"></i>
                         <input type="password" name="password" placeholder="Senha">
                     </label>
+
+                    <input type='hidden' name='id' value= "4">
+
+                    </label>
                     
                     <a class="password" href="#">Esqueceu sua Senha?</a>
                     <button class="btn btn-second">Entrar</button>        

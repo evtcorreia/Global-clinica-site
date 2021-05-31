@@ -20,40 +20,78 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::post('/pessoa/cadastrar', 'PessoaController@store');
+Route::post('/pessoa/cadastrar', 'PessoaController@store')
+->middleware('autenticador');
 
-Route::get('/paciente/index/{cpf}','PessoaController@index');
-Route::get('/paciente/informacao/{cpf}','PessoaController@show');
-Route::get('/paciente/consultas/{cpf}','ConsultaController@consulta');
-Route::get('/paciente/consulta/descricao/{id}/{cpf}','ConsultaController@descricao');
-Route::get('/paciente/agendamentos/index/{id}', 'AgendamentoController@agendamento');
-Route::get('/get-cidades/{id}', 'AgendamentoController@cidades');
-Route::get('/get-clinicas/{id}', 'ClinicasController@busca');
-Route::get('/get-especialidades/{id}', 'EspecialidadesController@busca');
-Route::get('/get-medicos/{id}', 'MedicosController@busca');
+Route::get('/paciente/index/{cpf}','PessoaController@index')
+->middleware('autenticador');
 
-Route::Post('/consulta/salvar', 'ConsultaController@store');
+Route::get('/paciente/informacao/{cpf}','PessoaController@show')
+->middleware('autenticador');
+
+Route::get('/paciente/consultas/{cpf}','ConsultaController@consulta')
+->middleware('autenticador');
+
+Route::get('/paciente/consulta/descricao/{id}/{cpf}','ConsultaController@descricao')
+->middleware('autenticador');
+
+Route::get('/agendamentos/index/{id}', 'AgendamentoController@agendamento')
+->middleware('autenticador');
+
+Route::get('/get-cidades/{id}', 'AgendamentoController@cidades')
+->middleware('autenticador');
+
+Route::get('/get-clinicas/{id}', 'ClinicasController@busca')
+->middleware('autenticador');
+
+Route::get('/get-especialidades/{id}', 'EspecialidadesController@busca')
+->middleware('autenticador');
+
+Route::get('/get-medicos/{id}', 'MedicosController@busca')
+->middleware('autenticador');
+
+Route::Post('/consulta/salvar', 'ConsultaController@store')
+->middleware('autenticador');
 
 //Medico
 
-Route::get('/medico/index', 'PessoaController@index');
+Route::get('/medico/index', 'PessoaController@index')
+->middleware('autenticador');
 
 
 //Secretaria
 
-Route::get('/secretaria/index/{cpf}','SecretariaController@index');
-Route::get('/secretaria/consultas/index/{cpf}','SecretariaController@consulta');
+Route::get('/secretaria/index/{cpf}','SecretariaController@index')
+->middleware('autenticador');
+
+Route::get('/secretaria/consultas/index/{cpf}','SecretariaController@consulta')
+->middleware('autenticador');
+
+Route::get('/busca/paciente','BuscaController@index')
+->middleware('autenticador');
+
+Route::post('/get-paciente', 'PessoaController@nome')
+->middleware('autenticador');
 
 
 //Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')
+->middleware('autenticador');
+
 Route::get('/entrar','EntrarController@index');
+
+
 Route::post('/verifica-login','EntrarController@verificaLogin');
-Route::get('/tipo-login/{cpf}', 'EntrarController@tipoLogin');
-Route::get('/sair', 'SairController@logout');
+
+
+Route::get('/tipo-login/{cpf}', 'EntrarController@tipoLogin')
+->middleware('autenticador');
+
+Route::get('/sair', 'SairController@logout')
+->middleware('autenticador');
 
 //administrador
-Route::get('admin/glc-admin', 'EntrarController@admin');
+Route::get('/admin/glc-admin/{cpf}', 'EntrarController@admin');
 
 

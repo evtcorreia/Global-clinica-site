@@ -16,7 +16,7 @@
             $response = $client->get('http://api.hml01.com.br/api/estados/');
             $estados = json_decode($response->getBody(),true);
     
-            return view('/paciente/agendamentos/index',[
+            return view('/agendamentos/index/index',[
                 'estados'=> $estados,
                 'idProntuario'=> $id            
             ]);
