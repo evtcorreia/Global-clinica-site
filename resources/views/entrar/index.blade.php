@@ -508,7 +508,7 @@ input:-webkit-autofill
         <div class="content first-content">
             <div class="first-column">
             <img src="../../img/logo/Logo_fundoTransparente.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
-               <!-- <button id="signin" class="btn btn-primary">Clique para cadastrar</button> -->
+            <!-- <button id="signin" class="btn btn-primary">Clique para cadastrar</button> -->
             </div>    
             <div class="second-column">
                 <h1 class="title title-second">Acessar</h1>

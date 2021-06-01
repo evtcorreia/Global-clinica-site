@@ -78,17 +78,24 @@ use Illuminate\Support\Facades\Hash;
           
             
             $client = new \GuzzleHttp\Client();
+
+
+            
             $response = $client->request('POST', 'http://api.hml01.com.br/api/pessoa/cadastrar', [
 
             'form_params' => [
             'pessoa_nome' => $request->nome,
             'pessoa_sobrenome' => $request->sobrenome,
             'pessoa_cpf' => $request->cpf,
+            'pessoa_rg' => $request->rg,
             'pessoa_login' => $request->cpf,
             'pessoa_mail' => $request->email,
             'pessoa_senha' => $senha,
+            'enderecos_endereco_id' => 1
             ]
             ]);
+
+
 
         }
 
@@ -106,6 +113,12 @@ use Illuminate\Support\Facades\Hash;
             ]);
 
             
+        }
+
+
+        public function formulario()
+        {
+            return view('/formularios/cadastro/paciente');
         }
     }
 

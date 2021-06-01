@@ -25,9 +25,10 @@ class EntrarController extends Controller
         try{
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $request->cpf);
+            $response = $client->get('http://api.hml01.com.br/api/pessoa/login/'. $request->cpf);
             $pessoas = json_decode($response->getBody(), true);
 
+           //dd($pessoas); 
         }catch(Exception $e){
 
             session()->flash('erro', 'usuario ou senha errados');
@@ -37,15 +38,15 @@ class EntrarController extends Controller
            
 
            
-            //$verifica  = Hash::check($request->cpf, $pessoas['pessoa_senha']);
+            $verifica  = Hash::check($request->password, $pessoas['pessoa_senha']);
 
-            //var_dump($verifica);
-            //exit();
+            var_dump($verifica);
+           
 
 
             try {
 
-                if($request->cpf == $pessoas['pessoa_cpf'] and $request->password == $pessoas['pessoa_senha'])
+                if($request->cpf == $pessoas['pessoa_cpf'] and $verifica )
                     {
                         session()->put('user', $pessoas['pessoa_cpf']  );
                         //return redirect('/paciente/index/'. $pessoas['pessoa_cpf']);

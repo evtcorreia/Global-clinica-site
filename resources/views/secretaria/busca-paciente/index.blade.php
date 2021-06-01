@@ -38,7 +38,7 @@
 
             
             <div class="list-group " style="color: #ffffff;">
-                    <a href="/agendamentos/index/{{$pessoa['pessoa_cpf']}}" class="list-group-item list-group-item-action flex-column align-items-start active">
+                    <a href="/agendamentos/index/{{$pessoa['prontuario_cod']}}" class="list-group-item list-group-item-action flex-column align-items-start active">
                         <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{$pessoa["pessoa_nome"]}}</h5>
                         <small></small>
@@ -46,7 +46,9 @@
                         <p class="mb-1">CPF: {{$pessoa["pessoa_cpf"]}}</p>
                         <small></small>                        
                         <p class="mb-1">Numero do cartão do SUS: {{$pessoa["paciente_sus_nr"]}}</p>
-                        
+                        <small></small>   
+                        <p class="mb-1">Prontuario: {{$pessoa["prontuario_cod"]}}</p>
+                        <small></small>     
                         <hr> 
                         <small>Clique para acessar</small>                 
                     </a>
@@ -57,7 +59,7 @@
             @endforeach 
 
             @if(empty($pessoas))
-                <button class="btn btn-primary btn-sm btn-block mt-3 mb-5" type="submit" name="busca" id="busca">Cadastrar novo paciente</button>
+                <a href="/pessoa/cadastrar/paciente" style="align-items: center;" class="list-group-item list-group-item-action flex-column align-items-start active">Cadstrar novo paciente</a>
             @endif
                     
         @endif  

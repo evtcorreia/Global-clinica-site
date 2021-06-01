@@ -23,6 +23,10 @@ Auth::routes();
 Route::post('/pessoa/cadastrar', 'PessoaController@store')
 ->middleware('autenticador');
 
+Route::get('/pessoa/cadastrar/paciente', 'PessoaController@formulario')
+->middleware('autenticador');
+
+
 Route::get('/paciente/index/{cpf}','PessoaController@index')
 ->middleware('autenticador');
 
