@@ -14,7 +14,7 @@
     </style>
 
     @section('conteudo')
-
+    
     
     <form action="/get-paciente" method="post">
     @csrf

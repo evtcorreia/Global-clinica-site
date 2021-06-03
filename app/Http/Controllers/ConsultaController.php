@@ -70,7 +70,7 @@ class ConsultaController extends Controller
     public function store(Request $request)
     {       
         
-            
+
 
             $client = new \GuzzleHttp\Client();
             $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta', [
@@ -79,7 +79,7 @@ class ConsultaController extends Controller
             'form_params' => [
             'consulta_data' => $request->data,
             'consulta_horario' => $request->hora,
-            'prontuarios_prontuario_cod' => $request->id,
+            'prontuarios_prontuario_cod' => $request->idProntuario,
             'corpo_clinico_pessoa_pessoa_cpf' => $request->medico,
             'clinicas_id' => $request->clinica,
             ]

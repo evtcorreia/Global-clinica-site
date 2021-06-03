@@ -31,7 +31,7 @@ use GuzzleHttp\Client;
                // $pessoas = json_decode($response->getBody(), true);
                 
                 $client = new Client();
-                $response = $client->get('http://api.hml01.com.br/api/consultas/clinica/'. $id);
+                $response = $client->get('http://api.hml01.com.br/api/secretaria/consultas/clinica/'. $id);
                 $consulta = json_decode($response->getBody(),true);
                 
             return view('/secretaria/consultas/index',[
