@@ -15,4 +15,31 @@ class MedicosController extends Controller
     }
     
 
+
+    public function  index($cpf)
+    {
+        $client =  new Client();
+        $response = $client->get('http://api.hml01.com.br/api/pessoa/recepcao/'. $cpf);
+        $pessoas = json_decode($response->getBody(), true);
+            
+            
+        return view('/medico/index/index',[
+            'pessoa' => $pessoas        
+                
+        ]);
+    }
+
+    public function  consulta($cpf)
+    {
+        $client = new Client();
+        $response = $client->get('http://api.hml01.com.br/api/consultas/medico/'. $cpf);
+        $consulta = json_decode($response->getBody(),true);
+                
+        return view('/medico/consultas/index',[
+           'consultas' => $consulta,
+                    
+                    
+        ]);
+    
+    }
 }

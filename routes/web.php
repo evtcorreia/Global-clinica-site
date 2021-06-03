@@ -59,8 +59,11 @@ Route::Post('/consulta/salvar', 'ConsultaController@store')
 
 //Medico
 
-Route::get('/medico/index', 'PessoaController@index')
-->middleware('autenticador');
+Route::get('/medico/index/{cpf}', 'MedicosController@index');
+//->middleware('autenticador');
+
+Route::get('/medico/consultas/index/{cpf}','MedicosController@consulta');
+//->middleware('autenticador');
 
 
 //Secretaria
