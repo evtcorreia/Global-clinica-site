@@ -95,6 +95,7 @@ use Illuminate\Support\Facades\Hash;
                     'pessoa_senha' => $request->senha,
                     //'pessoa_endereco' => $idEndereco
                     'enderecos_endereco_id' => 1,
+                   
 
                 
                     'endereco_logradouro' => $request->logradouro, 
@@ -102,18 +103,25 @@ use Illuminate\Support\Facades\Hash;
                     'endereco_numero' => $request->numero,
                     'endereco_complemento' => $request->complemento,
                     'endereco_cep' => $request->cep,
+                    'endereco_pais' => $request->pais,
                     'cidades_cidade_id' => $request->cidade,
                     'estados_estado_id' => $request->estado,
-/* 
-                //'pessoa_pessoa_cod' => $idPessoas,
-                'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
+                    
 
-                'telefone_area' => $request->area,
-                'telefone_num' => $request->telefone_num,
                 //'pessoa_pessoa_cod' => $idPessoas,
-                'pessoa_pessoa_cpf' => $request->cpf
+                //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
+                    'tpessoa' => $request->tpessoa,
+
+                    'telefone_area' => $request->area,
+                    'telefone_num' => $request->telefone,
+                //'pessoa_pessoa_cod' => $idPessoas,
+                    'pessoa_pessoa_cpf' => $request->cpf,
                 
-*/
+                   // "pessoa_pessoa_cpf" => $request->pessoa_cpf,
+                    "paciente_sus_nr" => $request->sus_nr,
+                    "paciente_tipo_sang" => $request->tipoSang,
+                    "paciente_fator_rh" => $request->fatorRh,
+                    //"pessoa_pessoa_cod" => $idPessoas
 
            
             ]

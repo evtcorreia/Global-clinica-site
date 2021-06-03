@@ -18,6 +18,7 @@ class MedicosController extends Controller
 
     public function  index($cpf)
     {
+        
         $client =  new Client();
         $response = $client->get('http://api.hml01.com.br/api/pessoa/recepcao/'. $cpf);
         $pessoas = json_decode($response->getBody(), true);

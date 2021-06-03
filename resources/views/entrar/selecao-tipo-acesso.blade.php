@@ -63,7 +63,7 @@
     @foreach($pessoas as $pessoa)  
       @if ($pessoa['tipo_pessoa_tpessoa_cod'] == 1)
         <div class="col col-sm-12 col-md-12 col-lg-4 mb-3 mt-3">
-              <i class="fa fa-user-md fa-10x icone" aria-hidden="true"></i>
+        <a href="/medico/index/{{$cpf}}"> <i class="fa fa-user-md fa-10x icone" aria-hidden="true"></i> </a>
               <h4> Medico(a)</h4>
         </div>
       @endif

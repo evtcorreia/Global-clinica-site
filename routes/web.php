@@ -65,6 +65,9 @@ Route::get('/medico/index/{cpf}', 'MedicosController@index');
 Route::get('/medico/consultas/index/{cpf}','MedicosController@consulta');
 //->middleware('autenticador');
 
+Route::get('/medico/consulta/atendimento/{id}', 'ConsultaController@show');
+//->middleware('autenticador');
+
 
 //Secretaria
 

@@ -87,5 +87,12 @@ class ConsultaController extends Controller
 
         
     }
+
+    public function show($id)
+    {
+        return view('medico/consultas/atendimento/forms',[
+            'id' => $id
+        ]);
+    }
     
 }

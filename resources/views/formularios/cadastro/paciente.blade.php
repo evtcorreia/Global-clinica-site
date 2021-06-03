@@ -41,7 +41,7 @@ Faça a Busca pelo paciente desejado
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationServer02">CPF</label>
-            <input type="text" class="form-control is-valid" id="cpf" name="cpf" placeholder="CPF" required>
+            <input type="text" class="form-control is-valid" id="cpf" name="cpf" placeholder="CPF" maxlength="11" minlength="11" required>
             <div class="valid-feedback">
                 Tudo certo!
             </div>
@@ -53,13 +53,7 @@ Faça a Busca pelo paciente desejado
                 Tudo certo!
             </div>
         </div>
-        <div class="col-md-4 mb-3">
-            <label for="validationServer02">Cartão SUS</label>
-            <input type="text" class="form-control is-valid" id="tipoDoc" name="tipoDoc" placeholder="Cartao SUS" required>
-            <div class="valid-feedback">
-                Tudo certo!
-            </div>
-        </div>
+       
         <div class="col-md-4 mb-3">
             <label for="validationServer02">Plano de Saude</label>
             <input type="text" class="form-control is-valid" id="tipoDoc" name="tipoDoc" placeholder="Plano de Saude" required>
@@ -69,14 +63,14 @@ Faça a Busca pelo paciente desejado
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationServer02">Nome do Pai</label>
-            <input type="text" class="form-control is-valid" id="nomePai" name="nomePai" placeholder="Nome do Pai" required>
+            <input type="text" class="form-control is-valid" id="pai" name="pai" placeholder="Nome do Pai" required>
             <div class="valid-feedback">
                 Tudo certo!
             </div>
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationServer02">Nome da Mae</label>
-            <input type="text" class="form-control is-valid" id="nomeMae" name="nomeMae" placeholder="Nome da Mae" required>
+            <input type="text" class="form-control is-valid" id="mae" name="mae" placeholder="Nome da Mae" required>
             <div class="valid-feedback">
                 Tudo certo!
             </div>
@@ -121,6 +115,13 @@ Faça a Busca pelo paciente desejado
             </div>
         </div>
         <div class="col-md-4 mb-3">
+            <label for="validationServer02">Pais</label>
+            <input type="text" class="form-control is-valid" id="pais" name="pais" placeholder="Pais" required>
+            <div class="valid-feedback">
+                Tudo certo!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
             <label for="validationServer02">UF</label>
             <input type="text" class="form-control is-valid" id="estado" name="estado" placeholder="UF" required>
             <div class="valid-feedback">
@@ -153,6 +154,13 @@ Faça a Busca pelo paciente desejado
             </div>
         </div>
         <div class="col-md-4 mb-3">
+            <label for="validationServer02">DDD</label>
+            <input type="text" class="form-control is-valid" id="area" name="area" placeholder="Codigo de Area" required>
+            <div class="valid-feedback">
+                Tudo certo!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
             <label for="validationServer02">Telefone</label>
             <input type="text" class="form-control is-valid" id="telefone" name="telefone" placeholder="Telefone" required>
             <div class="valid-feedback">
@@ -161,6 +169,39 @@ Faça a Busca pelo paciente desejado
         </div>
 
         <div class="separadores col-md-12 mb-12">
+
+
+
+        <h2>Dados Medicos</h2>
+        </div>
+
+
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">Cartão SUS</label>
+            <input type="text" class="form-control is-valid" id="sus_nr" name="sus_nr" placeholder="Cartao SUS" required>
+            <div class="valid-feedback">
+                Tudo certo!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">Tipo Sanguineo</label>
+            <input type="text" class="form-control is-valid" id="tipoSang" name="tipoSang" placeholder="Tipo Sanguineo" required>
+            <div class="valid-feedback">
+                Tudo certo!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">Fator RH</label>
+            <input type="text" class="form-control is-valid" id="fatorRh" name="fatorRh" placeholder="Fator RH" required>
+            <div class="valid-feedback">
+                Tudo certo!
+            </div>
+        </div>
+
+        <div class="separadores col-md-12 mb-12">
+
+
+
             <h2>Dados de Acesso</h2>
         </div>
     </div>
