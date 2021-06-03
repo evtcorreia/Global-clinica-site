@@ -15,6 +15,7 @@
 
     @section('conteudo')
 
+    
     <form action="/get-paciente" method="post">
     @csrf
     <label for="busca">Buscar</label>
@@ -52,10 +53,11 @@
                         <hr> 
                         <small>Clique para acessar</small>                 
                     </a>
+
             </div>
             
             
-           
+
             @endforeach 
 
             @if(empty($pessoas))

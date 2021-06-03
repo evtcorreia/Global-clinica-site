@@ -518,7 +518,7 @@ input:-webkit-autofill
                 @csrf
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input type="text" name="cpf" placeholder="CPF">
+                        <input type="text" name="cpf" placeholder="CPF" maxlength="11">
                     </label>
                 
                     <label class="label-input" for="">

@@ -87,7 +87,7 @@ Faça a Busca pelo paciente desejado
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationServer02">Logradouro</label>
-            <input type="text" class="form-control is-valid" id="Logradouro" name="Logradouro" placeholder="Logradouro" required>
+            <input type="text" class="form-control is-valid" id="logradouro" name="logradouro" placeholder="Logradouro" required>
             <div class="valid-feedback">
                 Tudo certo!
             </div>
@@ -107,6 +107,13 @@ Faça a Busca pelo paciente desejado
             </div>
         </div>
         <div class="col-md-4 mb-3">
+            <label for="validationServer02">Complemeto</label>
+            <input type="text" class="form-control is-valid" id="complemento" name="complemento" placeholder="Numero" required>
+            <div class="valid-feedback">
+                Tudo certo!
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
             <label for="validationServer02">Cidade</label>
             <input type="text" class="form-control is-valid" id="cidade" name="cidade" placeholder="Cidade" required>
             <div class="valid-feedback">
@@ -115,7 +122,7 @@ Faça a Busca pelo paciente desejado
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationServer02">UF</label>
-            <input type="text" class="form-control is-valid" id="uf" name="uf" placeholder="UF" required>
+            <input type="text" class="form-control is-valid" id="estado" name="estado" placeholder="UF" required>
             <div class="valid-feedback">
                 Tudo certo!
             </div>
@@ -179,6 +186,11 @@ Faça a Busca pelo paciente desejado
         </div>
 
     </div>
+
+
+
+
+    <input type='hidden' name='tpessoa' value= "2">
     <button class="btn btn-primary" type="submit">Enviar</button>
 </form>
 

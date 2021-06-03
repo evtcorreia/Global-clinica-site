@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Hash;
         public function  index($cpf)
         {
 
-           
+
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
+            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
             
@@ -75,7 +75,7 @@ use Illuminate\Support\Facades\Hash;
         {   
             $senha = Hash::make($request->senha);
 
-          
+
             
             $client = new \GuzzleHttp\Client();
 
@@ -84,14 +84,38 @@ use Illuminate\Support\Facades\Hash;
             $response = $client->request('POST', 'http://api.hml01.com.br/api/pessoa/cadastrar', [
 
             'form_params' => [
-            'pessoa_nome' => $request->nome,
-            'pessoa_sobrenome' => $request->sobrenome,
-            'pessoa_cpf' => $request->cpf,
-            'pessoa_rg' => $request->rg,
-            'pessoa_login' => $request->cpf,
-            'pessoa_mail' => $request->email,
-            'pessoa_senha' => $senha,
-            'enderecos_endereco_id' => 1
+                    'pessoa_nome' => $request->nome,
+                    'pessoa_sobrenome' => $request->sobrenome,
+                    'pessoa_cpf' => $request->cpf,
+                    'pessoa_rg' => $request->rg,
+                    'pessoa_pai' => $request->pai,
+                    'pessoa_mae' => $request->mae,
+                    'pessoa_mail' => $request->email,
+                    'pessoa_login' => $request->cpf,
+                    'pessoa_senha' => $request->senha,
+                    //'pessoa_endereco' => $idEndereco
+                    'enderecos_endereco_id' => 1,
+
+                
+                    'endereco_logradouro' => $request->logradouro, 
+                    'endereco_bairro' => $request->bairro,
+                    'endereco_numero' => $request->numero,
+                    'endereco_complemento' => $request->complemento,
+                    'endereco_cep' => $request->cep,
+                    'cidades_cidade_id' => $request->cidade,
+                    'estados_estado_id' => $request->estado,
+/* 
+                //'pessoa_pessoa_cod' => $idPessoas,
+                'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
+
+                'telefone_area' => $request->area,
+                'telefone_num' => $request->telefone_num,
+                //'pessoa_pessoa_cod' => $idPessoas,
+                'pessoa_pessoa_cpf' => $request->cpf
+                
+*/
+
+           
             ]
             ]);
 
