@@ -26,7 +26,7 @@ body {
     background-color: #53A0E9;
 }
 .content {
-    background-color: #53A0E9;
+    background-color: #7dd4f7;
    /* border-radius: 15px; */
     width: 100%;
     height: 100%;
