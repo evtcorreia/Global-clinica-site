@@ -1,5 +1,7 @@
 body {
-    background-image: url('../img/bg/globalbackground.jpg');
+    background-image: url('../img/bg/globalBackground.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     
 }   
 
@@ -8,7 +10,7 @@ body {
     padding-bottom: 30px;
     margin-bottom: 30px;
     color: inherit;
-    background-color: #D9EFFB;
+    background-color: #6ccff6;
     opacity: 0.8;
 }
 

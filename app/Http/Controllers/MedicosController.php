@@ -34,7 +34,8 @@ class MedicosController extends Controller
         $client = new Client();
         $response = $client->get('http://api.hml01.com.br/api/consultas/medico/'. $cpf);
         $consulta = json_decode($response->getBody(),true);
-                
+        
+
         return view('/medico/consultas/index',[
            'consultas' => $consulta,
                     
