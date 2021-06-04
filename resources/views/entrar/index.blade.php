@@ -136,7 +136,7 @@ input:-webkit-autofill
     -webkit-text-fill-color: #000 !important;
 }
 .label-input {
-    background-color: #ecf0f1;
+    background-color: #7bd3f6;
     display: flex;
     align-items: center;
     margin: 8px;
