@@ -15,7 +15,7 @@
 @section('conteudo')
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" >
-    <li class="nav-item col-sm-12 col-md-2 col-lg-2  mt-3" >
+    <li class="nav-item col-sm-12 col-md-3 col-lg-3  mt-3" >
         <a class="nav-link active " id="consulta-tab" data-toggle="tab" href="#consulta" role="tab" aria-controls="consulta" aria-selected="true">Detalhes da Consulta</a>
     </li>
    <!-- <li class="nav-item col-sm-12 col-md-2 col-lg-2 mt-3">
@@ -60,13 +60,20 @@
                         <h3 class="ml-2 pt-3">Medicamentos</h3>
                         </div>   
                             <div id="formulario">
-                                <div class="form-group">
-                                    <label for="inputRemedio">Remedio</label>
+                            <label for="inputRemedio ">Remedio</label>
+                                <div class="input-group">
+                                    
                                         <select name="remedio" id="inputRemedio" class="form-control">
                                             <option disabled selected value> -- Escolha um Medicamento-- </option> 
-                                            <option>...</option>                                            
+                                            <option>...</option>     
+                                            @foreach($medicamentos as $medicamento)
+                                            <option value="{{$medicamento['id']}}>{{$medicamento['medicamento_nome']}}</option> 
+                                            @endforeach                                       
                                         </select>
+                                        <div class="input-group-append">
                                     <button type="button" class="btn btn-primary" id="add-campo"> + </button>
+                                    @csrf
+                                </div>
                                 </div>
                             </div>
                         
@@ -148,7 +155,7 @@
             //https://api.jquery.com/click/
             $("#add-campo").click(function () {
 				//https://api.jquery.com/append/
-                $("#formulario").append('<div class="form-group"><label for="inputRemedio">Remedio</label><select name="remedio" id="inputRemedio" class="form-control"><option disabled selected value> -- Escolha um Medicamento-- </option> <option>...</option></select></div>');
+                $("#formulario").append('<div class="form-group"><select name="remedio" id="inputRemedio" class="form-control"><option disabled selected value> -- Escolha um Medicamento-- </option> <option>...</option></select></div>');
             });
         </script>
 

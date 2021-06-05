@@ -90,8 +90,13 @@ class ConsultaController extends Controller
 
     public function show($id)
     {
+        $client = new Client();
+        $response = $client->get('http://api.hml01.com.br/api/medicamentos/all');
+        $medicamentos = json_decode($response->getBody(),true);
+
         return view('medico/consultas/atendimento/forms',[
-            'id' => $id
+            'id' => $id,
+            'medicamentos' => $medicamentos
         ]);
     }
     
