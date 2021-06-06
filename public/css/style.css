@@ -20,6 +20,12 @@ body {
     
     
 }
+.menu-paciente-inicio{
+    height: 200px; 
+    width: 200px;
+        
+        
+}
 .card-menu-individual{
     border-radius: 40px;
     text-align: center;
