@@ -68,6 +68,8 @@ Route::get('/medico/consultas/index/{cpf}','MedicosController@consulta');
 Route::get('/medico/consulta/atendimento/{id}', 'ConsultaController@show');
 //->middleware('autenticador');
 
+Route::post('/salvar/detalhes/consultas', 'consultaController@gravarDadosConsulta');
+
 
 //Secretaria
 

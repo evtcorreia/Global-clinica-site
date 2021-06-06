@@ -99,5 +99,51 @@ class ConsultaController extends Controller
             'medicamentos' => $medicamentos
         ]);
     }
+    public function gravarDadosConsulta(Request $request)
+    {
+
+        $listaRemedios = [];
+        
+        //$json_array = json_encode($request->remedio);
+
+        foreach($request->remedio as $array)
+        {
+            array_push($listaRemedios, $array);
+            //var_dump($listaRemedios);
+        }
+
+       // exit();
+        
+
+        //substr($json_array, 1);
+        //var_dump($request->remedio);
+        //exit();
+
+        //dd($ArrRemedio);
+        //exit();
+
+        $data = date('Y-m-d');
+        
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST','http://api.hml01.com.br/api/consulta/grava/informacoes', [
+
+            'form_params' => [
+            'consulta_info' => $request->sintomas,
+            'consulta_id' => $request->idConsulta,  
+            'exame_data' => $request->dataExame,
+            'exame_resultado' => $request->laudoExame,
+            'consultas_consulta_id' => $request->idConsulta,
+            'receita_data' => $data,
+            'receita_descricao' => $request->descricaoReceita,
+            'consultas_consulta_id'  => $request->idConsulta,
+            'medicamento_id' => $listaRemedios
+
+            ]
+
+
+        ]);
+
+    }
     
 }

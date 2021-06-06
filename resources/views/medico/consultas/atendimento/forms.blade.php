@@ -30,7 +30,7 @@
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="consulta" role="tabpanel" aria-labelledby="consulta-tab">
         <div style="background-color: white;">
-            <form>
+            <form action="/salvar/detalhes/consultas" method="POST">
 
             
 
@@ -40,7 +40,7 @@
                         
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Sintomas do Paciente</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="sintomas" id="sintomas" rows="3"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -59,15 +59,20 @@
                         <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-1">
                         <h3 class="ml-2 pt-3">Medicamentos</h3>
                         </div>   
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Observações</label>
+                                <textarea class="form-control" name="descricaoReceita" id="descricaoReceita" rows="3"></textarea>
+                            </div>
                             <div id="formulario">
                             <label for="inputRemedio ">Remedio</label>
                                 <div class="input-group">
                                     
-                                        <select name="remedio" id="inputRemedio" class="form-control">
+                                        <select name="remedio[]" id="remedio" class="form-control">
                                             <option disabled selected value> -- Escolha um Medicamento-- </option> 
-                                            <option>...</option>     
+
                                             @foreach($medicamentos as $medicamento)
-                                            <option value="{{$medicamento['id']}}>{{$medicamento['medicamento_nome']}}</option> 
+                                            <option value="{{$medicamento['id']}}"> {{$medicamento['medicamento_nome']}}</option> 
                                             @endforeach                                       
                                         </select>
                                         <div class="input-group-append">
@@ -76,26 +81,36 @@
                                 </div>
                                 </div>
                             </div>
-                        
+                        <!--
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block mt-5 rounded float-right">Salvar</button> 
                             </div>
+                        -->
                     </div>
 
                     <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                        <h3 class="ml-2 pt-3">Exames</h3>
+                       
+                        
+                        <div class="form-group">
+                            <label class="mt-5 ">Data do Exame</label>
+                            <input type="date" name="dataExame" id="exame_data" class="form-control">
+                        </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Laudo do Exame</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="laudoExame" id="laudoExame" rows="3"></textarea>
                         </div>
 
                     </div>
                    
-
+                
                 </div>
             
+                <input type='hidden' name='idConsulta' value= "{{$id}}">
 
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block mt-5 rounded float-right">Salvar</button> 
+                </div>
             </form>
         </div>
     </div>
@@ -155,7 +170,7 @@
             //https://api.jquery.com/click/
             $("#add-campo").click(function () {
 				//https://api.jquery.com/append/
-                $("#formulario").append('<div class="form-group"><select name="remedio" id="inputRemedio" class="form-control"><option disabled selected value> -- Escolha um Medicamento-- </option> <option>...</option></select></div>');
+                $("#formulario").append('<div class="form-group"><select name="remedio[]" id="remedio" class="form-control"><option disabled selected value> -- Escolha um Medicamento-- </option>@foreach($medicamentos as $medicamento)<option value="{{$medicamento["id"]}}"> {{$medicamento["medicamento_nome"]}}</option>@endforeach</select></div>');
             });
         </script>
 
