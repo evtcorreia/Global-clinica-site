@@ -24,8 +24,32 @@ body {
     height: 200px; 
     width: 200px;
         
-        
 }
+
+#medico {
+    position:fixed;
+    top:36%;
+    left:15%;
+    margin-top:-50px;
+    margin-left:-50px;
+}
+
+#paciente {
+    position:fixed;
+    top:36%;
+    left:45%;
+    margin-top:-50px;
+    margin-left:-50px;
+}
+       
+#secretaria {
+    position:fixed;
+    top:36%;
+    left:75%;
+    margin-top:-50px;
+    margin-left:-50px;
+}
+
 .card-menu-individual{
     border-radius: 40px;
     text-align: center;

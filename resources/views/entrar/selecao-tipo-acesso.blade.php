@@ -64,7 +64,7 @@
       @if ($pessoa['tipo_pessoa_tpessoa_cod'] == 1)
         <div class="col col-sm-12 col-md-12 col-lg-4 mb-3 mt-3">
           <a href="/medico/index/{{$cpf}}">
-            <img src="../../img/usuario/medico.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
+            <img src="../../img/usuario/medico.png" id="medico" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
           </a>
         </div>
       @endif
@@ -72,7 +72,7 @@
       @if ($pessoa['tipo_pessoa_tpessoa_cod'] == 2)
         <div class="col col-sm-12 col-md-12 col-lg-4 mb-3 mt-3" tipo>      
             <a href="/paciente/index/{{$cpf}}">
-              <img src="../../img/usuario/paciente.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
+              <img src="../../img/usuario/paciente.png" id="paciente" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
             </a>
         </div>
       @endif
@@ -81,7 +81,7 @@
         
           <div class="col col-sm-12 col-md-12 col-lg-4 mb-3 mt-3  ">
             <a href="/secretaria/index/{{$cpf}}">
-              <img src="../../img/usuario/recepcionista.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
+              <img src="../../img/usuario/recepcionista.png" id="secretaria" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
             </a>
           </div>
       
