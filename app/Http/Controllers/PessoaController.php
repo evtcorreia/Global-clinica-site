@@ -92,7 +92,7 @@ use Illuminate\Support\Facades\Hash;
                     'pessoa_mae' => $request->mae,
                     'pessoa_mail' => $request->email,
                     'pessoa_login' => $request->cpf,
-                    'pessoa_senha' => $request->senha,
+                    'pessoa_senha' => $senha,
                     //'pessoa_endereco' => $idEndereco
                     'enderecos_endereco_id' => 1,
                    

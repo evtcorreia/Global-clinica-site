@@ -130,6 +130,8 @@ class ConsultaController extends Controller
 
             'form_params' => [
             'consulta_info' => $request->sintomas,
+            'consulta_laudo' =>$request->laudoConsulta,
+            'consulta_obs' => $request->obsConsulta,
             'consulta_id' => $request->idConsulta,  
             'exame_data' => $request->dataExame,
             'exame_resultado' => $request->laudoExame,

@@ -45,12 +45,12 @@
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Laudo do Medico</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="laudoConsulta" id="laudoConsulta" rows="3"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Observações</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="obsConsulta" id="obsConsulta" rows="3"></textarea>
                         </div>
                     </div>
 

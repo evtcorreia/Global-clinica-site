@@ -37,10 +37,10 @@ class EntrarController extends Controller
         }
            
 
-           
+           //dd($pessoas['$request->password']);
             $verifica  = Hash::check($request->password, $pessoas['pessoa_senha']);
-
-            var_dump($verifica);
+            //dd($verifica);
+            //var_dump($verifica);
            
 
 
