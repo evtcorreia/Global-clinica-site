@@ -123,7 +123,9 @@ use Illuminate\Support\Facades\Hash;
                     "paciente_fator_rh" => $request->fatorRh,
                     //"pessoa_pessoa_cod" => $idPessoas
 
-           
+                    "tipoDoc" => $request->tipoDoc
+
+        
             ]
             ]);
 
@@ -150,7 +152,21 @@ use Illuminate\Support\Facades\Hash;
 
         public function formulario()
         {
-            return view('/formularios/cadastro/paciente');
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/estados/');
+            $estados = json_decode($response->getBody(),true);
+
+
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/convenios/all');
+            $planosSaude = json_decode($response->getBody(), true);
+
+            return view('/formularios/cadastro/paciente',[
+                
+                'estados' => $estados,
+                'planos' => $planosSaude
+                
+                ]);
         }
     }
 

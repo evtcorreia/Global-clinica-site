@@ -147,5 +147,47 @@ class ConsultaController extends Controller
         ]);
 
     }
+
+    public function alteraHora(Request $request)
+    {
+
+    
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/alteraHora',[
+
+            'form_params' =>[
+
+                'consulta_horario' => $request->hora,
+                'consulta_id' => $request->id
+
+                
+            ]
+        ]);
+
+
+        
+    }
+    public function alteraStatus(Request $request)
+    {
+
+    
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/alteraStatus',[
+
+            'form_params' =>[
+
+                'consulta_status' => $request->status,
+                'consulta_id' => $request->id
+
+                
+            ]
+        ]);
+
+
+        
+    }
     
 }
+

@@ -106,4 +106,7 @@ Route::get('/sair', 'SairController@logout')
 //administrador
 Route::get('/admin/glc-admin/{cpf}', 'EntrarController@admin');
 
+Route::post('/editaHora','ConsultaController@alteraHora');
+Route::post('/editaStatus','ConsultaController@alteraStatus');
+
 
