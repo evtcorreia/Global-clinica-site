@@ -39,20 +39,25 @@
 
             
             <div class="list-group " style="color: #ffffff;">
-                    <a href="/agendamentos/index/{{$pessoa['prontuario_cod']}}" class="list-group-item list-group-item-action flex-column align-items-start active">
-                        <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{$pessoa["pessoa_nome"]}}</h5>
-                        <small></small>
-                        </div>
-                        <p class="mb-1">CPF: {{$pessoa["pessoa_cpf"]}}</p>
-                        <small></small>                        
-                        <p class="mb-1">Numero do cartão do SUS: {{$pessoa["paciente_sus_nr"]}}</p>
-                        <small></small>   
-                        <p class="mb-1">Prontuario: {{$pessoa["prontuario_cod"]}}</p>
-                        <small></small>     
-                        <hr> 
-                        <small>Clique para acessar</small>                 
-                    </a>
+                    <div class="bg-secondary text-white">
+                        <div class="d-flex w-100 justify-content-between p-4 ">
+                            <h5 class="mb-1">{{$pessoa["pessoa_nome"]}}</h5>
+                            <small></small>
+                            </div>
+                            <p class="mb-1">CPF: {{$pessoa["pessoa_cpf"]}}</p>
+                            <small></small>                        
+                            <p class="mb-1">Numero do cartão do SUS: {{$pessoa["paciente_sus_nr"]}}</p>
+                            <small></small>   
+                            <p class="mb-1">Prontuario: {{$pessoa["prontuario_cod"]}}</p>
+                            <small></small>     
+                            
+                    </div>
+                        <a href="/agendamentos/index/{{$pessoa['prontuario_cod']}}" class="list-group-item list-group-item-action flex-column align-items-start bg-primary text-white"> 
+                        <small>Criar nova Consulta</small>                 
+                        </a>
+                        <a href="/agendamentos/index/{{$pessoa['prontuario_cod']}}" class="list-group-item list-group-item-action flex-column align-items-start bg-info text-white"> 
+                        <small>Listar consultas</small>                 
+                        </a>
 
             </div>
             

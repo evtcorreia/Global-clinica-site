@@ -154,11 +154,11 @@ Informações
                     @endforeach    
 
                                         <div class=" mr-5  " hidden id="input-telefone-paciente-{{$telefone['telefone_cod']}}"> 
-                                            <input type="text"  class="form-control" id="phone" value="({{$telefone['telefone_area']}}){{$telefone['telefone_num']}}" maxlength="14"  />
-                                            <div class="input-group-append ">
-                                                <button class="btn btn-primary btn-block" onclick="editarData({{$telefone['telefone_cod']}})">
-                                                    <i class="fas fa-check"></i>
-                                                </button>
+                                            <input type="text"  class="form-control" id="phone" value="({{$telefone['telefone_area']}}) {{$telefone['telefone_num']}}" maxlength="14"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="editarTelefone({{$telefone['telefone_cod']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
                                                 @csrf
                                             </div>
                                         </div>            
@@ -285,5 +285,41 @@ Informações
                 }
             });
 
+    </script>
+
+<script>
+        function editarTelefone(telefoneId) {
+
+           
+            
+                let formData = new FormData();
+                const tel = document
+                    .querySelector(`#input-telefone-paciente-${telefoneId} > input`)
+                    .value;
+
+                let area = tel.split(" ")
+                    
+                alert(area)
+                return
+                const token = document
+                    .querySelector(`input[name="_token"]`)
+                    .value;  
+              
+               
+
+                formData.append('area', area);
+                formData.append('telefone', tel);
+                formData.append('_token',token);
+                formData.append('id', telefoneId);
+                const url = `/editaData`;
+                fetch(url, {
+                method: 'POST',
+                body: formData
+        
+            }).then(() => {
+                    alteraData(consultaId);
+                    document.getElementById(`data-consulta-${consultaId}`).textContent = data;
+        });
+    }
     </script>
     @endsection

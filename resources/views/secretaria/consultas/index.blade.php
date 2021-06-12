@@ -349,6 +349,37 @@ Consultas
     </script>
 
 
+    <script>
+        function editarData(consultaId) {
+
+            
+                let formData = new FormData();
+                const data = document
+                    .querySelector(`#input-data-consulta-${consultaId} > input`)
+                    .value;
+
+                    
+                const token = document
+                    .querySelector(`input[name="_token"]`)
+                    .value;  
+                
+
+                formData.append('data', data);
+                formData.append('_token',token);
+                formData.append('id', consultaId);
+                const url = `/editaData`;
+                fetch(url, {
+                method: 'POST',
+                body: formData
+        
+            }).then(() => {
+                    alteraData(consultaId);
+                    document.getElementById(`data-consulta-${consultaId}`).textContent = data;
+        });
+    }
+    </script>
+
+
 @endsection
 
 @endsection

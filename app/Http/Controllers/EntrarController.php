@@ -52,12 +52,12 @@ class EntrarController extends Controller
                         
                         
                         //return redirect('/paciente/index/'. $pessoas['pessoa_cpf']);
-
+                    /*
                         if($request->tipo == 4 and $pessoas['pessoa_tipo'])
                         {
                             return redirect('/admin/glc-admin'.'/'.$pessoas['pessoa_cpf'] );
                         }
-
+                        */
                         
                         return redirect('/tipo-login'.'/'.$pessoas['pessoa_cpf'] );
                     }
