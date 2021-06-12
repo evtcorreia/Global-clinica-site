@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-    Faça a Busca pelo paciente desejado
+    Buscar Paciente para nova Consulta
 
 @endsection
 
@@ -22,7 +22,7 @@
     
         <div class="container">  
             <input type="search" id="nome" name="nome" class="form-control">
-                <button class="btn btn-primary btn-sm btn-block mt-3 mb-5" type="submit" name="busca" id="busca">Buscar paciente</button>
+                <button class="btn btn-primary btn-sm btn-block mt-3 mb-5" type="submit" name="busca" id="busca">Buscar Paciente</button>
         </div>     
 
     </form>
