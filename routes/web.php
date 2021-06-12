@@ -86,6 +86,10 @@ Route::post('/get-paciente', 'PessoaController@nome')
 ->middleware('autenticador');
 
 
+Route::get('/secretaria/busca-paciente/listadeconsultas/{cpf}','ConsultaController@consultaDoPaciente')
+->middleware('autenticador');
+
+
 //Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')

@@ -38,8 +38,8 @@
         
 
             
-            <div class="list-group " style="color: #ffffff;">
-                    <div class="bg-secondary text-white">
+            <div class="list-group mt-5" style="color: #ffffff;">
+                    <div class="bg-primary text-white">
                         <div class="d-flex w-100 justify-content-between p-4 ">
                             <h5 class="mb-1">{{$pessoa["pessoa_nome"]}}</h5>
                             <small></small>
@@ -52,11 +52,11 @@
                             <small></small>     
                             
                     </div>
+                        <a href="/secretaria/busca-paciente/listadeconsultas/{{$pessoa['pessoa_cpf']}}" class="list-group-item list-group-item-action flex-column align-items-start bg-light text-dark"> 
+                        <small>Listar Consultas</small>                 
+                        </a>
                         <a href="/agendamentos/index/{{$pessoa['prontuario_cod']}}" class="list-group-item list-group-item-action flex-column align-items-start bg-primary text-white"> 
                         <small>Criar nova Consulta</small>                 
-                        </a>
-                        <a href="/agendamentos/index/{{$pessoa['prontuario_cod']}}" class="list-group-item list-group-item-action flex-column align-items-start bg-info text-white"> 
-                        <small>Listar consultas</small>                 
                         </a>
 
             </div>

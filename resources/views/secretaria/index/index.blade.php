@@ -15,7 +15,7 @@
                 <div class="card card-menu-individual">
                     <img src="../../img/usuario/agendamento2.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Agendamentos</h5>
+                        <h5 class="card-title">Nova Consulta</h5>
                         <p class="card-text"></p>
                     </div>
                 </div>

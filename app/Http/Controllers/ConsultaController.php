@@ -209,5 +209,23 @@ class ConsultaController extends Controller
 
         
     }
+
+    public function consultaDoPaciente($cpf)
+    {
+    $client = new Client();
+    $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
+    $pessoas = json_decode($response->getBody(),true);
+
+    $client = new Client();
+    $response = $client->get('http://api.hml01.com.br/api/prontuario/'.$cpf);
+    $consultas = json_decode($response->getBody(),true);
+    
+    
+    return view('/secretaria/busca-paciente/listadeconsultas',[
+        'pessoa' => $pessoas, 
+        'consultas' => $consultas,
+    ]);
+    
+    }
 }
 
