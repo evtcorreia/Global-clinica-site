@@ -39,19 +39,19 @@ Consultas
 
                                     
 
-                                    <div class="mr-5" id="data-consulta-{{$consulta['consulta_id']}}"> {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}} <button class="buttonEdicao" onclick='alteraData({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info   "></i></button> </div>
+                                    <div class="" id="data-consulta-{{$consulta['consulta_id']}}"> {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}  </div><button class="buttonEdicao mr-5"  id="editaData"onclick='alteraData({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info   "></i></button>
 
                                     <div class=" mr-5  " hidden id="input-data-consulta-{{$consulta['consulta_id']}}"> 
                                             <input type="date" class="form-control " value="{{$consulta['consulta_data']}}">
                                             <div class="input-group-append ">
-                                                <button class="btn btn-primary btn-block" onclick="editarSerie($consulta['consulta_id'])">
+                                                <button class="btn btn-primary btn-block" onclick='editarData({{$consulta["consulta_id"]}})'>
                                                     <i class="fas fa-check"></i>
                                                 </button>
                                                 @csrf
                                             </div>
                                         </div>
 
-                                    <div class="" id="hora-consulta-{{$consulta['consulta_id']}}" > {{ $consulta["consulta_horario"]}} horas  </div><button class="buttonEdicao mr-5" id="btnEditaHora" onclick='alteraVisual({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info  "></i></button>
+                                    <div class="" id="hora-consulta-{{$consulta['consulta_id']}}" > {{ $consulta["consulta_horario"]}} horas  </div><button class="buttonEdicao mr-5 " id="btnEditaHora" onclick='alteraVisual({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info  "></i></button>
                                     
                                         <div class="  " hidden id="input-hora-consulta-{{$consulta['consulta_id']}}"> 
                                             <input type="time" class="form-control " value="{{$consulta['consulta_horario']}}">
@@ -248,16 +248,16 @@ Consultas
             //return
         const dataConsulta = document.getElementById(`data-consulta-${consultaId}`);
         const alteraDataConsulta = document.getElementById(`input-data-consulta-${consultaId}`);
-        const btnEditaStaus = document.getElementById(`editaStatus`)
+        const btnEditaStaus = document.getElementById(`editaData`)
 
         if (dataConsulta.hasAttribute('hidden')) {
             dataConsulta.removeAttribute('hidden');
             alteraDataConsulta.hidden = true;
-            //btnEditaStaus.removeAttribute('hidden');
+            btnEditaStaus.removeAttribute('hidden');
         } else {
             alteraDataConsulta.removeAttribute('hidden');
             dataConsulta.hidden = true;
-            //btnEditaStaus.hidden = true;
+            btnEditaStaus.hidden = true;
         }
     }
     </script>
@@ -315,8 +315,40 @@ Consultas
                     location. reload();
         });
         }
-    
+
     </script>
+
+<script>
+        function editarData(consultaId) {
+
+            
+                let formData = new FormData();
+                const data = document
+                    .querySelector(`#input-data-consulta-${consultaId} > input`)
+                    .value;
+
+                    
+                const token = document
+                    .querySelector(`input[name="_token"]`)
+                    .value;  
+                
+
+                formData.append('data', data);
+                formData.append('_token',token);
+                formData.append('id', consultaId);
+                const url = `/editaData`;
+                fetch(url, {
+                method: 'POST',
+                body: formData
+        
+            }).then(() => {
+                    alteraData(consultaId);
+                    document.getElementById(`data-consulta-${consultaId}`).textContent = data;
+        });
+    }
+    </script>
+
+
 @endsection
 
 @endsection

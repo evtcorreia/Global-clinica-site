@@ -189,5 +189,25 @@ class ConsultaController extends Controller
         
     }
     
+    public function alteraData(Request $request)
+    {
+
+    
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/alteraData',[
+
+            'form_params' =>[
+
+                'consulta_data' => $request->data,
+                'consulta_id' => $request->id
+
+                
+            ]
+        ]);
+
+
+        
+    }
 }
 
