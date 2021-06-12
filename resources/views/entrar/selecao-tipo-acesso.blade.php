@@ -86,6 +86,17 @@
           </div>
       
       @endif    
+
+      @if ($pessoa['tipo_pessoa_tpessoa_cod'] == 4)
+        
+          <div class="col col-sm-12 col-md-12 col-lg-4 mb-3 mt-3  ">
+            <a href="/adm/index/{{$cpf}}">
+              <img src="../../img/usuario/recepcionista.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
+            </a>
+          </div>
+      
+      @endif
+
     @endforeach
       
 

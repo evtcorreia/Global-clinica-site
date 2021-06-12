@@ -104,10 +104,12 @@ Route::get('/sair', 'SairController@logout')
 ->middleware('autenticador');
 
 //administrador
-Route::get('/admin/glc-admin/{cpf}', 'EntrarController@admin');
 
 Route::post('/editaHora','ConsultaController@alteraHora');
 Route::post('/editaStatus','ConsultaController@alteraStatus');
 Route::post('/editaData','ConsultaController@alteraData');
 
+//Adm
 
+Route::get('/adm/index/{cpf}','AdmController@index');
+// ->middleware('autenticador');
