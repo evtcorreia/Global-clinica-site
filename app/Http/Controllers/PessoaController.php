@@ -55,10 +55,18 @@ use Illuminate\Support\Facades\Hash;
 
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/cidade/busca/' . $endereco['endereco_id'] );
+            $response = $client->get('http://api.hml01.com.br/api/cidade/busca/' . $endereco['cidades_cidade_id'] );
             $cidade = json_decode($response->getBody(),true);
 
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/estados/');
+            $estados = json_decode($response->getBody(),true);
 
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/cidades/'.$estado['id']);
+            $cidadesDoEstado = json_decode($response->getBody(),true);
+            
+            
 
             return view('/paciente/informacoes/index',[
                 'pessoa' => $pessoas,
@@ -66,7 +74,9 @@ use Illuminate\Support\Facades\Hash;
                 'telefones' => $telefones,
                 'endereco' => $endereco,
                 'estado' => $estado,
-                'cidade' => $cidade
+                'cidade' => $cidade,
+                'estados' => $estados,
+                'cidadesDoEstado' => $cidadesDoEstado
             ]);        
         }
 
@@ -168,6 +178,27 @@ use Illuminate\Support\Facades\Hash;
                 
                 ]);
         }
+
+
+        public function alteraTelefone(Request $request)
+        {
+            $client = new \GuzzleHttp\Client();
+
+
+            
+            $response = $client->request('POST', 'http://api.hml01.com.br/api/pessoa/altera/telefone', [
+
+            'form_params' => [
+
+                'telefone_cod' => $request->id,
+                'telefone_area' => $request->area,
+                'telefone_num' => $request->telefone
+
+        
+                ]
+            ]);
+        }
+        
     }
 
     

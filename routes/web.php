@@ -112,6 +112,14 @@ Route::get('/sair', 'SairController@logout')
 Route::post('/editaHora','ConsultaController@alteraHora');
 Route::post('/editaStatus','ConsultaController@alteraStatus');
 Route::post('/editaData','ConsultaController@alteraData');
+Route::post('/editaTelefone','PessoaController@alteraTelefone');
+Route::post('/editaBairro','EnderecoController@editaBairro');
+Route::post('/editaEstado','EnderecoController@editaEstado');
+Route::post('/editaCidade','EnderecoController@editaCidade');
+Route::post('/editaRua','EnderecoController@editaRua');
+Route::post('/editaCep','EnderecoController@editaCep');
+
+
 
 //Adm
 

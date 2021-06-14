@@ -150,11 +150,11 @@ Informações
                     <h6> Telefone   </h6> 
 
                     @foreach ($telefones as $telefone) 
-                        <p id="telefone-paciente-{{$telefone['telefone_cod']}}">({{$telefone["telefone_area"]}})  {{$telefone["telefone_num"]}} <button class="buttonEdicao" onclick='alteraTelefone({{$telefone["telefone_cod"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+                        <div id="telefone-paciente-{{$telefone['telefone_cod']}}"> {{$telefone["telefone_area"]}}  {{$telefone["telefone_num"]}} <button class="buttonEdicao" onclick='alteraTelefone({{$telefone["telefone_cod"]}})'> <i class="fas fa-edit  text-info   "></i> </button></div>
                     @endforeach    
 
                                         <div class=" mr-5  " hidden id="input-telefone-paciente-{{$telefone['telefone_cod']}}"> 
-                                            <input type="text"  class="form-control" id="phone" value="({{$telefone['telefone_area']}}) {{$telefone['telefone_num']}}" maxlength="14"  />
+                                            <input type="text"  class="form-control" id="phone" value="{{$telefone['telefone_area']}} {{$telefone['telefone_num']}}" maxlength="15"  />
                                                 <div class="input-group-append ">
                                                         <button class="btn btn-primary btn-block" onclick="editarTelefone({{$telefone['telefone_cod']}})">
                                                             <i class="fas fa-check"></i>
@@ -164,32 +164,104 @@ Informações
                                         </div>            
             
                 </div>
+
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Bairro  </h6>
-                    <p>{{$endereco["endereco_bairro"]}} <button class="buttonEdicao" onclick=''> <i class="fas fa-edit  text-info   "></i> </button></p>
+                    <h6>Estado </h6>
+                    <div id="estado-paciente-{{$endereco['endereco_id']}}" value="13" >{{$estado["estado_nome"]}} <button class="buttonEdicao" onclick='alteraEstado({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></div>
+
+                                        <div class=" mr-5  " hidden id="input-estado-paciente-{{$endereco['endereco_id']}}"> 
+                                            
+                                                <select name="altera-estado-paciente" id="altera-estado-paciente-{{$endereco['endereco_id']}}" class="form-control">
+
+                                                    @foreach($estados as $listaEstados)
+                                                        <option value="{{$listaEstados['id']}}"> {{$listaEstados['estado_nome']}} </option>
+                                                    @endforeach
+
+                                                </select>
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="editarEstado({{$endereco['endereco_id']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div> 
                 </div>
+                
             </div>
 
             <div class="row ml-4 ">
+
+            <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <h6>Bairro </h6>
+                    <p id="bairro-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_bairro"]}} <button class="buttonEdicao" onclick='alteraBairro({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+
+                                        <div class=" mr-5  " hidden id="input-bairro-paciente-{{$endereco['endereco_id']}}"> 
+                                            <input type="text"  class="form-control" id="phone" value="{{$endereco['endereco_bairro']}}" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="editarBairro({{$endereco['endereco_id']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div> 
+                </div>
+
                 <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Rua </h6>
-                    <p>{{$endereco["endereco_logradouro"]}} <button class="buttonEdicao" onclick=''> <i class="fas fa-edit  text-info   "></i> </button></p>
+                    <p id="rua-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_logradouro"]}} <button class="buttonEdicao" onclick=''> <button class="buttonEdicao" onclick='alteraRua({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+
+                                        <div class=" mr-5  " hidden id="input-rua-paciente-{{$endereco['endereco_id']}}"> 
+                                            <input type="text"  class="form-control" id="phone" value="{{$endereco['endereco_logradouro']}}" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="editarRua({{$endereco['endereco_id']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>
                 </div>
+
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Cidade</h6>
-                    <p>{{$cidade["cidade_desc"]}} <button class="buttonEdicao" onclick=''> <i class="fas fa-edit  text-info   "></i> </button></p>
+                        <p id="cidade-paciente-{{$endereco['endereco_id']}}">{{$cidade["cidade_desc"]}} <button class="buttonEdicao" onclick='alteraCidade({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+
+                                        <div class=" mr-5  " hidden id="input-cidade-paciente-{{$endereco['endereco_id']}}"> 
+                                                
+                                                <select name="altera-cidade-paciente" id="altera-cidade-paciente-{{$endereco['endereco_id']}}" class="form-control">
+
+                                                @foreach($cidadesDoEstado as $cidadeEstado)
+                                                            <option value="{{$cidadeEstado['id']}}">{{$cidadeEstado['cidade_desc']}}</option>
+                                                @endforeach
+
+                                                </select>
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="editarCidade({{$endereco['endereco_id']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>  
                 </div>
             </div>
 
             <div class="row ml-4 ">
                 <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>CEP </h6>
-                    <p>{{$endereco["endereco_cep"]}} <button class="buttonEdicao" onclick=''> <i class="fas fa-edit  text-info   "></i> </button></p>
+                    <p id="cep-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_cep"]}} <button class="buttonEdicao" onclick='alteraCep({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+
+                                        <div class=" mr-5  " hidden id="input-cep-paciente-{{$endereco['endereco_id']}}"> 
+                                            <input type="text"  class="form-control" id="phone" value="{{$endereco['endereco_cep']}}" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="editaCep({{$endereco['endereco_id']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>
+
+                    
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Estado </h6>
-                    <p>{{$estado["estado_nome"]}} <button class="buttonEdicao" onclick=''> <i class="fas fa-edit  text-info   "></i> </button></p>
-                </div>
+               
             </div>
             </div>
 
@@ -297,29 +369,295 @@ Informações
                     .querySelector(`#input-telefone-paciente-${telefoneId} > input`)
                     .value;
 
-                let area = tel.split(" ")
+                let area = tel.slice(0, 4)
+
+                let numTel = tel.slice(5)
                     
-                alert(area)
-                return
+                
                 const token = document
                     .querySelector(`input[name="_token"]`)
                     .value;  
-              
-               
+
 
                 formData.append('area', area);
-                formData.append('telefone', tel);
+                formData.append('telefone', numTel);
                 formData.append('_token',token);
                 formData.append('id', telefoneId);
-                const url = `/editaData`;
+                const url = `/editaTelefone`;
                 fetch(url, {
                 method: 'POST',
-                body: formData
-        
+                body: formData        
             }).then(() => {
-                    alteraData(consultaId);
-                    document.getElementById(`data-consulta-${consultaId}`).textContent = data;
+                    //alteraTelefone(telefoneId);
+                    //document.getElementById(`telefone-paciente-${telefoneId}`).textContent = tel;
+                    location.reload();
         });
     }
     </script>
+    
+
+    <script>
+        function alteraBairro(bairroId) {
+            //alert(consultaId)
+            //return
+        const bairro = document.getElementById(`bairro-paciente-${bairroId}`);
+        const inputBairro = document.getElementById(`input-bairro-paciente-${bairroId}`);
+        const btnEditaTel = document.getElementById(`btnEditaTel`)
+
+        if (bairro.hasAttribute('hidden')) {
+            bairro.removeAttribute('hidden');
+            inputBairro.hidden = true;
+            btnEditaTel.removeAttribute('hidden');
+        } else {
+            inputBairro.removeAttribute('hidden');
+            bairro.hidden = true;
+            btnEditaTel.hidden = true;
+        }
+    }
+    </script>
+
+<script>
+        function editarBairro(bairroId) {
+
+                
+                    
+        let formData = new FormData();
+        const bairro = document
+            .querySelector(`#input-bairro-paciente-${bairroId} > input`)
+            .value;
+            
+
+        const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        formData.append('bairro', bairro);
+        formData.append('_token',token);
+        formData.append('id', bairroId);
+
+        const url = `/editaBairro`;
+        fetch(url, {
+        method: 'POST',
+        body: formData        
+        }).then(() => {
+            //alteraBairro(bairroId);
+           // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+            location. reload();
+        });
+        }
+</script>
+
+
+<script>
+        function alteraEstado(estadoId) {
+           
+        const estado = document.getElementById(`estado-paciente-${estadoId}`);
+        const inputEstado = document.getElementById(`input-estado-paciente-${estadoId}`);
+        const btnEditaTel = document.getElementById(`btnEditaTel`)
+
+        if (estado.hasAttribute('hidden')) {
+            estado.removeAttribute('hidden');
+            inputEstado.hidden = true;
+            btnEditaTel.removeAttribute('hidden');
+        } else {
+            inputEstado.removeAttribute('hidden');
+            estado.hidden = true;
+            btnEditaTel.hidden = true;
+        }
+    }
+    </script>
+
+<script>
+        function editarEstado(enderecoId) {
+  
+                    
+        let formData = new FormData();
+
+        const estadoValue = document.getElementById(`altera-estado-paciente-${enderecoId}`).value;
+        const estadoText = document.getElementById(`altera-estado-paciente-${enderecoId}`).text;  
+        
+        const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+               
+
+
+        formData.append('estado', estadoValue);
+        formData.append('_token',token);
+        formData.append('id', enderecoId);
+        
+        const url = `/editaEstado`;
+        fetch(url, {
+        method: 'POST',
+        body: formData        
+        }).then(() => {
+            //alteraEstado(enderecoId);
+            //document.getElementById(`#estado-paciente-${enderecoId}`).textContent = estadoText;
+            location.reload();
+        });
+        }
+</script>
+
+<script>
+        function alteraCidade(cidadeId) {
+        
+        const cidade = document.getElementById(`cidade-paciente-${cidadeId}`);
+        const inputCidade = document.getElementById(`input-cidade-paciente-${cidadeId}`);
+        const btnEditaTel = document.getElementById(`btnEditaTel`)
+
+        if (cidade.hasAttribute('hidden')) {
+            cidade.removeAttribute('hidden');
+            inputCidade.hidden = true;
+            btnEditaTel.removeAttribute('hidden');
+        } else {
+            inputCidade.removeAttribute('hidden');
+            cidade.hidden = true;
+            btnEditaTel.hidden = true;
+        }
+    }
+    </script>
+
+<script>
+        function editarCidade(enderecoId) {
+
+                    
+        let formData = new FormData();
+
+        const cidadeValue = document.getElementById(`altera-cidade-paciente-${enderecoId}`).value;
+        const cidadeText = document.getElementById(`altera-cidade-paciente-${enderecoId}`).text;  
+        
+        const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+            
+
+
+        formData.append('cidade', cidadeValue);
+        formData.append('_token',token);
+        formData.append('id', enderecoId);
+        
+        const url = `/editaCidade`;
+        fetch(url, {
+        method: 'POST',
+        body: formData        
+        }).then(() => {
+            //alteraEstado(enderecoId);
+            //document.getElementById(`#estado-paciente-${enderecoId}`).textContent = estadoText;
+            location.reload();
+        });
+        }
+</script>
+
+
+
+<script>
+        function alteraRua(bairroId) {
+            //alert(consultaId)
+            //return
+        const rua = document.getElementById(`rua-paciente-${bairroId}`);
+        const inputRua = document.getElementById(`input-rua-paciente-${bairroId}`);
+        const btnEditaTel = document.getElementById(`btnEditaTel`)
+
+        if (rua.hasAttribute('hidden')) {
+            rua.removeAttribute('hidden');
+            inputRua.hidden = true;
+            btnEditaTel.removeAttribute('hidden');
+        } else {
+            inputRua.removeAttribute('hidden');
+            rua.hidden = true;
+            btnEditaTel.hidden = true;
+        }
+    }
+    </script>
+
+<script>
+        function editarRua(enderecoId) {
+
+                
+                    
+        let formData = new FormData();
+        const rua = document
+            .querySelector(`#input-rua-paciente-${enderecoId} > input`)
+            .value;
+            
+
+        const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        formData.append('rua', rua);
+        formData.append('_token',token);
+        formData.append('id', enderecoId);
+
+        const url = `/editaRua`;
+        fetch(url, {
+        method: 'POST',
+        body: formData        
+        }).then(() => {
+            //alteraBairro(bairroId);
+           // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+            location. reload();
+        });
+        }
+</script>
+
+
+<script>
+        function alteraCep(enderecoId) {
+            //alert(consultaId)
+            //return
+        const cep = document.getElementById(`cep-paciente-${enderecoId}`);
+        const inputCep = document.getElementById(`input-cep-paciente-${enderecoId}`);
+        const btnEditaTel = document.getElementById(`btnEditaTel`)
+
+        if (cep.hasAttribute('hidden')) {
+            cep.removeAttribute('hidden');
+            inputCep.hidden = true;
+            btnEditaTel.removeAttribute('hidden');
+        } else {
+            inputCep.removeAttribute('hidden');
+            cep.hidden = true;
+            btnEditaTel.hidden = true;
+        }
+    }
+    </script>
+
+<script>
+        function editaCep(enderecoId) {
+
+                
+                    
+        let formData = new FormData();
+        const cep = document
+            .querySelector(`#input-cep-paciente-${enderecoId} > input`)
+            .value;
+            
+
+        const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        
+        formData.append('cep', cep);
+        formData.append('_token',token);
+        formData.append('id', enderecoId);
+
+        const url = `/editaCep`;
+        fetch(url, {
+        method: 'POST',
+        body: formData        
+        }).then(() => {
+            //alteraBairro(bairroId);
+           // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+            location. reload();
+        });
+        }
+</script>
+
+
+
+
+
     @endsection

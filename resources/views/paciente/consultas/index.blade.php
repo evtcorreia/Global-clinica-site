@@ -25,23 +25,25 @@ Consultas
                     
                     @foreach ($consultas as $consulta)
                     
-                    <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Consulta 
-                    {{$consulta["consulta_data"]}}
+                    <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Consulta -
+                    {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}
                             <span class="d-flex">
 
                             @if($consulta["consulta_status_status_id"]==1)
                                 <a  class=" mr-5">
-                                   <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                    <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                    <i class="fa fa-trash-alt ml-3 text-danger" aria-hidden="true"></i>
                                 </a> 
+
                             @elseif($consulta["consulta_status_status_id"]==2)
 
-                                   <i class="fas fa-check-double text-success"> Confirmado</i>
+                                    <i class="fas fa-check-double text-success"> Confirmado</i>
                             @elseif($consulta["consulta_status_status_id"]==2)
 
                                     <i class="fas fa-check-double text-black-50"> Finalizado</i>
                             @endif
-                               
-                               <!--
+
+                            <!--
                                 <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$pessoa['pessoa_cpf']}}" class="btn btn-info btn-sm mr-5">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>                          
@@ -54,7 +56,7 @@ Consultas
                         <hr>
                     </ul>
                 </div>
-             
+
                 
                 <span>            
             </div>   
@@ -69,16 +71,16 @@ Consultas
                     <ul >
                     @foreach($consultas as $consulta)
                         <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes"> Consultas
-                        {{$consulta["consulta_data"]}}
+                        {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}
                             <span class="d-flex">
 
                             @if($consulta["consulta_status_status_id"]==1)
                                 <a  class=" mr-5">
-                                   <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                    <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
                                 </a> 
                             @elseif($consulta["consulta_status_status_id"]==2)
 
-                                   <i class="fas fa-check-double text-success"> Confirmado</i>
+                                    <i class="fas fa-check-double text-success"> Confirmado</i>
                             @elseif($consulta["consulta_status_status_id"]==2)
 
                                     <i class="fas fa-check-double text-black-50"> Finalizado</i>
@@ -101,6 +103,4 @@ Consultas
     </div>
 </div>
 
-                        
-                               
 @endsection
