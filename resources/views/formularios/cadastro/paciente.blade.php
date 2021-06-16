@@ -93,7 +93,7 @@ Faça a Busca pelo paciente desejado
         </div>
         <div class="col-md-4 mb-3">
             <label for="complemento">Complemeto</label>
-            <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Numero" required>
+            <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Complemento" required>
             
         </div>
 
@@ -143,7 +143,7 @@ Faça a Busca pelo paciente desejado
         -->
         <div class="col-md-4 mb-3">
             <label for="cep">CEP</label>
-            <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" required>
+            <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" maxlength="8" minlength="8" required>
             
         </div>
 
@@ -164,7 +164,7 @@ Faça a Busca pelo paciente desejado
         </div>
         <div class="col-md-4 mb-3">
             <label for="area">DDD</label>
-            <input type="text" class="form-control" id="area" name="area" placeholder="Codigo de Area" required>
+            <input type="text" class="form-control" id="area" name="area" placeholder="Codigo de Area" maxlength="3" minlength="2" required>
             
         </div>
         <div class="col-md-4 mb-3">
@@ -183,7 +183,7 @@ Faça a Busca pelo paciente desejado
 
         <div class="col-md-4 mb-3">
             <label for="sus_nr">Cartão SUS</label>
-            <input type="text" class="form-control" id="sus_nr" name="sus_nr" placeholder="Cartao SUS" required>
+            <input type="text" class="form-control" id="sus_nr" name="sus_nr" placeholder="Cartao SUS" maxlength="20" minlength="20" required>
             
         </div>
         <div class="col-md-4 mb-3">

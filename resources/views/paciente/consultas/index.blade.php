@@ -24,35 +24,35 @@ Consultas
                     <ul >
                     
                     @foreach ($consultas as $consulta)
-                    
+                    @if(($consulta["consulta_status_status_id"] != 3) && ($consulta["consulta_status_status_id"]  !=5))
                     <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Consulta -
                     {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}
                             <span class="d-flex">
-
+                        
                             @if($consulta["consulta_status_status_id"]==1)
                                 <a  class=" mr-5">
                                     <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
-                                    <i class="fa fa-trash-alt ml-3 text-danger" aria-hidden="true"></i>
+                                    <button class="buttonExclusao" onclick='excluirConsulta({{$consulta["consulta_id"]}})'> <i class="fa fa-trash-alt ml-3 text-danger" aria-hidden="true"></i></button>
+                                    @csrf
                                 </a> 
 
                             @elseif($consulta["consulta_status_status_id"]==2)
 
                                     <i class="fas fa-check-double text-success"> Confirmado</i>
-                            @elseif($consulta["consulta_status_status_id"]==2)
+                            @elseif($consulta["consulta_status_status_id"]==3)
 
                                     <i class="fas fa-check-double text-black-50"> Finalizado</i>
                             @endif
-
+                        
                             <!--
                                 <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$pessoa['pessoa_cpf']}}" class="btn btn-info btn-sm mr-5">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>                          
                             -->
                             </span>
-                                
-                        
                         </li>
-                    @endforeach
+                        @endif
+                            @endforeach
                         <hr>
                     </ul>
                 </div>
@@ -70,29 +70,34 @@ Consultas
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
                     @foreach($consultas as $consulta)
-                        <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes"> Consultas
-                        {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}
+                    @if(($consulta["consulta_status_status_id"] == 3) && ($consulta["consulta_status_status_id"]  ==5))
+                    <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Consulta -
+                    {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}
                             <span class="d-flex">
-
+                        
                             @if($consulta["consulta_status_status_id"]==1)
                                 <a  class=" mr-5">
                                     <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                    <button class="buttonExclusao" onclick='excluirConsulta({{$consulta["consulta_id"]}})'> <i class="fa fa-trash-alt ml-3 text-danger" aria-hidden="true"></i></button>
+                                    @csrf
                                 </a> 
+
                             @elseif($consulta["consulta_status_status_id"]==2)
 
                                     <i class="fas fa-check-double text-success"> Confirmado</i>
-                            @elseif($consulta["consulta_status_status_id"]==2)
+                            @elseif($consulta["consulta_status_status_id"]==3)
 
                                     <i class="fas fa-check-double text-black-50"> Finalizado</i>
                             @endif
-
-                                <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$pessoa['pessoa_cpf']}}" class="btn btn-info btn-sm mr-1">
+                        
+                            <!--
+                                <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$pessoa['pessoa_cpf']}}" class="btn btn-info btn-sm mr-5">
                                     <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                
-                            </span>                          
-                            
+                                </a>                          
+                            -->
+                            </span>
                         </li>
+                        @endif
                     @endforeach
                     
                         <hr>
@@ -103,4 +108,32 @@ Consultas
     </div>
 </div>
 
+
+@endsection
+
+@section('post-script')
+<script>
+    function excluirConsulta(consultaId)
+    {
+        
+        let formData = new FormData();
+
+        const token = document
+                .querySelector(`input[name="_token"]`)
+                .value;
+        
+        formData.append('id', consultaId);
+        formData.append('_token',token);
+       // formData.append('del',"*");
+    
+        const url = `/deletaConsulta`
+
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        }).then(()=>{
+            location. reload();
+        });
+    }
+</script>
 @endsection

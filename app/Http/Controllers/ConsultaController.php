@@ -227,5 +227,17 @@ class ConsultaController extends Controller
     ]);
     
     }
+
+    public function deletaConsulta(Request $request)
+    {
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/deleta', [
+
+            'form_params'=>[
+                'consulta_id' => $request->id,
+                'consulta_D_E_L_E_T_' => "*"
+            ]
+        ]);
+    }
 }
 
