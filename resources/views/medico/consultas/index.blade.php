@@ -23,6 +23,8 @@ Consultas
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
                     @foreach ($consultas as $consulta)
+
+                    @if($consulta["consulta_status_status_id"] == '2')
                         @if( date('d/m/Y', strtotime($consulta["consulta_data"])) === date('d/m/Y', strtotime(date('Y-m-d'))))
                             <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >
 
@@ -47,7 +49,7 @@ Consultas
                                             </a> 
                                         @elseif($consulta["consulta_status_status_id"]==2)
 
-                                                <i class="fas fa-check-double text-success"> Confirmado</i>
+                                                <i class="fas fa-check-double text-success mr-4"> Confirmado</i>
                                         @elseif($consulta["consulta_status_status_id"]==5)
 
                                                 <i class="fas fa-check-double text-black-50"> Finalizado</i>
@@ -64,6 +66,7 @@ Consultas
                         
                             <hr>
                             
+                        @endif
                         @endif
                     @endforeach
 

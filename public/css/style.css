@@ -59,3 +59,15 @@ body {
 .lista-informacoes{
     border: none;
 }
+
+.buttonEdicao {
+    background-color: transparent;
+    color: none;
+    border: none; /* Green */
+}
+
+.buttonExclusao {
+    background-color: transparent;
+    color: none;
+    border: none; /* Green */
+}

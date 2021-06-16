@@ -107,7 +107,7 @@ Route::get('/tipo-login/{cpf}', 'EntrarController@tipoLogin')
 Route::get('/sair', 'SairController@logout')
 ->middleware('autenticador');
 
-//administrador
+//update
 
 Route::post('/editaHora','ConsultaController@alteraHora');
 Route::post('/editaStatus','ConsultaController@alteraStatus');
@@ -119,7 +119,9 @@ Route::post('/editaCidade','EnderecoController@editaCidade');
 Route::post('/editaRua','EnderecoController@editaRua');
 Route::post('/editaCep','EnderecoController@editaCep');
 
+//delete
 
+Route::post('/deletaConsulta', 'ConsultaController@deletaConsulta');
 
 //Adm
 
