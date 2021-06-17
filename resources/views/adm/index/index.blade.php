@@ -48,8 +48,8 @@
 
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
             <a href="/paciente/informacao/{{$pessoa['pessoa_cpf']}}" >
-                <div class="card card-menu-individual">
-                    <img src="../../img/usuario/usuario.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
+                <div class="card card-menu-individual" id="relatorio">
+                    <img src="../../img/usuario/relatorio.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Relatorios</h5>
                         <p class="card-text"></p>
