@@ -29,8 +29,12 @@ Consultas
                             <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >
 
                                 <div>
-                                    <i class="fa fa-user mr-3" aria-hidden="true"></i>
+                                    <i class="fa fa-user mr-3 text-primary" aria-hidden="true"></i>
                                 {{$consulta["pessoa_nome"]}} {{$consulta["pessoa_sobrenome"]}}
+                                        <a href="/paciente/informacao/{{$consulta['pessoa_cpf']}}" class="mr-1">
+                                            <i class="fas fa-external-link-alt"></i>
+
+                                        </a>                          
                                 
                                 </div>
                                     <span class="d-flex">
