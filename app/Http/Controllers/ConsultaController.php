@@ -166,7 +166,8 @@ class ConsultaController extends Controller
                 'receita_data' => $data,
                 'receita_descricao' => $request->descricaoReceita,
                 'consultas_consulta_id'  => $request->idConsulta,
-                'medicamento' => $request->remedio
+                'medicamento' => $request->remedio,
+                'consulta_status_status_id' => '5'
 
             ]
 

@@ -28,8 +28,11 @@ Consultas
                         @if( date('d/m/Y', strtotime($consulta["consulta_data"])) === date('d/m/Y', strtotime(date('Y-m-d'))))
                             <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >
 
-                            
+                                <div>
+                                    <i class="fa fa-user mr-3" aria-hidden="true"></i>
                                 {{$consulta["pessoa_nome"]}} {{$consulta["pessoa_sobrenome"]}}
+                                
+                                </div>
                                     <span class="d-flex">
 
                                     
@@ -49,7 +52,7 @@ Consultas
                                             </a> 
                                         @elseif($consulta["consulta_status_status_id"]==2)
 
-                                                <i class="fas fa-check-double text-success mr-4"> Confirmado</i>
+                                                <i class="fas fa-check-double text-success mr-4 mt-1"> Confirmado</i>
                                         @elseif($consulta["consulta_status_status_id"]==5)
 
                                                 <i class="fas fa-check-double text-black-50"> Finalizado</i>
@@ -66,7 +69,7 @@ Consultas
                         
                             <hr>
                             
-                        @endif
+                            @endif
                         @endif
                     @endforeach
 
@@ -105,12 +108,12 @@ Consultas
 
                                                 <i class="fas fa-check-double text-black-50"> Finalizado</i>
                                         @endif
-
+                                    <!--
                                         <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$consulta['pessoa_cpf']}}" class="btn btn-info btn-sm mr-1">
                                             <i class="fas fa-external-link-alt"></i>
 
                                         </a>                          
-                                    
+                                    -->
                                     </span>  
                                 
                                 </li>

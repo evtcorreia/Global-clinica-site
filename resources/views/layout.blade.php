@@ -38,7 +38,7 @@
 				
             </div><!-- end row -->
         </div><!-- end container -->
-    </footer><!-- end footer -->
+        </footer><!-- end footer -->
 
         
 
