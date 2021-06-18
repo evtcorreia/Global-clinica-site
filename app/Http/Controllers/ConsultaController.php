@@ -83,6 +83,9 @@ class ConsultaController extends Controller
             ]
         ]);
 
+            return view('/agendamentos/index/agradecimento');
+
+
         
     }
 

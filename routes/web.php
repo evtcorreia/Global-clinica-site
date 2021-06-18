@@ -126,4 +126,8 @@ Route::post('/deletaConsulta', 'ConsultaController@deletaConsulta');
 //Adm
 
 Route::get('/adm/index/{cpf}','AdmController@index');
+Route::get('/adm/criar/clinica/{cpf}','AdmController@clinica');
+Route::get('/adm/criar/medico/{cpf}','AdmController@medico');
+Route::get('/adm/criar/recep/{cpf}','AdmController@recep');
+Route::get('/adm/criar/relatorio/{cpf}','AdmController@relatorio');
 // ->middleware('autenticador');
