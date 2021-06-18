@@ -11,7 +11,7 @@ Informações
         <a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Dados Pessoais</a>
     </li>
     <li class="nav-item col-sm-12 col-md-2 col-lg-2 mt-3">
-        <a class="nav-link 3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Dados Medicos</a>
+        <a class="nav-link 3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Dados Médicos</a>
     </li>
     <li class="nav-item col-sm-12 col-md-2 col-lg-2 mt-3">
         <a class="nav-link " id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contato</a>
@@ -85,7 +85,7 @@ Informações
 
             <div class="row ml-4 ">
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Tipo Sanguineo</h6>
+                    <h6>Tipo Sanguíneo</h6>
                     <p>{{$paciente["paciente_tipo_sang"]}}</p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">

@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-    Bem vindo {{$pessoa["pessoa_nome"]}} {{$pessoa["pessoa_sobrenome"]}}
+    Bem-vindo {{$pessoa["pessoa_nome"]}} {{$pessoa["pessoa_sobrenome"]}}
 
 @endsection
 

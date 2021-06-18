@@ -27,7 +27,7 @@ Consultas
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div style="background-color: white;">
-            <h3 class="ml-2 pt-3">Consultas do dia </h3>
+            <h3 class="ml-2 pt-3">Consultas do Dia </h3>
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
@@ -69,11 +69,11 @@ Consultas
 
                                         @if($consulta["consulta_status_status_id"]==1)
                                             
-                                                <i class="fas fa-check-double text-warning" id="status-consulta-{{$consulta['consulta_id']}}"> Aguardando Clinica</i> <button class="buttonEdicao" id="editaStatus" onclick='alteraStatus({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info  "></i></button> 
+                                                <i class="fas fa-check-double text-warning" id="status-consulta-{{$consulta['consulta_id']}}"> Aguardando Clínica</i> <button class="buttonEdicao" id="editaStatus" onclick='alteraStatus({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info  "></i></button> 
 
                                                 <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">                                                    
                                                     <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                        <option value="1"> Aguardando Clinica </option>
+                                                        <option value="1"> Aguardando Clínica </option>
                                                         <option value="2"> Confirmado </option>                                        
                                                     </select>
                                                     <div class="input-group-append ">
@@ -89,7 +89,7 @@ Consultas
 
                                                 <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">                                                    
                                                     <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                        <option value="1"> Aguardando Clinica </option>
+                                                        <option value="1"> Aguardando Clínica </option>
                                                         <option value="2"> Confirmado </option>                                        
                                                     </select>
                                                     <div class="input-group-append ">
@@ -104,7 +104,7 @@ Consultas
 
                                                 <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">                                                    
                                                     <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                        <option value="1"> Aguardando Clinica </option>
+                                                        <option value="1"> Aguardando Clínica </option>
                                                         <option value="2"> Confirmado </option>                                        
                                                     </select>
                                                     <div class="input-group-append ">

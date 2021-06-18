@@ -31,7 +31,7 @@
     
         @if(!isset($pessoas))
         
-            <h1>Nao exstem informações</h1>
+            <h1>Não existem informações</h1>
         @else
             @foreach($pessoas as $pessoa)
 
@@ -46,9 +46,9 @@
                             </div>
                             <p class="mb-1">CPF: {{$pessoa["pessoa_cpf"]}}</p>
                             <small></small>                        
-                            <p class="mb-1">Numero do cartão do SUS: {{$pessoa["paciente_sus_nr"]}}</p>
+                            <p class="mb-1">Número do cartão do SUS: {{$pessoa["paciente_sus_nr"]}}</p>
                             <small></small>   
-                            <p class="mb-1">Prontuario: {{$pessoa["prontuario_cod"]}}</p>
+                            <p class="mb-1">Prontuário: {{$pessoa["prontuario_cod"]}}</p>
                             <small></small>     
                             
                     </div>

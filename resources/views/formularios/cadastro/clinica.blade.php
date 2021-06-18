@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-Faça a Busca pelo paciente desejado
+Faça a busca pelo paciente desejado.
 
 @endsection
 
@@ -28,7 +28,7 @@ Faça a Busca pelo paciente desejado
 
         </div>
         <div class="col-md-4 mb-3">
-            <label for="nascimento">Data Nascmento</label>
+            <label for="nascimento">Data nascimento</label>
             <input type="date" class="form-control" id="nascimento" name="nascimento" placeholder="Nascimento"  maxlength="8" minlength="8" required>
         
         </div>
@@ -47,7 +47,7 @@ Faça a Busca pelo paciente desejado
         <div class="col-md-4 mb-3">
             <label class="" for="tipoDoc">Estado</label>
             <select name="tipoDoc" id="tipoDoc" class="form-control">
-                <option disabled selected value> -- Escolha um Plano de saude -- </option>
+                <option disabled selected value> -- Escolha um plano de saúde -- </option>
                 @foreach ($planos as $plano)
                 <option value="{{$plano['id']}}">
                     {{$plano["convenio_desc"]}}
@@ -68,8 +68,8 @@ Faça a Busca pelo paciente desejado
             
         </div>
         <div class="col-md-4 mb-3">
-            <label for="mae">Nome da Mae</label>
-            <input type="text" class="form-control" id="mae" name="mae" placeholder="Nome da Mae" required>
+            <label for="mae">Nome da Mãe</label>
+            <input type="text" class="form-control" id="mae" name="mae" placeholder="Nome da Mãe" required>
             
         </div>
 
@@ -87,13 +87,13 @@ Faça a Busca pelo paciente desejado
             
         </div>
         <div class="col-md-4 mb-3">
-            <label for="numero">Numero</label>
-            <input type="text" class="form-control" id="numero" name="numero" placeholder="Numero" required>
+            <label for="numero">Número</label>
+            <input type="text" class="form-control" id="numero" name="numero" placeholder="Número" required>
             
         </div>
         <div class="col-md-4 mb-3">
-            <label for="complemento">Complemeto</label>
-            <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Numero" required>
+            <label for="complemento">Complemento</label>
+            <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Complemento" required>
             
         </div>
 
@@ -191,7 +191,7 @@ Faça a Busca pelo paciente desejado
         <div class="form-group">
             <label for="tipoSang">Fator RH</label>
                 <select class="form-control" id="tipoSang" name="tipoSang">
-                    <option disabled selected value>---Selecione o tipo sanguineo---</option>
+                    <option disabled selected value>---Selecione o tipo sanguíneo---</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="O">O</option>

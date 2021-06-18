@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Laudo do Medico</label>
+                            <label for="exampleFormControlTextarea1">Laudo do Médico</label>
                             <textarea class="form-control" name="laudoConsulta" id="laudoConsulta" rows="3"></textarea>
                         </div>
 
@@ -65,7 +65,7 @@
                                 <textarea class="form-control" name="descricaoReceita" id="descricaoReceita" rows="3"></textarea>
                             </div>
                             <div id="formulario">
-                            <label for="inputRemedio ">Remedio</label>
+                            <label for="inputRemedio ">Remédio</label>
                                 <div class="input-group">
                                    
                                    {{$var = ''}}

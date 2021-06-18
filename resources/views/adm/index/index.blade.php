@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-    Bem vindo {{$pessoa["pessoa_nome"]}} {{$pessoa["pessoa_sobrenome"]}}
+    Bem-vindo {{$pessoa["pessoa_nome"]}} {{$pessoa["pessoa_sobrenome"]}}
 
 @endsection
 
@@ -15,7 +15,7 @@
                 <div class="card card-menu-individual">
                     <img src="../../img/usuario/novaclinica.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Nova Clinica</h5>
+                        <h5 class="card-title">Nova Clínica</h5>
                         <p class="card-text"></p>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 <div class="card card-menu-individual">
                 <img src="../../img/usuario/consulta.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="imagem logo estetoscopio azul, e um coração com coração vermelho no centro" >
                     <div class="card-body">
-                        <h5 class="card-title">Novo(a) Medico(a)</h5>
+                        <h5 class="card-title">Novo(a) Médico(a)</h5>
                         <p class="card-text"></p>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                 <div class="card card-menu-individual" id="relatorio">
                     <img src="../../img/usuario/relatorio2.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Relatorios</h5>
+                        <h5 class="card-title">Relatórios</h5>
                         <p class="card-text"></p>
                     </div>
                 </div>

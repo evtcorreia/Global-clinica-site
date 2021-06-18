@@ -28,7 +28,7 @@ Cadastrar novo(a) Recepsionista
 
         </div>
         <div class="col-md-4 mb-3">
-            <label for="nascimento">Data Nascmento</label>
+            <label for="nascimento">Data nascimento</label>
             <input type="date" class="form-control" id="nascimento" name="nascimento" placeholder="Nascimento"  maxlength="8" minlength="8" required>
         
         </div>
@@ -58,13 +58,13 @@ Cadastrar novo(a) Recepsionista
             
         </div>
         <div class="col-md-4 mb-3">
-            <label for="numero">Numero</label>
-            <input type="text" class="form-control" id="numero" name="numero" placeholder="Numero" required>
+            <label for="numero">Número</label>
+            <input type="text" class="form-control" id="numero" name="numero" placeholder="Número" required>
             
         </div>
         <div class="col-md-4 mb-3">
             <label for="complemento">Complemeto</label>
-            <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Numero" required>
+            <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Complemento" required>
             
         </div>
 
@@ -141,7 +141,7 @@ Cadastrar novo(a) Recepsionista
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="1" id="invalidCheck3" name="botao" required>
             <label class="form-check-label" for="invalidCheck3">
-                Concordo com os termos e condições
+                Concordo com os termos e condições.
             </label>
             <div class="invalid-feedback">
                 Você deve concordar, antes de continuar.

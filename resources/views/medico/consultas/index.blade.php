@@ -52,7 +52,7 @@ Consultas
 
                                         @if($consulta["consulta_status_status_id"]==1)
                                             <a  class=" mr-5">
-                                                <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                                <i class="fas fa-check-double text-warning"> Aguardando Clínica</i>
                                             </a> 
                                         @elseif($consulta["consulta_status_status_id"]==2)
 
@@ -103,7 +103,7 @@ Consultas
 
                                         @if($consulta["consulta_status_status_id"]==1)
                                             <a  class=" mr-5">
-                                                <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                                <i class="fas fa-check-double text-warning"> Aguardando Clínica</i>
                                             </a> 
                                         @elseif($consulta["consulta_status_status_id"]==2)
 

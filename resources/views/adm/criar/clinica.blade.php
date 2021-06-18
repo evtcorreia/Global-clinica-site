@@ -18,18 +18,18 @@ Cadastrar nova Clinica
     <h2 class="separadores">Dados da Clinica</h2>
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="nome">Razão Social:</label>
-            <input type="text" class="form-control " id="razao" name="razao" placeholder="Razão Social" required>        
+            <label for="nome">Razão social:</label>
+            <input type="text" class="form-control " id="razao" name="razao" placeholder="Razão social" required>        
 
         </div>
         <div class="col-md-4 mb-3">
-            <label for="sobrenome">Nome Fantasia: </label>
+            <label for="sobrenome">Nome fantasia: </label>
             <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
 
         </div>
         <div class="col-md-4 mb-3">
-            <label for="nascimento">Data de Abertura</label>
-            <input type="date" class="form-control" id="abertura" name="abertura" placeholder="Data de Abertura"  maxlength="8" minlength="8" required>
+            <label for="nascimento">Data de abertura</label>
+            <input type="date" class="form-control" id="abertura" name="abertura" placeholder="Data de abertura"  maxlength="8" minlength="8" required>
         
         </div>
         <div class="col-md-4 mb-3">
@@ -53,8 +53,8 @@ Cadastrar nova Clinica
             
         </div>
         <div class="col-md-4 mb-3">
-            <label for="numero">Numero</label>
-            <input type="text" class="form-control" id="numero" name="numero" placeholder="Numero" required>
+            <label for="numero">Número</label>
+            <input type="text" class="form-control" id="numero" name="numero" placeholder="Número" required>
             
         </div>
         <div class="col-md-4 mb-3">
@@ -83,7 +83,7 @@ Cadastrar nova Clinica
         <div class="col-md-4 mb-3">
             <label class="" for="cidade">Cidade</label>
             <select name="cidade" id="cidade" class="form-control">
-                <option disabled selected value> -- Escolha uma Cidade-- </option>
+                <option disabled selected value> -- Escolha uma cidade-- </option>
                 <option>...</option>
             </select>
         </div>

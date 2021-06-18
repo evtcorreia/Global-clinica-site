@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-Nova consulta
+Nova Consulta
 @endsection
 
 @section('conteudo')
@@ -11,7 +11,7 @@ Nova consulta
 
         <label class="mt-5" for="inputEstado">Estado</label>
         <select name="estado" id="inputEstado" class="form-control">
-            <option disabled selected value> -- Escolha um estado -- </option>
+            <option disabled selected value> -- Escolha um Estado -- </option>
             @foreach ($estados as $estado)
             <option value="{{$estado['id']}}">
                 {{$estado["estado_nome"]}}
@@ -26,28 +26,28 @@ Nova consulta
             <option>...</option>
         </select>
 
-        <label class="mt-5" for="inputClinica">Clinica</label>
+        <label class="mt-5" for="inputClinica">Clínica</label>
         <select name="clinica" id="clinica" class="form-control">
-            <option  selected value> -- Escolha uma Clinica -- </option>
+            <option  selected value> -- Escolha uma Clínica -- </option>
             <option >...</option>
         </select>
 
         <label class="mt-5" for="inputEstado">Especialidade</label>
         <select name="especialidade" id="inputEspecialidade" class="form-control">
-            <option  selected value> -- Escolha uma especialidade -- </option>
+            <option  selected value> -- Escolha uma Especialidade -- </option>
             <option>...</option>
         </select>
 
-        <label class="mt-5" for="inputEstado">Medico</label>
+        <label class="mt-5" for="inputEstado">Médico</label>
         <select name="medico" id="inputMedico" class="form-control">
-            <option disabled selected value> -- Escolha um medico  -- </option>
+            <option disabled selected value> -- Escolha um Médico  -- </option>
             <option>...</option>
         </select>
 
-        <label class="mt-5 mb-5">Data da consulta</label>
+        <label class="mt-5 mb-5">Data da Consulta</label>
         <input type="date" name="data" class="form-control">
 
-        <label class="mt-5">Hora da consulta</label>
+        <label class="mt-5">Hora da Consulta</label>
         <input type="time" min="08:00" max="18:00" pattern="[0-9]{2}:[0-9]{2}" name="hora" step="3600" class="form-control">
 
     </div>

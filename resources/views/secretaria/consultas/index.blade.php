@@ -17,10 +17,10 @@ Consultas
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item col-sm-12 col-md-2 col-lg-2  mt-3">
-        <a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Consultas do dia(abertas)</a>
+        <a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Consultas do Dia(abertas)</a>
     </li>
     <li class="nav-item col-sm-12 col-md-2 col-lg-2 mt-3">
-        <a class="nav-link 3" id="realizadas-tab" data-toggle="tab" href="#realizadas" role="tab" aria-controls="realizadas" aria-selected="false">Consultas finalizadas</a>
+        <a class="nav-link 3" id="realizadas-tab" data-toggle="tab" href="#realizadas" role="tab" aria-controls="realizadas" aria-selected="false">Consultas Finalizadas</a>
     </li>
 </ul>
 
@@ -73,11 +73,11 @@ Consultas
 
                                         @if($consulta["consulta_status_status_id"]==1)
 
-                                        <i class="fas fa-check-double text-warning" id="status-consulta-{{$consulta['consulta_id']}}"> Aguardando Clinica</i> <button class="buttonEdicao" id="editaStatus" onclick='alteraStatus({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info  "></i></button>
+                                        <i class="fas fa-check-double text-warning" id="status-consulta-{{$consulta['consulta_id']}}"> Aguardando Clínica</i> <button class="buttonEdicao" id="editaStatus" onclick='alteraStatus({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info  "></i></button>
 
                                         <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">
                                             <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                <option value="1"> Aguardando Clinica </option>
+                                                <option value="1"> Aguardando Clínica </option>
                                                 <option value="2"> Confirmado </option>
                                                 <option value="3"> Cancelada </option>
                                             </select>
@@ -105,7 +105,7 @@ Consultas
 
                                             <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">
                                                 <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                    <option value="1"> Aguardando Clinica </option>
+                                                    <option value="1"> Aguardando Clínica </option>
                                                     <option value="2"> Confirmado </option>
                                                     <option value="3"> Cancelada </option>
                                                 </select>
@@ -122,7 +122,7 @@ Consultas
 
                                                 <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">
                                                     <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                        <option value="1"> Aguardando Clinica </option>
+                                                        <option value="1"> Aguardando Clínica </option>
                                                         <option value="2"> Confirmado </option>
                                                         <option value="3"> Cancelada </option>
                                                     </select>
@@ -141,7 +141,7 @@ Consultas
 
                                                     <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">
                                                         <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                            <option value="1"> Aguardando Clinica </option>
+                                                            <option value="1"> Aguardando Clínica </option>
                                                             <option value="2"> Confirmado </option>
                                                             <option value="3"> Cancelada </option>
                                                         </select>
@@ -223,11 +223,11 @@ Consultas
 
                                         @if($consulta["consulta_status_status_id"]==1)
 
-                                        <i class="fas fa-check-double text-warning" id="status-consulta-{{$consulta['consulta_id']}}"> Aguardando Clinica</i> <button class="buttonEdicao" id="editaStatus" onclick='alteraStatus({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info  "></i></button>
+                                        <i class="fas fa-check-double text-warning" id="status-consulta-{{$consulta['consulta_id']}}"> Aguardando Clínica</i> <button class="buttonEdicao" id="editaStatus" onclick='alteraStatus({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info  "></i></button>
 
                                         <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">
                                             <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                <option value="1"> Aguardando Clinica </option>
+                                                <option value="1"> Aguardando Clínica </option>
                                                 <option value="2"> Confirmado </option>
                                                 <option value="3"> Cancelada </option>
                                             </select>
@@ -255,7 +255,7 @@ Consultas
 
                                             <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">
                                                 <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                    <option value="1"> Aguardando Clinica </option>
+                                                    <option value="1"> Aguardando Clínica </option>
                                                     <option value="2"> Confirmado </option>
                                                     <option value="3"> Cancelada </option>
                                                 </select>
@@ -272,7 +272,7 @@ Consultas
 
                                                 <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">
                                                     <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                        <option value="1"> Aguardando Clinica </option>
+                                                        <option value="1"> Aguardando Clínica </option>
                                                         <option value="2"> Confirmado </option>
                                                         <option value="3"> Cancelada </option>
                                                     </select>
@@ -291,7 +291,7 @@ Consultas
 
                                                     <div class=" mb-3" hidden id="input-status-consulta-{{$consulta['consulta_id']}}">
                                                         <select name="altera-status-consulta" id="altera-status-consulta-{{$consulta['consulta_id']}}" class="form-control">
-                                                            <option value="1"> Aguardando Clinica </option>
+                                                            <option value="1"> Aguardando Clínica </option>
                                                             <option value="2"> Confirmado </option>
                                                             <option value="3"> Cancelada </option>
                                                         </select>

@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-Faça a Busca pelo paciente desejado
+Faça a busca pelo paciente desejado.
 
 @endsection
 
@@ -28,7 +28,7 @@ Faça a Busca pelo paciente desejado
 
         </div>
         <div class="col-md-4 mb-3">
-            <label for="nascimento">Data Nascmento</label>
+            <label for="nascimento">Data Nascimento</label>
             <input type="date" class="form-control" id="nascimento" name="nascimento" placeholder="Nascimento"  maxlength="8" minlength="8" required>
         
         </div>
@@ -47,7 +47,7 @@ Faça a Busca pelo paciente desejado
         <div class="col-md-4 mb-3">
             <label class="" for="tipoDoc">Estado</label>
             <select name="tipoDoc" id="tipoDoc" class="form-control">
-                <option disabled selected value> -- Escolha um Plano de saude -- </option>
+                <option disabled selected value> -- Escolha um Plano de Saúde -- </option>
                 @foreach ($planos as $plano)
                 <option value="{{$plano['id']}}">
                     {{$plano["convenio_desc"]}}
@@ -68,8 +68,8 @@ Faça a Busca pelo paciente desejado
             
         </div>
         <div class="col-md-4 mb-3">
-            <label for="mae">Nome da Mae</label>
-            <input type="text" class="form-control" id="mae" name="mae" placeholder="Nome da Mae" required>
+            <label for="mae">Nome da Mãe</label>
+            <input type="text" class="form-control" id="mae" name="mae" placeholder="Nome da Mãe" required>
             
         </div>
 
@@ -87,8 +87,8 @@ Faça a Busca pelo paciente desejado
             
         </div>
         <div class="col-md-4 mb-3">
-            <label for="numero">Numero</label>
-            <input type="text" class="form-control" id="numero" name="numero" placeholder="Numero" required>
+            <label for="numero">Número</label>
+            <input type="text" class="form-control" id="numero" name="numero" placeholder="Número" required>
             
         </div>
         <div class="col-md-4 mb-3">
@@ -106,7 +106,7 @@ Faça a Busca pelo paciente desejado
         <div class="col-md-4 mb-3">
             <label class="" for="estado">Estado</label>
             <select name="estado" id="estado" class="form-control">
-                <option disabled selected value> -- Escolha um estado -- </option>
+                <option disabled selected value> -- Escolha um Estado -- </option>
                 @foreach ($estados as $estado)
                 <option value="{{$estado['id']}}">
                     {{$estado["estado_nome"]}}
@@ -250,7 +250,7 @@ Faça a Busca pelo paciente desejado
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="1" id="invalidCheck3" name="botao" required>
             <label class="form-check-label" for="invalidCheck3">
-                Concordo com os termos e condições
+                Concordo com os termos e condições.
             </label>
             <div class="invalid-feedback">
                 Você deve concordar, antes de continuar.

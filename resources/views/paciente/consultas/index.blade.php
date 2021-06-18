@@ -31,7 +31,7 @@ Consultas
                         
                             @if($consulta["consulta_status_status_id"]==1)
                                 <a  class=" mr-5">
-                                    <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                    <i class="fas fa-check-double text-warning"> Aguardando Clínica</i>
                                     <button class="buttonExclusao" onclick='excluirConsulta({{$consulta["consulta_id"]}})'> <i class="fa fa-trash-alt ml-3 text-danger" aria-hidden="true"></i></button>
                                     @csrf
                                 </a> 
@@ -77,7 +77,7 @@ Consultas
                         
                             @if($consulta["consulta_status_status_id"]==1)
                                 <a  class=" mr-5">
-                                    <i class="fas fa-check-double text-warning"> Aguardando Clinica</i>
+                                    <i class="fas fa-check-double text-warning"> Aguardando Clínica</i>
                                     <button class="buttonExclusao" onclick='excluirConsulta({{$consulta["consulta_id"]}})'> <i class="fa fa-trash-alt ml-3 text-danger" aria-hidden="true"></i></button>
                                     @csrf
                                 </a> 
