@@ -6,9 +6,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
-{
-
-    
+{ 
     
     public function consulta($cpf)
     {
@@ -103,23 +101,49 @@ class ConsultaController extends Controller
     {
 
         $listaRemedios = [];
+
+        //dd($request->remedio);
+    //$listaRemedios =  array_chunk($request->remedio, 4);
+    
+
+        $json_array = json_encode($request->remedio);
         
         //$json_array = json_encode($request->remedio);
 
-        foreach($request->remedio as $array)
-        {
-            array_push($listaRemedios, $array);
+        //foreach($request->remedio as $array)
+        //{
+        //    array_push($listaRemedios, $array);
             //var_dump($listaRemedios);
-        }
+       // }
 
+       //dd($listaRemedios);
+
+       // $keys = array('Remedio', 'Posologia', 'quantidade', 'tipo');
+            //foreach($listaRemedios as  &$array) {
+                //$array = (object) array_combine($keys, $array);
+            //} 
+
+            //$json_array = json_encode($array)  ;
+
+        //var_dump($json_array);
+        //exit();
+        
        // exit();
         
 
-        //substr($json_array, 1);
+        //$t = substr($json_array, 1);
         //var_dump($request->remedio);
         //exit();
 
-        //dd($ArrRemedio);
+
+        
+
+        //dd(substr ( $json_array , 0 , -1 ));
+        //var_dump($request->remedio);
+        //var_dump($request->remedio);
+        
+
+        
         //exit();
 
         $data = date('Y-m-d');
@@ -129,17 +153,17 @@ class ConsultaController extends Controller
         $response = $client->request('POST','http://api.hml01.com.br/api/consulta/grava/informacoes', [
 
             'form_params' => [
-            'consulta_info' => $request->sintomas,
-            'consulta_laudo' =>$request->laudoConsulta,
-            'consulta_obs' => $request->obsConsulta,
-            'consulta_id' => $request->idConsulta,  
-            'exame_data' => $request->dataExame,
-            'exame_resultado' => $request->laudoExame,
-            'consultas_consulta_id' => $request->idConsulta,
-            'receita_data' => $data,
-            'receita_descricao' => $request->descricaoReceita,
-            'consultas_consulta_id'  => $request->idConsulta,
-            'medicamento_id' => $listaRemedios
+                'consulta_info' => $request->sintomas,
+                'consulta_laudo' =>$request->laudoConsulta,
+                'consulta_obs' => $request->obsConsulta,
+                'consulta_id' => $request->idConsulta,  
+                'exame_data' => $request->dataExame,
+                'exame_resultado' => $request->laudoExame,
+                'consultas_consulta_id' => $request->idConsulta,
+                'receita_data' => $data,
+                'receita_descricao' => $request->descricaoReceita,
+                'consultas_consulta_id'  => $request->idConsulta,
+                'medicamento' => $request->remedio
 
             ]
 
@@ -150,8 +174,7 @@ class ConsultaController extends Controller
 
     public function alteraHora(Request $request)
     {
-
-    
+        
 
         $client = new \GuzzleHttp\Client();
         $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/alteraHora',[

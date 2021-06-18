@@ -67,13 +67,41 @@
                             <div id="formulario">
                             <label for="inputRemedio ">Remedio</label>
                                 <div class="input-group">
-                                    
-                                        <select name="remedio[]" id="remedio" class="form-control">
+                                   
+                                   {{$var = ''}}
+
+                                        
+                                        <select name="remedio['remedio'][]" id="remedio" class="form-control">
                                             <option disabled selected value> -- Escolha um Medicamento-- </option> 
 
                                             @foreach($medicamentos as $medicamento)
                                             <option value="{{$medicamento['id']}}"> {{$medicamento['medicamento_nome']}}</option> 
-                                            @endforeach                                       
+                                            {{$var = $medicamento['id']}}
+                                            @endforeach    
+                                        
+                                        </select>
+
+                                        <select name="remedio['posologia'][]" id="posologia" class="form-control">
+                                            <option disabled selected value> -- Posologia-- </option> 
+
+                                            
+                                            <option value="1"> 8 em 8 horas</option> 
+
+                                        </select>
+                                        <select name="remedio['qtd'][]" id="qtd" class="form-control">
+                                            <option disabled selected value> -- Quantidade-- </option> 
+
+                                            
+                                            <option value="1"> 1 </option> 
+
+                                        </select>
+
+                                        <select name="remedio['tipo'][]" id="tipo" class="form-control">
+                                            <option disabled selected value> -- Tipo-- </option> 
+
+                                            
+                                            <option value="1"> Comprimido </option> 
+
                                         </select>
                                         <div class="input-group-append">
                                     <button type="button" class="btn btn-primary" id="add-campo"> + </button>
@@ -170,7 +198,24 @@
             //https://api.jquery.com/click/
             $("#add-campo").click(function () {
 				//https://api.jquery.com/append/
-                $("#formulario").append('<div class="form-group"><select name="remedio[]" id="remedio" class="form-control"><option disabled selected value> -- Escolha um Medicamento-- </option>@foreach($medicamentos as $medicamento)<option value="{{$medicamento["id"]}}"> {{$medicamento["medicamento_nome"]}}</option>@endforeach</select></div>');
+                $("#formulario").append(`
+                                        <div class="form-group">
+                                            <select name="remedio['remedio'][]" id="remedio" class="form-control">
+                                                <option disabled selected value> -- Escolha um Medicamento-- </option>
+                                                    @foreach($medicamentos as $medicamento)
+                                                        <option value="{{$medicamento["id"]}}"> {{$medicamento["medicamento_nome"]}}</option>
+                                                    @endforeach</select> 
+                                            <select name="remedio['posologia'][]" id="posologia" class="form-control">
+                                                <option disabled selected value> -- Posologia-- </option> 
+                                                <option value="1"> 8 em 8 horas</option> 
+                                            </select> <select name="remedio['qtd'][]" id="qtd" class="form-control">
+                                                <option disabled selected value> -- Quantidade-- </option> 
+                                                <option value="1"> 1 </option> </select> 
+                                            <select name="remedio['tipo'][]" id="tipo" class="form-control">
+                                                <option disabled selected value> -- Tipo-- </option> 
+                                                <option value="1">Comprimido</option> 
+                                            </select>
+                                        </div>`);
             });
         </script>
 
