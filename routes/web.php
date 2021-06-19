@@ -30,10 +30,10 @@ Route::get('/pessoa/cadastrar/paciente', 'PessoaController@formulario')
 Route::get('/paciente/index/{cpf}','PessoaController@index')
 ->middleware('autenticador');
 
-Route::get('/paciente/informacao/{cpf}','PessoaController@show')
+Route::get('/paciente/informacao/{cpf}/{tipo}','PessoaController@show')
 ->middleware('autenticador');
 
-Route::get('/paciente/consultas/{cpf}','ConsultaController@consulta')
+Route::get('/paciente/consultas/{cpf}/','ConsultaController@consulta')
 ->middleware('autenticador');
 
 Route::get('/paciente/consulta/descricao/{id}/{cpf}','ConsultaController@descricao')
@@ -118,6 +118,10 @@ Route::post('/editaEstado','EnderecoController@editaEstado');
 Route::post('/editaCidade','EnderecoController@editaCidade');
 Route::post('/editaRua','EnderecoController@editaRua');
 Route::post('/editaCep','EnderecoController@editaCep');
+
+Route::post('/insereComorbidade','ComorbidadeController@store');
+
+
 
 //delete
 

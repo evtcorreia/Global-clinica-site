@@ -48,7 +48,9 @@ class EntrarController extends Controller
 
                 if($request->cpf == $pessoas['pessoa_cpf'] and $verifica )
                     {
-                        session()->put('user', $pessoas['pessoa_cpf']  );
+                        session()->put('user', $pessoas['pessoa_cpf']);
+                        //session()->push('user', $pessoas['tipo_pessoa_tpessoa_cod']);
+                        
                         
                         
                         //return redirect('/paciente/index/'. $pessoas['pessoa_cpf']);
@@ -59,7 +61,7 @@ class EntrarController extends Controller
                         }
                         */
                         
-                        return redirect('/tipo-login'.'/'.$pessoas['pessoa_cpf'] );
+                        return redirect('/tipo-login'.'/'. $pessoas['pessoa_cpf'] );
                     }
                     else
                     {

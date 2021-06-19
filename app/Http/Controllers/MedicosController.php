@@ -39,6 +39,7 @@ class MedicosController extends Controller
 
         return view('/medico/consultas/index',[
            'consultas' => $consulta,
+           'tipoPessoa' => 1
                     
                     
         ]);

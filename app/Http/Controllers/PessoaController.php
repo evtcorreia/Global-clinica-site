@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Hash;
         }
 
 
-        public function show($cpf)
+        public function show($cpf, $tipo)
         {
             $endereco = '';
 
@@ -76,7 +76,8 @@ use Illuminate\Support\Facades\Hash;
                 'estado' => $estado,
                 'cidade' => $cidade,
                 'estados' => $estados,
-                'cidadesDoEstado' => $cidadesDoEstado
+                'cidadesDoEstado' => $cidadesDoEstado,
+                'tipoAcesso' => $tipo
             ]);        
         }
 
