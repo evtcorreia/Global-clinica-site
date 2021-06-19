@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-Cadastrar nova Clinica
+Cadastrar nova Clínica
 
 @endsection
 
@@ -15,22 +15,12 @@ Cadastrar nova Clinica
     <div class="separadores col-md-12 mb-12">
 
     </div>
-    <h2 class="separadores">Dados da Clinica</h2>
+    <h2 class="separadores">Dados da Clínica</h2>
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="nome">Razão social:</label>
-            <input type="text" class="form-control " id="razao" name="razao" placeholder="Razão social" required>        
+            <label for="sobrenome">Nome da Clínica: </label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da Clínica" required>
 
-        </div>
-        <div class="col-md-4 mb-3">
-            <label for="sobrenome">Nome fantasia: </label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
-
-        </div>
-        <div class="col-md-4 mb-3">
-            <label for="nascimento">Data de abertura</label>
-            <input type="date" class="form-control" id="abertura" name="abertura" placeholder="Data de abertura"  maxlength="8" minlength="8" required>
-        
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationServer02">CNPJ</label>
@@ -107,7 +97,7 @@ Cadastrar nova Clinica
         </div>
         <div class="col-md-4 mb-3">
             <label for="area">DDD</label>
-            <input type="text" class="form-control" id="area" name="area" placeholder="Codigo de Area" maxlength="3" minlength="2" required>
+            <input type="text" class="form-control" id="area" name="area" placeholder="Codigo de área" maxlength="3" minlength="2" required>
             
         </div>
         <div class="col-md-4 mb-3">
