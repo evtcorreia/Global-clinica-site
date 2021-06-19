@@ -174,6 +174,8 @@ class ConsultaController extends Controller
 
         ]);
 
+        return view('/medico/consultas/atendimento/telasalva');
+
     }
 
     public function alteraHora(Request $request)
