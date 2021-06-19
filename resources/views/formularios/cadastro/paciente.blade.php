@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-Faça a busca pelo paciente desejado.
+Registrar novo Paciente
 
 @endsection
 
@@ -191,7 +191,7 @@ Faça a busca pelo paciente desejado.
         <div class="form-group">
             <label for="tipoSang">Fator RH</label>
                 <select class="form-control" id="tipoSang" name="tipoSang">
-                    <option disabled selected value>---Selecione o tipo sanguineo---</option>
+                    <option disabled selected value>---Selecione o tipo Sanguíneo---</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="O">O</option>
