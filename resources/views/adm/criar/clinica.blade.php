@@ -10,7 +10,7 @@ Cadastrar nova Clinica
 
 @section('conteudo')
 
-<form action="/pessoa/cadastrar" method="post">
+<form action="/clinica/cadastrar" method="post">
 @csrf
     <div class="separadores col-md-12 mb-12">
 
@@ -34,7 +34,7 @@ Cadastrar nova Clinica
         </div>
         <div class="col-md-4 mb-3">
             <label for="validationServer02">CNPJ</label>
-            <input type="text" class="form-control" id="cnpj" name="cNPJ" placeholder="CNPJ" maxlength="14" minlength="14" required>
+            <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="14" minlength="14" required>
             
         </div>
         

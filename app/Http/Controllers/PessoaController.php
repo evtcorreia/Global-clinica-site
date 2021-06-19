@@ -139,7 +139,7 @@ use Illuminate\Support\Facades\Hash;
             ]
             ]);
 
-
+            return view('/formularios/cadastro/telasalva');
 
         }
 
