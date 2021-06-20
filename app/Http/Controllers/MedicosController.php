@@ -1,7 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class MedicosController extends Controller
 {
@@ -56,7 +60,7 @@ class MedicosController extends Controller
 
 
         
-        $response = $client->request('POST', 'http://api.hml01.com.br/api/pessoa/cadastrar', [
+        $response = $client->request('POST', 'http://api.hml01.com.br/api/medico/cadastrar', [
 
         'form_params' => [
                 'pessoa_nome' => $request->nome,
@@ -83,19 +87,20 @@ class MedicosController extends Controller
                 'estados_estado_id' => $request->estado,
                 
 
-            //'pessoa_pessoa_cod' => $idPessoas,
-            //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
+                //'pessoa_pessoa_cod' => $idPessoas,
+                //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
                 'tpessoa' => $request->tpessoa,
 
                 'telefone_area' => $request->area,
                 'telefone_num' => $request->telefone,
-            //'pessoa_pessoa_cod' => $idPessoas,
+                //'pessoa_pessoa_cod' => $idPessoas,
                 'pessoa_pessoa_cpf' => $request->cpf,
-            
-               // "pessoa_pessoa_cpf" => $request->pessoa_cpf,
-                "paciente_sus_nr" => $request->sus_nr,
-                "paciente_tipo_sang" => $request->tipoSang,
-                "paciente_fator_rh" => $request->fatorRh,
+
+                'clinico_prof_doc' => $request->crm,
+                'especialidade_id' => $request->especialidade,
+                'clinica_id' => $request->clinica,
+                'tipo_documento_tipo_id' => $request->doc_prof,
+                //"pessoa_pessoa_cpf" => $request->pessoa_cpf,
                 //"pessoa_pessoa_cod" => $idPessoas
 
                 "tipoDoc" => $request->tipoDoc
@@ -104,7 +109,7 @@ class MedicosController extends Controller
         ]
         ]);
 
-        return view('/formularios/cadastro/telasalva');
+        return view('/adm/criar/confirma_clinica');
 
     }
 

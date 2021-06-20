@@ -101,11 +101,13 @@ use Illuminate\Support\Facades\Hash;
         $response = $client->request('POST', 'http://api.hml01.com.br/api/funcionario/cadastrar', [
 
         'form_params' => [
+            //dados pessoais
                 'pessoa_nome' => $request->nome,
                 'pessoa_sobrenome' => $request->sobrenome,
-
                 'pessoa_cpf' => $request->cpf,
                 'pessoa_rg' => $request->rg,
+                'pessoa_pai' => $request->pai,
+                'pessoa_mae' => $request->mae,
                 'pessoa_mail' => $request->email,
                 'pessoa_login' => $request->cpf,
                 'pessoa_senha' => $senha,
@@ -133,8 +135,8 @@ use Illuminate\Support\Facades\Hash;
                 //'pessoa_pessoa_cod' => $idPessoas,
                 'pessoa_pessoa_cpf' => $request->cpf,
 
-                'clinicas_id' => $request->clinica,
-                'funcionario_horarioTrabalho ' => $request->horario,
+                'clinica_id' => $request->clinica,
+                'funcionario_horarioTrabalho' => $request->horario,
                 'funcionario_dataAdmissao' => $request->admissao,
             
 
@@ -147,6 +149,7 @@ use Illuminate\Support\Facades\Hash;
         return view('/adm/criar/confirma_clinica');
 
     }
-    }
+    
+}
 
     

@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-Cadastrar novo(a) Recepsionista
+Cadastrar novo(a) Recepcionista
 
 @endsection
 
@@ -10,7 +10,7 @@ Cadastrar novo(a) Recepsionista
 
 @section('conteudo')
 
-<form action="/pessoa/cadastrar" method="post">
+<form action="/funcionario/cadastrar" method="post">
 @csrf
     <div class="separadores col-md-12 mb-12">
 
@@ -42,6 +42,16 @@ Cadastrar novo(a) Recepsionista
         <div class="col-md-4 mb-3">
             <label for="rg">RG</label>
             <input type="text" class="form-control" id="crg" name="rg" placeholder="RG" required>
+            
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="pai">Nome do Pai</label>
+            <input type="text" class="form-control" id="pai" name="pai" placeholder="Nome do Pai" required>
+            
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="mae">Nome da Mãe</label>
+            <input type="text" class="form-control" id="mae" name="mae" placeholder="Nome da Mãe" required>
             
         </div>
 
@@ -136,17 +146,17 @@ Cadastrar novo(a) Recepsionista
             <label class="" for="horario">Hórario de Serviço</label>
             <select name="horario" id="horario" class="form-control">
                 <option disabled selected value> -- Escolha um Hórario -- </option>
-                <option value="1">
+                <option value= 1>
                     6:00 as 16:00
                 </option>
-                <option value="2">
+                <option value= 2 >
                     8:00 as 18:00
                 </option>
             </select>
         </div>
 
         <div>
-        <label class="ml-3" for="inputClinica">Clínica</label>
+        <label class="ml-1" for="inputClinica">Clínica</label>
         <select name="clinica" id="clinica" class="form-control ml-1">
             <option  selected value> -- Escolha uma Clínica -- </option>
             <option >...</option>
@@ -183,7 +193,7 @@ Cadastrar novo(a) Recepsionista
     </div>
 
 
-    <input type='hidden' name='tpessoa' value= "2">
+    <input type='hidden' name='tpessoa' value= "3">
     <button class="btn btn-primary" type="submit">Enviar</button>
 </form>
 

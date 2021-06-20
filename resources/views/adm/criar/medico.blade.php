@@ -10,7 +10,7 @@ Cadastrar novo(a) Médico(a)
 
 @section('conteudo')
 
-<form action="/pessoa/cadastrar" method="post">
+<form action="/medico/cadastrar" method="post">
 @csrf
     <div class="separadores col-md-12 mb-12">
 
@@ -35,6 +35,21 @@ Cadastrar novo(a) Médico(a)
         <div class="col-md-4 mb-3">
             <label for="validationServer02">CPF</label>
             <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" maxlength="11" minlength="11" required>
+            
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">RG</label>
+            <input type="text" class="form-control" id="rg" name="rg" placeholder="RG" required>
+            
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="pai">Nome do Pai</label>
+            <input type="text" class="form-control" id="pai" name="pai" placeholder="Nome do Pai" required>
+            
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="mae">Nome da Mãe</label>
+            <input type="text" class="form-control" id="mae" name="mae" placeholder="Nome da Mãe" required>
             
         </div>
 
@@ -127,8 +142,8 @@ Cadastrar novo(a) Médico(a)
         </div>
 
         <div class="col-md-4 mb-3">
-        <label class="mt-" for="inputEstado">Especialidade</label>
-        <select name="estado" id="inputEstado" class="form-control">
+        <label class="mt-" for="especialidade">Especialidade</label>
+        <select name="especialidade" id="especilidade" class="form-control">
             <option disabled selected value> -- Escolha uma Especialidade -- </option>
             @foreach ($especialidades as $especialidade)
             <option value="{{$especialidade['id']}}">
@@ -137,6 +152,29 @@ Cadastrar novo(a) Médico(a)
             @endforeach
 
         </select>
+        </div>
+
+        <div>
+        <label class="ml-1" for="inputClinica">Clínica</label>
+        <select name="clinica" id="clinica" class="form-control ml-1">
+            <option  selected value> -- Escolha uma Clínica -- </option>
+            <option >...</option>
+        </select>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="" for="doc_prof">Tipo de Documento</label>
+            <select name="doc_prof" id="doc_prof" class="form-control">
+                <option disabled selected value> -- Escolha um tipo de Documento -- </option>
+                <option value= 1>
+                    CRM
+                </option>
+                <option value= 2 >
+                    CRO
+                </option>
+                <option value= 3 >
+                    CRN
+                </option>
+            </select>
         </div>
 
 
@@ -169,7 +207,7 @@ Cadastrar novo(a) Médico(a)
     </div>
 
 
-    <input type='hidden' name='tpessoa' value= "2">
+    <input type='hidden' name='tpessoa' value= "1">
     <button class="btn btn-primary" type="submit">Enviar</button>
 </form>
 
@@ -204,6 +242,42 @@ Cadastrar novo(a) Médico(a)
                             $.each(cidade, function(key, value) {                                
 
                                 $('select[name=cidade]').append('<option value="' + cidade[key]["id"] + '">' +cidade[key]["cidade_desc"]+ '</option>');
+
+                            });
+
+                        }
+                    })
+
+                });
+            });
+</script>
+<script>
+    $(document).ready(function() {
+
+                $('select[name="cidade"]').on('change', function() {
+
+                    var idCidade = $(this).val();
+
+
+                    $.ajax({                        
+
+                        url: '/get-clinicas/' + idCidade,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(clinicas) {
+
+
+                            //console.log(cidade);
+                            $('select[name=clinica]').empty();
+
+                            $('select[name=clinica]').append('<option  selected value> -- Escolha uma Clinica -- ' + '</option>');
+
+                            $.each(clinicas, function(key, value) { 
+                                //alert(clinicas[key]["id"] + " - " + clinicas[key]["clinica_nome"])
+
+
+                                    $('select[name=clinica]').append('<option value="' + clinicas[key]["id"] + '">' +clinicas[key]["clinica_nome"]+ '</option>');
+
 
                             });
 

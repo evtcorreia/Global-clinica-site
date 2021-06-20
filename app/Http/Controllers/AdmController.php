@@ -102,4 +102,21 @@ use Illuminate\Support\Facades\Hash;
                 
             ]);
         }
+
+        public function  listar($cpf)
+        {
+
+
+
+            $client =  new Client();
+            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
+            $pessoas = json_decode($response->getBody(), true);
+
+            
+        return view('/adm/listar/listar_func',[
+                'pessoa' => $pessoas,
+                
+                
+            ]);
+        }
 }
