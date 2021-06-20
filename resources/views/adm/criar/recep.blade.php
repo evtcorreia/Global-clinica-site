@@ -27,11 +27,13 @@ Cadastrar novo(a) Recepsionista
             <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Sobrenome" required>
 
         </div>
-        <div class="col-md-4 mb-3">
+        <!-- 
+            <div class="col-md-4 mb-3">
             <label for="nascimento">Data nascimento</label>
             <input type="date" class="form-control" id="nascimento" name="nascimento" placeholder="Nascimento"  maxlength="8" minlength="8" required>
         
         </div>
+        -->
         <div class="col-md-4 mb-3">
             <label for="validationServer02">CPF</label>
             <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" maxlength="11" minlength="11" required>
@@ -107,7 +109,7 @@ Cadastrar novo(a) Recepsionista
 
         <div class="col-md-4 mb-3">
             <label for="mail">E-mail</label>
-            <input type="text" class="form-control" id="mail" name="email" placeholder="E-mail" required>
+            <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" required>
             
         </div>
         <div class="col-md-4 mb-3">
@@ -119,6 +121,36 @@ Cadastrar novo(a) Recepsionista
             <label for="telefone">Telefone</label>
             <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
             
+        </div>
+
+
+        <div class="separadores col-md-12 mb-12">
+            <h2>Dados Profissionais</h2>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="nascimento">Data de Admissão</label>
+            <input type="date" class="form-control" id="admissao" name="admissao" placeholder="Admissão"  maxlength="8" minlength="8" required>
+        
+        </div>
+        <div class="col-md-4 mb-3">
+            <label class="" for="horario">Hórario de Serviço</label>
+            <select name="horario" id="horario" class="form-control">
+                <option disabled selected value> -- Escolha um Hórario -- </option>
+                <option value="1">
+                    6:00 as 16:00
+                </option>
+                <option value="2">
+                    8:00 as 18:00
+                </option>
+            </select>
+        </div>
+
+        <div>
+        <label class="ml-3" for="inputClinica">Clínica</label>
+        <select name="clinica" id="clinica" class="form-control ml-1">
+            <option  selected value> -- Escolha uma Clínica -- </option>
+            <option >...</option>
+        </select>
         </div>
 
 
@@ -186,6 +218,43 @@ Cadastrar novo(a) Recepsionista
                             $.each(cidade, function(key, value) {                                
 
                                 $('select[name=cidade]').append('<option value="' + cidade[key]["id"] + '">' +cidade[key]["cidade_desc"]+ '</option>');
+
+                            });
+
+                        }
+                    })
+
+                });
+            });
+</script>
+
+<script>
+    $(document).ready(function() {
+
+                $('select[name="cidade"]').on('change', function() {
+
+                    var idCidade = $(this).val();
+
+
+                    $.ajax({                        
+
+                        url: '/get-clinicas/' + idCidade,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(clinicas) {
+
+
+                            //console.log(cidade);
+                            $('select[name=clinica]').empty();
+
+                            $('select[name=clinica]').append('<option  selected value> -- Escolha uma Clinica -- ' + '</option>');
+
+                            $.each(clinicas, function(key, value) { 
+                                //alert(clinicas[key]["id"] + " - " + clinicas[key]["clinica_nome"])
+
+
+                                    $('select[name=clinica]').append('<option value="' + clinicas[key]["id"] + '">' +clinicas[key]["clinica_nome"]+ '</option>');
+
 
                             });
 

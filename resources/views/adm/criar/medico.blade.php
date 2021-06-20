@@ -37,11 +37,6 @@ Cadastrar novo(a) Médico(a)
             <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" maxlength="11" minlength="11" required>
             
         </div>
-        <div class="col-md-4 mb-3">
-            <label for="rg">CRM</label>
-            <input type="text" class="form-control" id="crm" name="crm" placeholder="CRM" required>
-            
-        </div>
 
 
         <div class="separadores col-md-12 mb-12">
@@ -119,6 +114,29 @@ Cadastrar novo(a) Médico(a)
             <label for="telefone">Telefone</label>
             <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
             
+        </div>
+
+
+        <div class="separadores col-md-12 mb-12">
+            <h2>Dados profissionais</h2>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="rg">CRM</label>
+            <input type="text" class="form-control" id="crm" name="crm" placeholder="CRM" required>
+            
+        </div>
+
+        <div class="col-md-4 mb-3">
+        <label class="mt-" for="inputEstado">Especialidade</label>
+        <select name="estado" id="inputEstado" class="form-control">
+            <option disabled selected value> -- Escolha uma Especialidade -- </option>
+            @foreach ($especialidades as $especialidade)
+            <option value="{{$especialidade['id']}}">
+                {{$especialidade["especialidade_desc"]}}
+            </option>
+            @endforeach
+
+        </select>
         </div>
 
 

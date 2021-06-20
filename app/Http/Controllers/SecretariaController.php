@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -85,6 +87,66 @@ use GuzzleHttp\Client;
                 'cidade' => $cidade
             ]);        
         }
+
+        public function store(Request $request)
+    {   
+        $senha = Hash::make($request->senha);
+
+
+        
+        $client = new \GuzzleHttp\Client();
+
+
+        
+        $response = $client->request('POST', 'http://api.hml01.com.br/api/funcionario/cadastrar', [
+
+        'form_params' => [
+                'pessoa_nome' => $request->nome,
+                'pessoa_sobrenome' => $request->sobrenome,
+
+                'pessoa_cpf' => $request->cpf,
+                'pessoa_rg' => $request->rg,
+                'pessoa_mail' => $request->email,
+                'pessoa_login' => $request->cpf,
+                'pessoa_senha' => $senha,
+                //'pessoa_endereco' => $idEndereco
+                'enderecos_endereco_id' => 1,
+               
+
+            
+                'endereco_logradouro' => $request->logradouro, 
+                'endereco_bairro' => $request->bairro,
+                'endereco_numero' => $request->numero,
+                'endereco_complemento' => $request->complemento,
+                'endereco_cep' => $request->cep,
+                'endereco_pais' => $request->pais,
+                'cidades_cidade_id' => $request->cidade,
+                'estados_estado_id' => $request->estado,
+                
+
+                //'pessoa_pessoa_cod' => $idPessoas,
+                //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
+                'tpessoa' => $request->tpessoa,
+
+                'telefone_area' => $request->area,
+                'telefone_num' => $request->telefone,
+                //'pessoa_pessoa_cod' => $idPessoas,
+                'pessoa_pessoa_cpf' => $request->cpf,
+
+                'clinicas_id' => $request->clinica,
+                'funcionario_horarioTrabalho ' => $request->horario,
+                'funcionario_dataAdmissao' => $request->admissao,
+            
+
+                "tipoDoc" => $request->tipoDoc
+
+    
+        ]
+        ]);
+
+        return view('/adm/criar/confirma_clinica');
+
+    }
     }
 
     

@@ -92,7 +92,7 @@ Cadastrar nova Clínica
 
         <div class="col-md-4 mb-3">
             <label for="mail">E-mail</label>
-            <input type="text" class="form-control" id="mail" name="email" placeholder="E-mail" required>
+            <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" required>
             
         </div>
         <div class="col-md-4 mb-3">
@@ -114,9 +114,6 @@ Cadastrar nova Clínica
     <button class="btn btn-primary" type="submit">Enviar</button>
 </form>
 
-
-
-
 @endsection
 
 @section('post-script')
@@ -127,6 +124,7 @@ Cadastrar nova Clínica
 
                     var idEstado = $(this).val();
                    // console.log(idEstado);
+
 
                     $.ajax({                        
 

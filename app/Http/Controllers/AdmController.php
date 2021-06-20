@@ -56,10 +56,15 @@ use Illuminate\Support\Facades\Hash;
             $response = $client->get('http://api.hml01.com.br/api/estados/');
             $estados = json_decode($response->getBody(),true);
 
+            $client =  new Client();
+            $response = $client->get('http://api.hml01.com.br/api/especialidades/');
+            $especialidades = json_decode($response->getBody(), true);
+
             
         return view('/adm/criar/medico',[
             'pessoa' => $pessoas,
             'estados' => $estados,
+            'especialidades' => $especialidades
                 
             ]);
         }

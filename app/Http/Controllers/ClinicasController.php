@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use GuzzleHttp\Client;
+    use Illuminate\Http\Request;
 
     class ClinicasController extends Controller
     {
@@ -19,7 +20,7 @@
 
         public function store(Request $request)
         {   
-            $senha = Hash::make($request->senha);
+            //$senha = Hash::make($request->senha);
 
 
             
@@ -54,17 +55,17 @@
                     //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
                     // 'tpessoa' => $request->tpessoa,
 
-                    'telefone_area' => $request->area,
-                    'telefone_num' => $request->telefone,
+                    'clinica_telefone_area' => $request->area,
+                    'clinica_telefone_num' => $request->telefone,
                 
 
-                    "tipoDoc" => $request->tipoDoc
+                    //"tipoDoc" => $request->tipoDoc
 
         
             ]
             ]);
 
-            return view('/adm/criar/comfirma_clinica');
+            return view('/adm/criar/confirma_clinica');
 
     }
 } 

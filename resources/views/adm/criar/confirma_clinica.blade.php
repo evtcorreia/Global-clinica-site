@@ -8,7 +8,7 @@
 
 @section('conteudo')
 <div class="d-flex justify-content-center">
-    <h1 >Clínica cadastrada com sucesso.</h1>
+    <h1 >Cadastro efetuado com sucesso.</h1>
 </div>
 
 <div class="d-flex justify-content-center">
