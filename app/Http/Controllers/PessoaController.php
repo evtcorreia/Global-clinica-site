@@ -65,6 +65,37 @@ use Illuminate\Support\Facades\Hash;
             $client = new Client();
             $response = $client->get('http://api.hml01.com.br/api/cidades/'.$estado['id']);
             $cidadesDoEstado = json_decode($response->getBody(),true);
+          
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/comorbidade/'. $paciente['prontuario_cod']);
+            $comorbidades = json_decode($response->getBody(),true);
+
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/cirurgia/'. $paciente['prontuario_cod']);
+            $cirurgias = json_decode($response->getBody(),true);
+          
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/DoencaFam/'. $paciente['prontuario_cod']);
+            $DoencaFams = json_decode($response->getBody(),true);
+          
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/dst/'. $paciente['prontuario_cod']);
+            $dsts = json_decode($response->getBody(),true);
+            
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/medControl/'. $paciente['prontuario_cod']);
+            $medControls = json_decode($response->getBody(),true);
+            
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/alergias/'. $paciente['prontuario_cod']);
+            $alergias = json_decode($response->getBody(),true);
+
+
+          
+            
+
+
+
             
             
 
@@ -77,7 +108,15 @@ use Illuminate\Support\Facades\Hash;
                 'cidade' => $cidade,
                 'estados' => $estados,
                 'cidadesDoEstado' => $cidadesDoEstado,
-                'tipoAcesso' => $tipo
+                'tipoAcesso' => $tipo,
+                'comorbidades' => $comorbidades,
+                'cirurgias' => $cirurgias,
+                'DoencaFams' => $DoencaFams,
+                'dsts' => $dsts,
+                'medControls' => $medControls,
+                'alergias' => $alergias
+
+
             ]);        
         }
 

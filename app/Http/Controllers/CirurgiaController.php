@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class ComorbidadeController extends Controller
+class CirurgiaController extends Controller
 {
     public function store(Request $request)
     {
@@ -14,11 +14,11 @@ class ComorbidadeController extends Controller
 
 
             
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/prontuario/comorbidade/store', [
+            $response = $client->request('POST', 'http://api.hml01.com.br/api/prontuario/cirurgia/store', [
 
             'form_params' => [
                 'prontuarios_prontuario_cod' => $request->prontuario,
-                'comorbidade_desc' => $request->comorbidade
+                'cirurgia_desc' => $request->cirurgia
 
         
             ]
