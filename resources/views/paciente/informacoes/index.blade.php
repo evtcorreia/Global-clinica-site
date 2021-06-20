@@ -106,11 +106,19 @@ Informações
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Comorbidades 
                     @if($tipoAcesso == 1)
-                       <button onclick="mostraInputComorbidade({{$pessoa['prontuario_cod']}})" class="ml-2">
+                       <button onclick="mostraInputComorbidade({{$pessoa['prontuario_cod']}})" class="ml-2 buttonEdicao text-primary">
                             <i class="fa fa-plus" aria-hidden="true"></i> 
                         </button>
                     @endif     
                     </h6>
+
+
+                    @foreach($comorbidades as $comorbidade)
+                        <p class="ml-4">{{$comorbidade["comorbidade_desc"]}}</p>
+                    @endforeach
+
+
+
                                         <div class=" mr-5  " hidden id="input-comorbidade-paciente-{{$pessoa['prontuario_cod']}}"> 
                                             <input type="text"  class="form-control" id="" value="" maxlength="15"  />
                                                 <div class="input-group-append ">
@@ -123,34 +131,80 @@ Informações
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Alergias
-                        <a href="" class="ml-2">
+                    @if($tipoAcesso == 1)
+                       <button onclick="mostraInputAlergia({{$pessoa['prontuario_cod']}})" class="ml-2 buttonEdicao text-primary">
                             <i class="fa fa-plus" aria-hidden="true"></i> 
-                        </a> 
+                        </button>
+                    @endif     
                     
                     </h6>
-                    <p></p>
+
+
+                    @foreach($alergias as $alergia)
+                        <p class="ml-4">{{$alergia["alergia_desc"]}}</p>
+                    @endforeach
+
+                                        <div class=" mr-5  " hidden id="input-alergia-paciente-{{$pessoa['prontuario_cod']}}"> 
+                                            <input type="text"  class="form-control" id="" value="" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="addAlergia({{$pessoa['prontuario_cod']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>
+                   
                 </div>
             </div>
 
             <div class="row ml-4 ">
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>DST
-                        <a href="" class="ml-2">
+                    @if($tipoAcesso == 1)
+                       <button onclick="mostraInputDst({{$pessoa['prontuario_cod']}})" class="ml-2 buttonEdicao text-primary">
                             <i class="fa fa-plus" aria-hidden="true"></i> 
-                        </a> 
-                    
+                        </button>
+                    @endif     
                     
                     </h6>
-                    <p></p>
+
+                    @foreach($dsts as $dst)
+                        <p class="ml-4">{{$dst["dst_desc"]}}</p>
+                    @endforeach
+
+                                        <div class=" mr-5  " hidden id="input-dst-paciente-{{$pessoa['prontuario_cod']}}"> 
+                                            <input type="text"  class="form-control" id="" value="" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="addDst({{$pessoa['prontuario_cod']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Medicações Controladas
-                        <a href="" class="ml-2">
+                    @if($tipoAcesso == 1)
+                       <button onclick="mostraInputMedControlada({{$pessoa['prontuario_cod']}})" class="ml-2 buttonEdicao text-primary">
                             <i class="fa fa-plus" aria-hidden="true"></i> 
-                        </a> 
+                        </button>
+                    @endif     
                     
                     </h6>
-                    <p></p>
+
+                    @foreach($medControls as $medControl)
+                        <p class="ml-4">{{$medControl["medControl_desc"]}}</p>
+                    @endforeach
+
+                                        <div class=" mr-5  " hidden id="input-medControl-paciente-{{$pessoa['prontuario_cod']}}"> 
+                                            <input type="text"  class="form-control" id="" value="" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="addMedControlada({{$pessoa['prontuario_cod']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>
                 </div>
             </div>
 
@@ -158,22 +212,51 @@ Informações
             <div class="row ml-4 ">
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Possui doenças graves na família?
-                        <a href="" class="ml-2">
+                    @if($tipoAcesso == 1)
+                       <button onclick="mostraInputDoencaFamila({{$pessoa['prontuario_cod']}})" class="ml-2 buttonEdicao text-primary">
                             <i class="fa fa-plus" aria-hidden="true"></i> 
-                        </a> 
-                    
+                        </button>
+                    @endif     
                     
                     </h6>
-                    <p></p>
+
+                    @foreach($DoencaFams as $DoencaFam)
+                        <p class="ml-4">{{$DoencaFam["hisFam_desc"]}}</p>
+                    @endforeach
+
+                                        <div class=" mr-5  " hidden id="input-doencaFam-paciente-{{$pessoa['prontuario_cod']}}"> 
+                                            <input type="text"  class="form-control" id="" value="" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="addDoencaFamilia({{$pessoa['prontuario_cod']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Já realizou alguma cirurgia?
-                        <a href="" class="ml-2">
+                    @if($tipoAcesso == 1)
+                       <button onclick="mostraInputCirurgia({{$pessoa['prontuario_cod']}})" class="ml-2 buttonEdicao text-primary">
                             <i class="fa fa-plus" aria-hidden="true"></i> 
-                        </a>                  
+                        </button>
+                    @endif     
                     
                     </h6>
-                    <p></p>
+
+                    @foreach($cirurgias as $cirurgia)
+                        <p class="ml-4">{{$cirurgia["cirurgia_desc"]}}</p>
+                    @endforeach
+
+                                        <div class=" mr-5  " hidden id="input-cirurgia-paciente-{{$pessoa['prontuario_cod']}}"> 
+                                            <input type="text"  class="form-control" id="" value="" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="addCirurgia({{$pessoa['prontuario_cod']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>
                 </div>
             </div>
 
@@ -780,6 +863,310 @@ Informações
 
 
 </script>
+
+<script>
+    function mostraInputAlergia(prontuario)
+        {
+
+        
+
+            const alergia = document.getElementById(`input-alergia-paciente-${prontuario}`);
+
+
+            if (alergia.hasAttribute('hidden')) {
+                alergia.removeAttribute('hidden');
+            
+            } else {
+            
+                alergia.hidden = true;
+                
+            }
+
+
+        }
+
+</script>
+
+
+<script>
+
+        function addAlergia(prontuario)
+        {
+
+            formData = new FormData();
+            const alergia = document
+            .querySelector(`#input-alergia-paciente-${prontuario} > input`)
+            .value;
+
+       
+           
+            const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        
+            formData.append('alergia', alergia);
+            formData.append('_token',token);
+            formData.append('prontuario', prontuario);
+
+            const url = `/insereAlergia`;
+            fetch(url, {
+            method: 'POST',
+            body: formData        
+            }).then(() => {
+                //alteraBairro(bairroId);
+            // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+                location. reload();
+            });
+        }
+
+
+
+</script>
+
+
+
+<script>
+    function mostraInputDst(prontuario)
+        {
+
+        
+
+            const dst = document.getElementById(`input-dst-paciente-${prontuario}`);
+
+
+            if (dst.hasAttribute('hidden')) {
+                dst.removeAttribute('hidden');
+            
+            } else {
+            
+                dst.hidden = true;
+                
+            }
+
+
+        }
+
+</script>
+
+
+<script>
+
+        function addDst(prontuario)
+        {
+
+            formData = new FormData();
+            const dst = document
+            .querySelector(`#input-dst-paciente-${prontuario} > input`)
+            .value;
+
+           
+            const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        
+            formData.append('dst', dst);
+            formData.append('_token',token);
+            formData.append('prontuario', prontuario);
+
+            const url = `/insereDst`;
+            fetch(url, {
+            method: 'POST',
+            body: formData        
+            }).then(() => {
+                //alteraBairro(bairroId);
+            // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+                location. reload();
+            });
+        }
+
+
+
+</script>
+
+<script>
+    function mostraInputMedControlada(prontuario)
+        {
+
+        
+
+            const medControl = document.getElementById(`input-medControl-paciente-${prontuario}`);
+
+
+            if (medControl.hasAttribute('hidden')) {
+                medControl.removeAttribute('hidden');
+            
+            } else {
+            
+                medControl.hidden = true;
+                
+            }
+
+
+        }
+
+</script>
+
+
+<script>
+
+        function addMedControlada(prontuario)
+        {
+
+            formData = new FormData();
+            const medControl = document
+            .querySelector(`#input-medControl-paciente-${prontuario} > input`)
+            .value;
+
+            
+           
+            const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        
+            formData.append('medControl', medControl);
+            formData.append('_token',token);
+            formData.append('prontuario', prontuario);
+
+            const url = `/insereMedControl`;
+            fetch(url, {
+            method: 'POST',
+            body: formData        
+            }).then(() => {
+                //alteraBairro(bairroId);
+            // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+                location. reload();
+            });
+        }
+
+
+
+</script>
+
+
+<script>
+    function mostraInputDoencaFamila(prontuario)
+        {
+
+        
+
+            const doencaFam = document.getElementById(`input-doencaFam-paciente-${prontuario}`);
+
+
+            if (doencaFam.hasAttribute('hidden')) {
+                doencaFam.removeAttribute('hidden');
+            
+            } else {
+            
+                doencaFam.hidden = true;
+                
+            }
+
+
+        }
+
+</script>
+
+
+<script>
+
+        function addDoencaFamilia(prontuario)
+        {
+
+            formData = new FormData();
+            const doencaFam = document
+            .querySelector(`#input-doencaFam-paciente-${prontuario} > input`)
+            .value;
+
+            
+           
+            const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        
+            formData.append('doencaFam', doencaFam);
+            formData.append('_token',token);
+            formData.append('prontuario', prontuario);
+
+            const url = `/insereDoencaFam`;
+            fetch(url, {
+            method: 'POST',
+            body: formData        
+            }).then(() => {
+                //alteraBairro(bairroId);
+            // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+                location. reload();
+            });
+        }
+
+
+
+</script>
+
+<script>
+    function mostraInputCirurgia(prontuario)
+        {
+
+        
+
+            const cirurgia = document.getElementById(`input-cirurgia-paciente-${prontuario}`);
+
+
+            if (cirurgia.hasAttribute('hidden')) {
+                cirurgia.removeAttribute('hidden');
+            
+            } else {
+            
+                cirurgia.hidden = true;
+                
+            }
+
+
+        }
+
+</script>
+
+
+<script>
+
+        function addCirurgia(prontuario)
+        {
+
+            formData = new FormData();
+            const cirurgia = document
+            .querySelector(`#input-cirurgia-paciente-${prontuario} > input`)
+            .value;
+
+           
+            const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        
+            formData.append('cirurgia', cirurgia);
+            formData.append('_token',token);
+            formData.append('prontuario', prontuario);
+
+            const url = `/insereCirurgia`;
+            fetch(url, {
+            method: 'POST',
+            body: formData        
+            }).then(() => {
+                //alteraBairro(bairroId);
+            // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+                location. reload();
+            });
+        }
+
+
+
+</script>
+
+
+
 
 
 

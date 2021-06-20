@@ -120,6 +120,12 @@ Route::post('/editaRua','EnderecoController@editaRua');
 Route::post('/editaCep','EnderecoController@editaCep');
 
 Route::post('/insereComorbidade','ComorbidadeController@store');
+Route::post('/insereAlergia','AlergiaController@store');
+Route::post('/insereDst','DstController@store');
+Route::post('/insereMedControl','MedControlController@store');
+Route::post('/insereDoencaFam','DoencaFamController@store');
+Route::post('/insereCirurgia','CirurgiaController@store');
+
 
 
 
