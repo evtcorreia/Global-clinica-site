@@ -22,6 +22,8 @@ Consultas
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
+
+                    
                     @foreach ($consultas as $consulta)
 
                     @if($consulta["consulta_status_status_id"] == '2')
@@ -31,7 +33,7 @@ Consultas
                                 <div>
                                     <i class="fa fa-user mr-3 text-primary" aria-hidden="true"></i>
                                 {{$consulta["pessoa_nome"]}} {{$consulta["pessoa_sobrenome"]}}
-                                        <a href="/paciente/informacao/{{$consulta['pessoa_cpf']}}" class="mr-1">
+                                        <a href="/paciente/informacao/{{$consulta['pessoa_cpf']}}/1" class="mr-1">
                                             <i class="fas fa-external-link-alt"></i>
 
                                         </a>                          

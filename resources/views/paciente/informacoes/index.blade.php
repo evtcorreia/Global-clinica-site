@@ -104,22 +104,52 @@ Informações
 
             <div class="row ml-4 ">
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Comorbidades</h6>
-                    <p></p>
+                    <h6>Comorbidades 
+                    @if($tipoAcesso == 1)
+                       <button onclick="mostraInputComorbidade({{$pessoa['prontuario_cod']}})" class="ml-2">
+                            <i class="fa fa-plus" aria-hidden="true"></i> 
+                        </button>
+                    @endif     
+                    </h6>
+                                        <div class=" mr-5  " hidden id="input-comorbidade-paciente-{{$pessoa['prontuario_cod']}}"> 
+                                            <input type="text"  class="form-control" id="" value="" maxlength="15"  />
+                                                <div class="input-group-append ">
+                                                        <button class="btn btn-primary btn-block" onclick="addComorbidade({{$pessoa['prontuario_cod']}})">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                @csrf
+                                            </div>
+                                        </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Alergias</h6>
+                    <h6>Alergias
+                        <a href="" class="ml-2">
+                            <i class="fa fa-plus" aria-hidden="true"></i> 
+                        </a> 
+                    
+                    </h6>
                     <p></p>
                 </div>
             </div>
 
             <div class="row ml-4 ">
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>DST</h6>
+                    <h6>DST
+                        <a href="" class="ml-2">
+                            <i class="fa fa-plus" aria-hidden="true"></i> 
+                        </a> 
+                    
+                    
+                    </h6>
                     <p></p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Medicações Controladas</h6>
+                    <h6>Medicações Controladas
+                        <a href="" class="ml-2">
+                            <i class="fa fa-plus" aria-hidden="true"></i> 
+                        </a> 
+                    
+                    </h6>
                     <p></p>
                 </div>
             </div>
@@ -127,11 +157,22 @@ Informações
 
             <div class="row ml-4 ">
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Possui doenças graves na família?</h6>
+                    <h6>Possui doenças graves na família?
+                        <a href="" class="ml-2">
+                            <i class="fa fa-plus" aria-hidden="true"></i> 
+                        </a> 
+                    
+                    
+                    </h6>
                     <p></p>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
-                    <h6>Já realizou alguma cirurgia?</h6>
+                    <h6>Já realizou alguma cirurgia?
+                        <a href="" class="ml-2">
+                            <i class="fa fa-plus" aria-hidden="true"></i> 
+                        </a>                  
+                    
+                    </h6>
                     <p></p>
                 </div>
             </div>
@@ -150,7 +191,11 @@ Informações
                     <h6> Telefone   </h6> 
 
                     @foreach ($telefones as $telefone) 
-                        <div id="telefone-paciente-{{$telefone['telefone_cod']}}"> {{$telefone["telefone_area"]}}  {{$telefone["telefone_num"]}} <button class="buttonEdicao" onclick='alteraTelefone({{$telefone["telefone_cod"]}})'> <i class="fas fa-edit  text-info   "></i> </button></div>
+                        <div id="telefone-paciente-{{$telefone['telefone_cod']}}"> {{$telefone["telefone_area"]}}  {{$telefone["telefone_num"]}}
+                        @if($tipoAcesso != 1)
+                         <button class="buttonEdicao" onclick='alteraTelefone({{$telefone["telefone_cod"]}})'> <i class="fas fa-edit  text-info   "></i> </button>
+                        @endif 
+                        </div>
                     @endforeach    
 
                                         <div class=" mr-5  " hidden id="input-telefone-paciente-{{$telefone['telefone_cod']}}"> 
@@ -167,7 +212,11 @@ Informações
 
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Estado </h6>
-                    <div id="estado-paciente-{{$endereco['endereco_id']}}" value="13" >{{$estado["estado_nome"]}} <button class="buttonEdicao" onclick='alteraEstado({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></div>
+                    <div id="estado-paciente-{{$endereco['endereco_id']}}" value="13" >{{$estado["estado_nome"]}} 
+                    @if($tipoAcesso != 1)
+                    <button class="buttonEdicao" onclick='alteraEstado({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button>
+                    @endif
+                    </div>
 
                                         <div class=" mr-5  " hidden id="input-estado-paciente-{{$endereco['endereco_id']}}"> 
                                             
@@ -193,11 +242,15 @@ Informações
 
             <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Bairro </h6>
-                    <p id="bairro-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_bairro"]}} <button class="buttonEdicao" onclick='alteraBairro({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+                    <p id="bairro-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_bairro"]}} 
+                    @if($tipoAcesso != 1)
+                        <button class="buttonEdicao" onclick='alteraBairro({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+                    @endif
 
                                         <div class=" mr-5  " hidden id="input-bairro-paciente-{{$endereco['endereco_id']}}"> 
                                             <input type="text"  class="form-control" id="phone" value="{{$endereco['endereco_bairro']}}" maxlength="15"  />
                                                 <div class="input-group-append ">
+
                                                         <button class="btn btn-primary btn-block" onclick="editarBairro({{$endereco['endereco_id']}})">
                                                             <i class="fas fa-check"></i>
                                                         </button>
@@ -208,7 +261,11 @@ Informações
 
                 <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Rua </h6>
-                    <p id="rua-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_logradouro"]}} <button class="buttonEdicao" onclick=''> <button class="buttonEdicao" onclick='alteraRua({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+                    <p id="rua-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_logradouro"]}} 
+                    @if($tipoAcesso != 1)
+                        <button class="buttonEdicao" onclick=''> <button class="buttonEdicao" onclick='alteraRua({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button>
+                    @endif
+                    </p>
 
                                         <div class=" mr-5  " hidden id="input-rua-paciente-{{$endereco['endereco_id']}}"> 
                                             <input type="text"  class="form-control" id="phone" value="{{$endereco['endereco_logradouro']}}" maxlength="15"  />
@@ -223,7 +280,11 @@ Informações
 
                 <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>Cidade</h6>
-                        <p id="cidade-paciente-{{$endereco['endereco_id']}}">{{$cidade["cidade_desc"]}} <button class="buttonEdicao" onclick='alteraCidade({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+                        <p id="cidade-paciente-{{$endereco['endereco_id']}}">{{$cidade["cidade_desc"]}} 
+                        @if($tipoAcesso != 1)
+                            <button class="buttonEdicao" onclick='alteraCidade({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button>
+                        @endif
+                        </p>
 
                                         <div class=" mr-5  " hidden id="input-cidade-paciente-{{$endereco['endereco_id']}}"> 
                                                 
@@ -247,7 +308,11 @@ Informações
             <div class="row ml-4 ">
                 <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
                     <h6>CEP </h6>
-                    <p id="cep-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_cep"]}} <button class="buttonEdicao" onclick='alteraCep({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button></p>
+                    <p id="cep-paciente-{{$endereco['endereco_id']}}">{{$endereco["endereco_cep"]}} 
+                    @if($tipoAcesso != 1)
+                        <button class="buttonEdicao" onclick='alteraCep({{$endereco["endereco_id"]}})'> <i class="fas fa-edit  text-info   "></i> </button>
+                    @endif
+                    </p>
 
                                         <div class=" mr-5  " hidden id="input-cep-paciente-{{$endereco['endereco_id']}}"> 
                                             <input type="text"  class="form-control" id="phone" value="{{$endereco['endereco_cep']}}" maxlength="15"  />
@@ -654,6 +719,66 @@ Informações
             location. reload();
         });
         }
+</script>
+
+
+<script>
+    function mostraInputComorbidade(prontuario)
+        {
+
+        
+
+            const comorbidade = document.getElementById(`input-comorbidade-paciente-${prontuario}`);
+
+
+            if (comorbidade.hasAttribute('hidden')) {
+                comorbidade.removeAttribute('hidden');
+            
+            } else {
+            
+                comorbidade.hidden = true;
+                
+            }
+
+
+        }
+
+</script>
+
+
+<script>
+
+        function addComorbidade(prontuario)
+        {
+
+            formData = new FormData();
+            const comorbidade = document
+            .querySelector(`#input-comorbidade-paciente-${prontuario} > input`)
+            .value;
+
+           
+            const token = document
+            .querySelector(`input[name="_token"]`)
+            .value;  
+
+        
+            formData.append('comorbidade', comorbidade);
+            formData.append('_token',token);
+            formData.append('prontuario', prontuario);
+
+            const url = `/insereComorbidade`;
+            fetch(url, {
+            method: 'POST',
+            body: formData        
+            }).then(() => {
+                //alteraBairro(bairroId);
+            // document.getElementById(`#bairro-paciente-${bairroId}`).textContent = bairro;
+                location. reload();
+            });
+        }
+
+
+
 </script>
 
 
