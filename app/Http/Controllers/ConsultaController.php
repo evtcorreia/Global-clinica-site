@@ -83,7 +83,10 @@ class ConsultaController extends Controller
             ]
         ]);
 
-            return view('/agendamentos/index/agradecimento');
+        
+
+            return redirect()->back()->with('status','Consulta marcada, aguarde confirmação! ');
+            //return view('/agendamentos/index/agradecimento');
 
 
         

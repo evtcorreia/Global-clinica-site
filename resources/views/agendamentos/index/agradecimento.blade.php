@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-<meta http-equiv="refresh" content="4; URL='http://localhost:8000/secretaria/consultas/index/1'"/>
+<meta http-equiv="refresh" content="4; URL='http://localhost:8000/secretaria/consultas/index/{Session::get('pessoacpf')}'"/>
 
 @endsection
 

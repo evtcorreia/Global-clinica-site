@@ -240,5 +240,3 @@ use Illuminate\Support\Facades\Hash;
         }
         
     }
-
-    
