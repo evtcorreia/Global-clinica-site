@@ -32,15 +32,15 @@ Consultar Funcionários
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul>
-                    @foreach( $pessoas as $pessoa) 
+                    @foreach( $clinicaDoAdm as $clinica) 
                     <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >
-                    {{$pessoa["pessoa_nome"]}}
+                    {{$clinica["clinica_nome"]}}
                             <span class="d-flex">
                         
                             
-                                <a href="/funcionario/informacoes/{{$pessoa['pessoa_cpf']}}" class=" mr-5 fas fa-external-link-alt text-primary" >
-                               
-                                   
+                                <a  href="/adm/listar/listar_func/{{$clinica['clinica_id']}}" class=" mr-5">
+                                    
+                                    <button class="buttonExclusao" > <i class="fas fa-external-link-alt text-primary" aria-hidden="true"></i></button>
                                     @csrf
                                 </a> 
 

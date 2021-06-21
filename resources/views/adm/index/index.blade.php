@@ -49,7 +49,7 @@
         </div>
 
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
-            <a href="/adm/listar/listar_func/{{$pessoa['pessoa_cpf']}}">
+            <a href="/adm/listar/listar_clinicas/{{$pessoa['pessoa_cpf']}}">
                 <div class="card card-menu-individual">
                     <img src="../../img/usuario/novaclinica.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
                     <div class="card-body">
