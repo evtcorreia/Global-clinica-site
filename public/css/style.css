@@ -25,36 +25,38 @@ body {
         
 }
 
-#medico {
-    position:fixed;
-    top:36%;
-    left:5%;
-    margin-top:-50px;
-    margin-left:-50px;
+#meico {
+    position:relative;
+    top:100%;
+    
+
 }
 
-#paciente {
-    position:fixed;
-    top:36%;
-    left:30%;
-    margin-top:-50px;
-    margin-left:-50px;
+#paiente {
+    position:sticky;
+    top: 150%;
+    
+    
+    
 }
        
-#secretaria {
-    position:fixed;
-    top:36%;
-    left:55%;
-    margin-top:-50px;
-    margin-left:-50px;
+#seretaria {
+    position:relative;
+    top:100%;
+    
+    
 }
 
-#adm {
-    position:fixed;
-    top:36%;
-    left:80%;
-    margin-top:-50px;
-    margin-left:-50px;
+#am {
+    position:relative;
+    top:100%;
+    
+    
+}
+.altura{
+
+    margin-top:300px;
+    text-align: right;
 }
 
 .card-menu-individual{
