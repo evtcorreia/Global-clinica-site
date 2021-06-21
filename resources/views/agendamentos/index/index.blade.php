@@ -5,6 +5,11 @@ Nova Consulta
 @endsection
 
 @section('conteudo')
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 <form action="/consulta/salvar" method='POST'>
 @csrf
     <div class="form-group row m-3">
