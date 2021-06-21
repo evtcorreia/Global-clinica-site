@@ -179,7 +179,7 @@ use Illuminate\Support\Facades\Hash;
             ]
             ]);
 
-            return view('/formularios/cadastro/telasalva');
+            return view('/formularios/cadastro/telasalva/');
 
         }
 
