@@ -13,7 +13,7 @@
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
             <a href="/medico/consultas/index/{{$pessoa['pessoa_cpf']}}">
                 <div class="card card-menu-individual">
-                <img src="../../img/usuario/consulta2.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="imagem logo estetoscopio azul, e um coração com coração vermelho no centro" >
+                <img src="../../img/usuario/consulta1.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="imagem logo estetoscopio azul, e um coração com coração vermelho no centro" >
                     <div class="card-body">
                         <h5 class="card-title">Consultas</h5>
                         <p class="card-text"></p>
@@ -21,7 +21,8 @@
                 </div>
             </a>
         </div>
-        
+
+       <!-- 
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
             <div class="card card-menu-individual">
                 <img src="../../img/usuario/contato3.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
@@ -31,6 +32,7 @@
             </div>
             </div>
         </div>
+        -->
 
     </div>
 

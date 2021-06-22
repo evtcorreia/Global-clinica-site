@@ -97,7 +97,7 @@
                 <div class="col col-sm-12 col-md-3 col-lg-3 mt-5 mb-5">
               @endif
                   <a href="/adm/index/{{$cpf}}">
-                    <img src="../../img/usuario/adm.png" id="adm" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
+                    <img src="../../img/usuario/adm2.png" id="adm" class="card-img-top  mx-auto d-block mt-3 menu-paciente-inicio" alt="...">
                   </a>
                 
               </div>

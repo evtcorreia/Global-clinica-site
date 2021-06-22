@@ -35,7 +35,7 @@
             </a>
         </div>
 
-        
+        <!--
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
             <div class="card card-menu-individual">
                 <img src="../../img/usuario/contato3.png" class="card-img-top  mx-auto d-block mt-3 menu-paciente" alt="...">
@@ -45,7 +45,8 @@
             </div>
             </div>
         </div>
-
+        -->
+        
         <div class="col col-sm-12 col-md-12 col-lg-3 mb-3 mt-3">
             <a href="/paciente/informacao/{{$pessoa['pessoa_cpf']}}/2" >
                 <div class="card card-menu-individual">
