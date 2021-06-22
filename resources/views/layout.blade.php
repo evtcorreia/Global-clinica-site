@@ -12,19 +12,69 @@
     </head>
     <body>
 
+    
+    <div id= "menu" >
+                <ul>
+                    <li><a href="http://localhost:8000/tipo-login/00000000000">Seleção de Usuario</a></li>
+                    <!--<li><a href="../../index/index.blade.php">Menu Principal</a></li>-->
+                    <li><a href="javascript:history.back(-1)">Voltar</a></li>
 
+                    <li><a href="/sair">Sair</a></li>
+                </ul>
+            </div>
     <div class="jumbotron jumbotron-fluid" >
         <div class="container">
             <h1>@yield('cabecalho')</h1>
-            <div style="text-align:right; width:100%; padding:0;">
-                <input type="button" class="btn btn-primary" value="Voltar" onClick="history.go(-2)">
-                <a href="/sair">Sair</a>
-
-                
-            </div>
-            
         </div>
     </div>
+    
+    <div>
+        <style>
+            body{
+                margin: 0;
+                }
+
+                    #menu ul{
+                        margin: 0;
+                        background-color: #3092E3;
+                        list-style: none;
+                    }
+
+                    #menu ul li{
+                        display: inline;
+                        
+                    }
+
+                    #menu ul li a{
+                        padding: 10px 10px;
+                        display: inline-block;
+
+                        color: white;
+                        text-decoration: none;
+                    }
+
+                    #menu ul li a:hover{
+                        color: #ffffff;
+                    }
+
+                    #menu ul li a:active{
+                        color: red;
+                    }
+
+                    #menu ul li a:visited{
+                        color: #ffffff;
+                    }
+                </style>    
+            </div>
+    <!--<div style="text-align:right; width:100%; padding:0;">
+    <input type="button" class="btn btn-primary" value="Voltar" onClick="history.go(-2)">
+    <a href="/sair">Sair</a>
+     </div>   
+    </div>
+    </div>
+    -->
+    
+    
 
     <div class="container">
         @yield('conteudo') 
