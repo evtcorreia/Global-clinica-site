@@ -513,6 +513,11 @@ input:-webkit-autofill
             <div class="second-column">
                 <h1 class="title title-second">Acessar</h1>
                 
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 
                 <form class="form" action="/verifica-login" method="POST" >
                 @csrf
@@ -526,7 +531,7 @@ input:-webkit-autofill
                         <input type="password" name="password" placeholder="Senha">
                     </label>
                     
-                    <a class="password" href="#">Esqueceu sua Senha?</a>
+                   <!-- <a class="password" href="#">Esqueceu sua Senha?</a> -->
                     <button class="btn btn-second">Entrar</button>        
                 </form>
             </div><!-- second column -->

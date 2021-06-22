@@ -59,16 +59,17 @@ Route::Post('/consulta/salvar', 'ConsultaController@store')
 
 //Medico
 
-Route::get('/medico/index/{cpf}', 'MedicosController@index');
-//->middleware('autenticador');
+Route::get('/medico/index/{cpf}', 'MedicosController@index')
+->middleware('autenticador');
 
-Route::get('/medico/consultas/index/{cpf}','MedicosController@consulta');
-//->middleware('autenticador');
+Route::get('/medico/consultas/index/{cpf}','MedicosController@consulta')
+->middleware('autenticador');
 
-Route::get('/medico/consulta/atendimento/{id}', 'ConsultaController@show');
-//->middleware('autenticador');
+Route::get('/medico/consulta/atendimento/{id}', 'ConsultaController@show')
+->middleware('autenticador');
 
-Route::post('/salvar/detalhes/consultas', 'consultaController@gravarDadosConsulta');
+Route::post('/salvar/detalhes/consultas', 'consultaController@gravarDadosConsulta')
+->middleware('autenticador');
 
 
 //Secretaria
@@ -109,42 +110,100 @@ Route::get('/sair', 'SairController@logout')
 
 //update
 
-Route::post('/editaHora','ConsultaController@alteraHora');
-Route::post('/editaStatus','ConsultaController@alteraStatus');
-Route::post('/editaData','ConsultaController@alteraData');
-Route::post('/editaTelefone','PessoaController@alteraTelefone');
-Route::post('/editaBairro','EnderecoController@editaBairro');
-Route::post('/editaEstado','EnderecoController@editaEstado');
-Route::post('/editaCidade','EnderecoController@editaCidade');
-Route::post('/editaRua','EnderecoController@editaRua');
-Route::post('/editaCep','EnderecoController@editaCep');
+Route::post('/editaHora','ConsultaController@alteraHora')
+->middleware('autenticador');
 
-Route::post('/insereComorbidade','ComorbidadeController@store');
-Route::post('/insereAlergia','AlergiaController@store');
-Route::post('/insereDst','DstController@store');
-Route::post('/insereMedControl','MedControlController@store');
-Route::post('/insereDoencaFam','DoencaFamController@store');
-Route::post('/insereCirurgia','CirurgiaController@store');
+Route::post('/editaStatus','ConsultaController@alteraStatus')
+->middleware('autenticador');
+
+Route::post('/editaData','ConsultaController@alteraData')
+->middleware('autenticador');
+
+Route::post('/editaTelefone','PessoaController@alteraTelefone')
+->middleware('autenticador');
+
+Route::post('/editaBairro','EnderecoController@editaBairro')
+->middleware('autenticador');
+
+Route::post('/editaEstado','EnderecoController@editaEstado')
+->middleware('autenticador');
+
+Route::post('/editaCidade','EnderecoController@editaCidade')
+->middleware('autenticador');
+
+Route::post('/editaRua','EnderecoController@editaRua')
+->middleware('autenticador');
+
+Route::post('/editaCep','EnderecoController@editaCep')
+->middleware('autenticador');
+
+
+Route::post('/insereComorbidade','ComorbidadeController@store')
+->middleware('autenticador');
+
+Route::post('/insereAlergia','AlergiaController@store')
+->middleware('autenticador');
+
+Route::post('/insereDst','DstController@store')
+->middleware('autenticador');
+
+Route::post('/insereMedControl','MedControlController@store')
+->middleware('autenticador');
+
+Route::post('/insereDoencaFam','DoencaFamController@store')
+->middleware('autenticador');
+
+Route::post('/insereCirurgia','CirurgiaController@store')
+->middleware('autenticador');
+
 
 
 
 
 //delete
 
-Route::post('/deletaConsulta', 'ConsultaController@deletaConsulta');
+Route::post('/deletaConsulta', 'ConsultaController@deletaConsulta')
+->middleware('autenticador');
 
 //Adm
 
-Route::get('/adm/index/{cpf}','AdmController@index');
-Route::get('/adm/criar/clinica/{cpf}','AdmController@clinica');
-Route::post('/clinica/cadastrar', 'ClinicasController@store');
-Route::get('/adm/criar/medico/{cpf}','AdmController@medico');
-Route::post('/medico/cadastrar', 'MedicosController@store');
-Route::get('/adm/criar/recep/{cpf}','AdmController@recep');
-Route::post('/funcionario/cadastrar', 'SecretariaController@store');
-Route::get('/adm/criar/relatorio/{cpf}','AdmController@relatorio');
-Route::get('/adm/listar/listar_clinicas/{cpf}','AdmController@listarClinicas');
-Route::get('/adm/listar/listar_func/{id}','AdmController@listar');
-Route::get('/funcionario/informacoes/{cpf}','AdmController@funcionarioInfo');
-Route::post('/editaDataDemissao','AdmController@funcionarioDemissao');
+Route::get('/adm/index/{cpf}','AdmController@index')
+->middleware('autenticador');
+
+Route::get('/adm/criar/clinica/{cpf}','AdmController@clinica')
+->middleware('autenticador');
+
+Route::post('/clinica/cadastrar', 'ClinicasController@store')
+->middleware('autenticador');
+
+Route::get('/adm/criar/medico/{cpf}','AdmController@medico')
+->middleware('autenticador');
+
+Route::post('/medico/cadastrar', 'MedicosController@store')
+->middleware('autenticador');
+
+Route::get('/adm/criar/recep/{cpf}','AdmController@recep')
+->middleware('autenticador');
+
+Route::post('/funcionario/cadastrar', 'SecretariaController@store')
+->middleware('autenticador');
+
+Route::get('/adm/criar/relatorio/{cpf}','AdmController@relatorio')
+->middleware('autenticador');
+
+Route::get('/adm/listar/listar_clinicas/{cpf}','AdmController@listarClinicas')
+->middleware('autenticador');
+
+Route::get('/adm/listar/listar_func/{id}','AdmController@listar')
+->middleware('autenticador');
+
+Route::get('/funcionario/informacoes/{cpf}','AdmController@funcionarioInfo')
+->middleware('autenticador');
+
+Route::post('/editaDataDemissao','AdmController@funcionarioDemissao')
+->middleware('autenticador');
+
 // ->middleware('autenticador');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

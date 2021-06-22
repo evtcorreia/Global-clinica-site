@@ -35,7 +35,7 @@
             
 
                 <div class="row ml-4">
-                    <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                         <h3 class="ml-2 pt-3">Informações Gerais</h3>
                         
                         <div class="form-group">
@@ -55,12 +55,12 @@
                     </div>
 
                     
-                    <div class="form-group">
-                        <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-1">
-                        <h3 class="ml-2 pt-3">Medicamentos</h3>
+                    <div class="form-group col col-sm-12 col-md-11 col-lg-11 ">
+                        <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-1">
+                            <h3 class="ml-2 pt-3">Medicamentos</h3>
                         </div>   
 
-                            <div class="form-group">
+                            <div class="form-group ">
                                 <label for="exampleFormControlTextarea1">Observações</label>
                                 <textarea class="form-control" name="descricaoReceita" id="descricaoReceita" rows="3"></textarea>
                             </div>
@@ -71,7 +71,7 @@
                                    {{$var = ''}}
 
                                         
-                                        <select name="remedio['remedio'][]" id="remedio" class="form-control">
+                                        <select name="remedio['remedio'][]" id="remedio" class="form-control ">
                                             <option disabled selected value> -- Escolha um Medicamento-- </option> 
 
                                             @foreach($medicamentos as $medicamento)
@@ -85,7 +85,18 @@
                                             <option disabled selected value> -- Posologia-- </option> 
 
                                             
-                                            <option value="1"> 8 em 8 horas</option> 
+                                            <option value="1"> 1 em 1 horas</option> 
+                                            <option value="2"> 2 em 2 horas</option> 
+                                            <option value="3"> 3 em 3 horas</option> 
+                                            <option value="4"> 4 em 4 horas</option> 
+                                            <option value="5"> 5 em 5 horas</option> 
+                                            <option value="6"> 6 em 6 horas</option> 
+                                            <option value="7"> 7 em 7 horas</option> 
+                                            <option value="8"> 8 em 8 horas</option> 
+                                            <option value="9"> 9 em 9 horas</option> 
+                                            <option value="10"> 10 em 10 horas</option> 
+                                            <option value="11"> 11 em 11 horas</option> 
+                                            <option value="12"> 12 em 12 horas</option> 
 
                                         </select>
                                         <select name="remedio['qtd'][]" id="qtd" class="form-control">
@@ -93,6 +104,13 @@
 
                                             
                                             <option value="1"> 1 </option> 
+                                            <option value="2"> 2 </option> 
+                                            <option value="3"> 10 </option> 
+                                            <option value="4"> 20 </option> 
+                                            <option value="5"> 30 </option> 
+                                            <option value="6"> 40 </option> 
+                                            <option value="7"> 50 </option> 
+                                        
 
                                         </select>
 
@@ -101,6 +119,7 @@
 
                                             
                                             <option value="1"> Comprimido </option> 
+                                            <option value="1"> ML </option> 
 
                                         </select>
                                         <div class="input-group-append">
@@ -116,7 +135,7 @@
                         -->
                     </div>
 
-                    <div class="col col-sm-12 col-md-6 col-lg-6 mb-3 mt-3">
+                    <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                        
                         
                         <div class="form-group">
@@ -133,11 +152,12 @@
                    
                 
                 </div>
+                
             
                 <input type='hidden' name='idConsulta' value= "{{$id}}">
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block mt-5 rounded float-right">Salvar</button> 
+                    <button type="submit" class="btn btn-primary btn-block mt-5 rounded float-right">Salvar Consulta</button> 
                 </div>
             </form>
         </div>

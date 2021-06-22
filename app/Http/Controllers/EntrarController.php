@@ -36,13 +36,20 @@ class EntrarController extends Controller
 
         }
            
+        try{
 
-           //dd($pessoas['$request->password']);
+                 //dd($pessoas['$request->password']);
             $verifica  = Hash::check($request->password, $pessoas['pessoa_senha']);
             //dd($verifica);
             //var_dump($verifica);
-           
 
+        }catch(Exception $e){
+            return redirect()->back()->with('error','Usuario ou senha invalida! ');
+            //return redirect('/entrar');
+        }
+         
+           
+        
 
             try {
 

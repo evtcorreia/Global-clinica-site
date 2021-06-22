@@ -10,6 +10,11 @@ Nova Consulta
         {{ session('status') }}
     </div>
 @endif
+@if (session('erro'))
+    <div class="alert alert-danger">
+        {{ session('erro') }}
+    </div>
+@endif
 <form action="/consulta/salvar" method='POST'>
 @csrf
     <div class="form-group row m-3">

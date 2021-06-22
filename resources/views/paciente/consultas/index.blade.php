@@ -6,6 +6,12 @@ Consultas
 
 @section('conteudo')
 
+                @if (session('error'))
+                    <div class="alert alert-warning">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
 <ul class="nav nav-tabs" id="myTab" role="tablist" >
     <li class="nav-item col-sm-12 col-md-2 col-lg-2  mt-3" >
         <a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Em Aberto</a>
@@ -22,7 +28,10 @@ Consultas
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul >
-                    
+
+                    <input type='hidden' id="input-cpf" name='idProntuario' value= '{{$pessoa["pessoa_cpf"]}}'>
+                   
+                   
                     @foreach ($consultas as $consulta)
                     @if(($consulta["consulta_status_status_id"] != 3) && ($consulta["consulta_status_status_id"]  !=5))
                     <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Consulta -
@@ -118,14 +127,20 @@ Consultas
         
         let formData = new FormData();
 
+        const cpf = document
+            .querySelector(`#input-cpf`)
+            .value;
+
         const token = document
                 .querySelector(`input[name="_token"]`)
                 .value;
         
         formData.append('id', consultaId);
         formData.append('_token',token);
+        formData.append('cpf',cpf);
        // formData.append('del',"*");
-    
+        
+       
         const url = `/deletaConsulta`
 
         fetch(url, {

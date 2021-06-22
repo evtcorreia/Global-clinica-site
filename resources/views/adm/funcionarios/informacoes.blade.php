@@ -153,7 +153,7 @@ Informações
                     .value;
                
 
-                formData.append('data', data);
+                formData.append('data', data);  
                 formData.append('_token', token);
                 formData.append('cpf', cpf);
                 const url = `/editaDataDemissao`;

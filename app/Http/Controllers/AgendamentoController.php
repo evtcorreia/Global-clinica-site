@@ -18,7 +18,7 @@
     
             return view('/agendamentos/index/index',[
                 'estados'=> $estados,
-                'idProntuario'=> $id            
+                'idProntuario'=> $id ,           
             ]);
         }
 

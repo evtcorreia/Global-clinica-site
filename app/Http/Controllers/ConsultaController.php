@@ -1,6 +1,6 @@
 <?php 
 namespace App\Http\Controllers;
-
+use Exception;
 use GuzzleHttp\Client;
 //use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request;
@@ -71,9 +71,10 @@ class ConsultaController extends Controller
 
 
             $client = new \GuzzleHttp\Client();
+            try{ 
             $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta', [
 
-                
+               
             'form_params' => [
             'consulta_data' => $request->data,
             'consulta_horario' => $request->hora,
@@ -82,6 +83,10 @@ class ConsultaController extends Controller
             'clinicas_id' => $request->clinica,
             ]
         ]);
+    }catch(Exception $e){
+
+        return redirect()->back()->with('erro','Exsistem campos não preenchidos! ');
+    }
 
         
 
@@ -177,6 +182,10 @@ class ConsultaController extends Controller
 
         ]);
 
+        
+
+
+
         return view('/medico/consultas/atendimento/telasalva');
 
     }
@@ -270,6 +279,8 @@ class ConsultaController extends Controller
                 'consulta_D_E_L_E_T_' => "*"
             ]
         ]);
+
+        return redirect('/paciente/consultas/' . $request->ddd)->with('error','Consulta excluida com sucesso!!! ');
     }
 }
 
