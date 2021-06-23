@@ -15,17 +15,18 @@
     
     <div id= "menu" >
                 <ul>
-                    <li><a href="http://localhost:8000/tipo-login/00000000000">Seleção de Usuario</a></li>
-                    <!--<li><a href="../../index/index.blade.php">Menu Principal</a></li>-->
+                    <li><a href="http://localhost:8000/tipo-login/00000000000">Seleção de Usuário</a></li>
+                    
+                    <li><a href="../../quemSomos.blade.php">Quem Somos</a></li>
 
                     @if(session()->get('tipo', 'default') == 1)                       
-                        <li><a href="/medico/index/{{ session()->get('user', 'default')}}">Home</a></li>
+                        <li><a href="/medico/index/{{ session()->get('user', 'default')}}">Início</a></li>
                     @elseif(session()->get('tipo', 'default') == 2) 
-                        <li><a href="/paciente/index/{{ session()->get('user', 'default')}}">Home</a></li> 
+                        <li><a href="/paciente/index/{{ session()->get('user', 'default')}}">Início</a></li> 
                     @elseif(session()->get('tipo', 'default') == 3) 
-                        <li><a href="/secretaria/index/{{ session()->get('user', 'default')}}">Home</a></li> 
+                        <li><a href="/secretaria/index/{{ session()->get('user', 'default')}}">Início</a></li> 
                     @elseif(session()->get('tipo', 'default') == 4) 
-                        <li><a href="/adm/index/{{ session()->get('user', 'default')}}">Home</a></li> 
+                        <li><a href="/adm/index/{{ session()->get('user', 'default')}}">Início</a></li> 
                     @endif
                     
 

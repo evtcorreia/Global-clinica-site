@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section('cabecalho')
-Consultas
+Receita
 @endsection
 
 @section('conteudo')
@@ -14,7 +14,7 @@ Consultas
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" >
     <li class="nav-item col-sm-12 col-md-2 col-lg-2  mt-3" >
-        <a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Receita</a>
+        <a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Dados</a>
     </li>
    <!--  <li class="nav-item col-sm-12 col-md-2 col-lg-2 mt-3">
         <a class="nav-link 3" id="realizadas-tab" data-toggle="tab" href="#realizadas" role="tab" aria-controls="realizadas" aria-selected="false">Realizadas</a>
@@ -38,7 +38,7 @@ Consultas
                             <hr>
 
 
-                            <h5 class="mt-5">medicamento</h5>
+                            <h5 class="mt-5">Medicamentos</h5>
 
                                 {{$consulta["medicamento_nome"]}}   -    {{$consulta["posologia_posologia"]}}       -   {{$consulta["posologia_tipo"]}}     - {{$consulta["posologia_tipo"]}}   
                             <hr>

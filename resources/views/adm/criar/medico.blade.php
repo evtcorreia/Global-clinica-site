@@ -105,7 +105,7 @@ Cadastrar novo(a) Médico(a)
 
         <div class="col-md-4 mb-3">
             <label for="cep">CEP</label>
-            <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" required>
+            <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" maxlength="8" minlength="8" required>
             
         </div>
 
@@ -122,12 +122,12 @@ Cadastrar novo(a) Médico(a)
         </div>
         <div class="col-md-4 mb-3">
             <label for="area">DDD</label>
-            <input type="text" class="form-control" id="area" name="area" placeholder="Codigo de Area" required>
+            <input type="text" class="form-control" id="area" name="area" placeholder="Codigo de Area" maxlength="3" minlength="2"required>
             
         </div>
         <div class="col-md-4 mb-3">
             <label for="telefone">Telefone</label>
-            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" maxlength="9" minlength="9" required>
             
         </div>
 
@@ -137,7 +137,7 @@ Cadastrar novo(a) Médico(a)
         </div>
         <div class="col-md-4 mb-3">
             <label for="rg">CRM</label>
-            <input type="text" class="form-control" id="crm" name="crm" placeholder="CRM" required>
+            <input type="text" class="form-control" id="crm" name="crm" placeholder="CRM" maxlength="5" minlength="5" required>
             
         </div>
 

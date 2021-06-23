@@ -102,7 +102,7 @@ Cadastrar nova Clínica
         </div>
         <div class="col-md-4 mb-3">
             <label for="telefone">Telefone</label>
-            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" maxlength="9" minlength="9" required>
             
         </div>
 
