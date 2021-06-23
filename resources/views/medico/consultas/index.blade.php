@@ -33,6 +33,8 @@ Consultas
                                 <div>
                                     <i class="fa fa-user mr-3 text-primary" aria-hidden="true"></i>
                                 {{$consulta["pessoa_nome"]}} {{$consulta["pessoa_sobrenome"]}}
+
+                                
                                         <a href="/paciente/informacao/{{$consulta['pessoa_cpf']}}/1" class="mr-1">
                                             <i class="fas fa-external-link-alt"></i>
 
@@ -40,7 +42,10 @@ Consultas
                                 
                                 </div>
                                     <span class="d-flex">
+                                    <a href="/consulta/receita/{{$consulta['consulta_id']}}">
 
+                                        <i class="fas fa-eye  mr-4  "></i>
+                                    </a>
                                     
 
                                     <div class="mr-5"> {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}  </div>
@@ -98,7 +103,10 @@ Consultas
                                 {{$consulta["pessoa_nome"]}} {{$consulta["pessoa_sobrenome"]}}
                                     <span class="d-flex">
 
-                                    
+                                    <a href="/consulta/receita/{{$consulta['consulta_id']}}">
+
+                                        <i class="fas fa-eye  mr-4  "></i>
+                                    </a>
 
                                     <div class="mr-5"> {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}  </div>
                                     <div class="mr-5"> {{ $consulta["consulta_horario"]}} horas </div>                     

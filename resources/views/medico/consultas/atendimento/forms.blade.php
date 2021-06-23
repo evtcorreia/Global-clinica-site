@@ -2,7 +2,7 @@
 
 @section('cabecalho')
 
-    Consulta {{$id}}
+    Consulta 
     <style>
         .form-group{
             padding: 10px;

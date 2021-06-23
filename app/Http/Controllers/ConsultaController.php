@@ -282,5 +282,23 @@ class ConsultaController extends Controller
 
         return redirect('/paciente/consultas/' . $request->ddd)->with('error','Consulta excluida com sucesso!!! ');
     }
+
+
+
+    public function consultaReceita($id)
+    {
+
+           
+            $client = new Client();
+            $response = $client->get('http://api.hml01.com.br/api/consulta/consulta/'. $id);
+            $consultas = json_decode($response->getBody(),true);
+
+            
+        return view('receitas/index',[
+
+            'consultas' => $consultas
+
+        ]);
+    }
 }
 

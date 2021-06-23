@@ -25,7 +25,7 @@
                     @elseif(session()->get('tipo', 'default') == 3) 
                         <li><a href="/secretaria/index/{{ session()->get('user', 'default')}}">Home</a></li> 
                     @elseif(session()->get('tipo', 'default') == 4) 
-                        <li><a href="/adm/index/{{ session()->get('user', 'default')}}">VoHomeltar</a></li> 
+                        <li><a href="/adm/index/{{ session()->get('user', 'default')}}">Home</a></li> 
                     @endif
                     
 

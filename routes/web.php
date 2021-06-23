@@ -206,6 +206,9 @@ Route::post('/editaDataDemissao','AdmController@funcionarioDemissao')
 Route::post('/relatorio/atendimentos','AdmController@relatorioAtendimento')
 ->middleware('autenticador');
 
+Route::get('/consulta/receita/{id}','ConsultaController@consultaReceita')
+->middleware('autenticador');
+
 // ->middleware('autenticador');
 Auth::routes();
 

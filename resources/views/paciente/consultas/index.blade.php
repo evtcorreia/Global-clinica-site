@@ -37,6 +37,11 @@ Consultas
                     <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Consulta -
                     {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}
                             <span class="d-flex">
+
+                            <a href="/consulta/receita/{{$consulta['consulta_id']}}">
+
+                                <i class="fas fa-eye  mr-4  "></i>
+                            </a>
                         
                             @if($consulta["consulta_status_status_id"]==1)
                                 <a  class=" mr-5">
@@ -83,6 +88,12 @@ Consultas
                     <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >Consulta -
                     {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}
                             <span class="d-flex">
+
+
+                            <a href="/consulta/receita/{{$consulta['consulta_id']}}">
+
+<i class="fas fa-eye  mr-4  "></i>
+</a>
                         
                             @if($consulta["consulta_status_status_id"]==1)
                                 <a  class=" mr-5">

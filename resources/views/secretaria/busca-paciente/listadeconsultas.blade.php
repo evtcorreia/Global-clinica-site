@@ -14,6 +14,7 @@ Consultas
 
 @section('conteudo')
 
+
 <ul class="nav nav-tabs" id="myTab" role="tablist" >
     <li class="nav-item col-sm-12 col-md-2 col-lg-2  mt-3" >
         <a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Consultas</a>
@@ -36,7 +37,7 @@ Consultas
                             <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >
                                 {{$consulta["pessoa_nome"]}} {{$consulta["pessoa_sobrenome"]}}
                                     <span class="d-flex">
-
+           
                                     
 
                                     <div class="" id="data-consulta-{{$consulta['consulta_id']}}"> {{ date('d/m/Y', strtotime($consulta["consulta_data"]))}}  </div><button class="buttonEdicao mr-5"  id="editaData"onclick='alteraData({{$consulta["consulta_id"]}})'><i class="fas fa-edit  text-info   "></i></button>
@@ -113,13 +114,13 @@ Consultas
                                                         </button>
                                                 </div>
                                         @endif
-
+    
                                         <!--
                                             <a href="/paciente/consulta/descricao/{{$consulta['consulta_id']}}/{{$consulta['pessoa_cpf']}}" class="btn btn-info btn-sm mr-1">
                                             <i class="fas fa-external-link-alt"></i>
                                         -->
                                         </a>                          
-                                    
+                                       
                                     </span>  
                                 
                                 </li>
