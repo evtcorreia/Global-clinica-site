@@ -16,8 +16,6 @@
     <div id= "menu" >
                 <ul>
                     <li><a href="http://localhost:8000/tipo-login/00000000000">Seleção de Usuário</a></li>
-                    
-                    <li><a href="../../quemSomos.blade.php">Quem Somos</a></li>
 
                     @if(session()->get('tipo', 'default') == 1)                       
                         <li><a href="/medico/index/{{ session()->get('user', 'default')}}">Início</a></li>
@@ -30,6 +28,8 @@
                     @endif
                     
 
+                    <li><a href="http://localhost:8000/adm/quemSomos">Quem Somos</a></li>
+                    
                     <li><a href="javascript:history.back(-1)">Voltar</a></li>
 
                    

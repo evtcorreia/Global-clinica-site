@@ -203,4 +203,17 @@ use Illuminate\Support\Facades\Hash;
                 
             ]);
         }
+
+        public function QuemSomos(){
+
+            return view('/adm/quemSomos',[
+
+                
+                
+            ]);
+
+        }
+        
+            
+
 }
