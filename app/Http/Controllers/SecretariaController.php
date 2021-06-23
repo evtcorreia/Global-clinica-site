@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Hash;
             $response = $client->get('http://api.hml01.com.br/api/pessoa/recepcao/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
             
-            
+            session()->forget('tipo');
+            session()->put('tipo', 3);
+
         return view('/secretaria/index/index',[
                 'pessoa' => $pessoas
                 

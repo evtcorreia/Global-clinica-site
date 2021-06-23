@@ -72,13 +72,15 @@ class EntrarController extends Controller
                     }
                     else
                     {
-                        session()->flash('erro', 'usuario ou senha errados');
-                        return redirect('/entrar');
+                       // session()->flash('erro', 'usuario ou senha errados');
+                        return redirect()->back()->with('error','Usuario ou senha invalida! ');
+                        //return redirect('/entrar');
                     }
 
 
             } catch (Exception $e) {
-                    return redirect('/entrar');
+                   // return redirect('/entrar');
+                   return redirect()->back()->with('error','Usuario ou senha invalida! ');
             }
             
 

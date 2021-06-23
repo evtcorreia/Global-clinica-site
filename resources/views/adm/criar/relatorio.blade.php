@@ -38,7 +38,39 @@ Consultar Relatórios
             <div class="row ml-4">
                 <div class="col col-sm-12 col-md-12 col-lg-12 mb-3 mt-3">
                     <ul>
-                       
+                   
+                        <li class="list-group-item d-flex justify-content-between align-items-left lista-informacoes" >
+                            Consulta Relatório
+                        
+                                <span class="d-flex">
+                            
+                                
+                                  
+                                    <form method="post" action="/relatorio/atendimentos">
+                                    @csrf
+                                        <label for="">Data inicial</label>
+                                           <input type="date" id="dataIni" name="dataIni">
+                                        <label for="">Data Final</label>
+                                            <input type="date" id="dataFim" name="dataFim">
+                                        
+                                    
+                                
+
+                                        <button type="submit" class="ml-5"  >
+                                        
+                                            <i class="fas fa-external-link-alt text-success"> </i>
+                                        
+
+                                        </button>  
+                                     </form>
+                                        
+                              
+                            
+                                
+                                </span>
+                        </li>
+                    
+                    
                     </ul>
                 </div>
             </div>
@@ -92,4 +124,49 @@ Consultar Relatórios
     </div>
     
 </div>
+@endsection
+
+@section('post-script')
+
+    <script>
+
+        function consultaPorDia()
+        {
+            let formData = new FormData();
+            const dataIni = document
+                .querySelector(`#dataIni`)
+                .value;
+                //alert(dataIni)
+            
+            const dataFim = document
+                .querySelector(`#dataFim`)
+                .value;
+                
+
+
+            const token = document
+                .querySelector(`input[name="_token"]`)
+                .value;
+        
+            formData.append('dataIni', dataIni);
+            formData.append('_token',token);
+            formData.append('dataFim',dataFim);
+        // formData.append('del',"*");
+            
+        
+            const url = `/relatorio/atendimentos`
+
+            fetch(url, {
+                method: 'post',
+                body: formData
+            }).then(()=>{
+                //location. reload();
+            });
+    }
+
+        
+
+       
+    </script>
+
 @endsection
