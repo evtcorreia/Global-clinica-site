@@ -33,7 +33,6 @@ Global Clínicas
     
     .container-fluid {
     
-      
     width: 100%;
     background-color: #ffffff;
     margin-top: 12%;
@@ -45,7 +44,7 @@ Global Clínicas
   }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid" style="opacity : 0.7;" >
     <h1>Quem Somos</h1>
 
     <br></br>
