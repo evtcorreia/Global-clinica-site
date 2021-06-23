@@ -15,9 +15,9 @@
     
     <div id= "menu" >
                 <ul>
-                    <li><a href="http://localhost:8000/tipo-login/00000000000">Seleção de Usuário</a></li>
                     
-                    <li><a href="../../quemSomos.blade.php">Quem Somos</a></li>
+                    
+                    <!-- <li><a href="../../quemSomos.blade.php">Quem Somos</a></li> -->
                     @if(session()->get('tipo', 'default') == 1)                       
                         <li><a href="/tipo-login/{{ session()->get('user', 'default')}}">Seleção de Usuario</a></li>
                     @elseif(session()->get('tipo', 'default') == 2) 
