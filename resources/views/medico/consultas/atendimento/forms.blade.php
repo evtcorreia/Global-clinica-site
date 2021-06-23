@@ -85,18 +85,18 @@
                                             <option disabled selected value> -- Posologia-- </option> 
 
                                             
-                                            <option value="1"> 1 em 1 horas</option> 
-                                            <option value="2"> 2 em 2 horas</option> 
-                                            <option value="3"> 3 em 3 horas</option> 
-                                            <option value="4"> 4 em 4 horas</option> 
-                                            <option value="5"> 5 em 5 horas</option> 
-                                            <option value="6"> 6 em 6 horas</option> 
-                                            <option value="7"> 7 em 7 horas</option> 
-                                            <option value="8"> 8 em 8 horas</option> 
-                                            <option value="9"> 9 em 9 horas</option> 
-                                            <option value="10"> 10 em 10 horas</option> 
-                                            <option value="11"> 11 em 11 horas</option> 
-                                            <option value="12"> 12 em 12 horas</option> 
+                                            <option value="1 em 1 horas"> 1 em 1 horas</option> 
+                                            <option value="2 em 2 horas"> 2 em 2 horas</option> 
+                                            <option value="3 em 3 horas"> 3 em 3 horas</option> 
+                                            <option value="4 em 4 horas"> 4 em 4 horas</option> 
+                                            <option value="5 em 5 horas"> 5 em 5 horas</option> 
+                                            <option value="6 em 6 horas"> 6 em 6 horas</option> 
+                                            <option value="7 em 7 horas"> 7 em 7 horas</option> 
+                                            <option value="8 em 8 horas"> 8 em 8 horas</option> 
+                                            <option value="9 em 9 horas"> 9 em 9 horas</option> 
+                                            <option value="10 em 10 horas"> 10 em 10 horas</option> 
+                                            <option value="11 em 11 horas"> 11 em 11 horas</option> 
+                                            <option value="12 em 12 horas"> 12 em 12 horas</option> 
 
                                         </select>
                                         <select name="remedio['qtd'][]" id="qtd" class="form-control">
@@ -105,11 +105,11 @@
                                             
                                             <option value="1"> 1 </option> 
                                             <option value="2"> 2 </option> 
-                                            <option value="3"> 10 </option> 
-                                            <option value="4"> 20 </option> 
-                                            <option value="5"> 30 </option> 
-                                            <option value="6"> 40 </option> 
-                                            <option value="7"> 50 </option> 
+                                            <option value="10"> 10 </option> 
+                                            <option value="20"> 20 </option> 
+                                            <option value="30"> 30 </option> 
+                                            <option value="40"> 40 </option> 
+                                            <option value="50"> 50 </option> 
                                         
 
                                         </select>
@@ -118,8 +118,8 @@
                                             <option disabled selected value> -- Tipo-- </option> 
 
                                             
-                                            <option value="1"> Comprimido </option> 
-                                            <option value="1"> ML </option> 
+                                            <option value="Comprimido"> Comprimido </option> 
+                                            <option value="ML"> ML </option> 
 
                                         </select>
                                         <div class="input-group-append">

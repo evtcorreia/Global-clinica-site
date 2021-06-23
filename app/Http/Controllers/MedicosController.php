@@ -24,7 +24,7 @@ class MedicosController extends Controller
     {
         
         $client =  new Client();
-        $response = $client->get('http://api.hml01.com.br/api/pessoa/recepcao/'. $cpf);
+        $response = $client->get('http://api.hml01.com.br/api/pessoa/medico/'. $cpf);
         $pessoas = json_decode($response->getBody(), true);
 
         session()->forget('tipo');
