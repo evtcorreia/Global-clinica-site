@@ -14,7 +14,7 @@ use Exception;
         public function  index($cpf)
         {
 
-
+            
 
             $client =  new Client();
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
