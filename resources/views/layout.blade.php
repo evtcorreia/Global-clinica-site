@@ -17,7 +17,21 @@
                 <ul>
                     <li><a href="http://localhost:8000/tipo-login/00000000000">Seleção de Usuario</a></li>
                     <!--<li><a href="../../index/index.blade.php">Menu Principal</a></li>-->
+
+                    @if(session()->get('tipo', 'default') == 1)                       
+                        <li><a href="/medico/index/{{ session()->get('user', 'default')}}">Home</a></li>
+                    @elseif(session()->get('tipo', 'default') == 2) 
+                        <li><a href="/paciente/index/{{ session()->get('user', 'default')}}">Home</a></li> 
+                    @elseif(session()->get('tipo', 'default') == 3) 
+                        <li><a href="/secretaria/index/{{ session()->get('user', 'default')}}">Home</a></li> 
+                    @elseif(session()->get('tipo', 'default') == 4) 
+                        <li><a href="/adm/index/{{ session()->get('user', 'default')}}">VoHomeltar</a></li> 
+                    @endif
+                    
+
                     <li><a href="javascript:history.back(-1)">Voltar</a></li>
+
+                   
 
                     <li><a href="/sair">Sair</a></li>
                 </ul>

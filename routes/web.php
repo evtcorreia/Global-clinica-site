@@ -203,7 +203,11 @@ Route::get('/funcionario/informacoes/{cpf}','AdmController@funcionarioInfo')
 Route::post('/editaDataDemissao','AdmController@funcionarioDemissao')
 ->middleware('autenticador');
 
+Route::post('/relatorio/atendimentos','AdmController@relatorioAtendimento')
+->middleware('autenticador');
+
 // ->middleware('autenticador');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

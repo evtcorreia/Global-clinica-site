@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Exception;
 
 
 
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Hash;
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
+            session()->forget('tipo');
+            session()->put('tipo', 2);
             
         return view('/paciente/index/index',[
                 'pessoa' => $pessoas,
@@ -30,6 +33,9 @@ use Illuminate\Support\Facades\Hash;
 
         public function show($cpf, $tipo)
         {
+
+
+            
             $endereco = '';
 
             $client = new Client();
@@ -129,55 +135,62 @@ use Illuminate\Support\Facades\Hash;
             
             $client = new \GuzzleHttp\Client();
 
-
+            try{
             
             $response = $client->request('POST', 'http://api.hml01.com.br/api/pessoa/cadastrar', [
 
+       
+
             'form_params' => [
-                    'pessoa_nome' => $request->nome,
-                    'pessoa_sobrenome' => $request->sobrenome,
-                    'pessoa_cpf' => $request->cpf,
-                    'pessoa_rg' => $request->rg,
-                    'pessoa_pai' => $request->pai,
-                    'pessoa_mae' => $request->mae,
-                    'pessoa_mail' => $request->email,
-                    'pessoa_login' => $request->cpf,
-                    'pessoa_senha' => $senha,
-                    //'pessoa_endereco' => $idEndereco
-                    'enderecos_endereco_id' => 1,
-                   
+                'pessoa_nome' => $request->nome,
+                'pessoa_sobrenome' => $request->sobrenome,
+                'pessoa_cpf' => $request->cpf,
+                'pessoa_rg' => $request->rg,
+                'pessoa_pai' => $request->pai,
+                'pessoa_mae' => $request->mae,
+                'pessoa_mail' => $request->email,
+                'pessoa_login' => $request->cpf,
+                'pessoa_senha' => $senha,
+                //'pessoa_endereco' => $idEndereco
+                'enderecos_endereco_id' => 1,
+               
 
+            
+                'endereco_logradouro' => $request->logradouro, 
+                'endereco_bairro' => $request->bairro,
+                'endereco_numero' => $request->numero,
+                'endereco_complemento' => $request->complemento,
+                'endereco_cep' => $request->cep,
+                'endereco_pais' => $request->pais,
+                'cidades_cidade_id' => $request->cidade,
+                'estados_estado_id' => $request->estado,
                 
-                    'endereco_logradouro' => $request->logradouro, 
-                    'endereco_bairro' => $request->bairro,
-                    'endereco_numero' => $request->numero,
-                    'endereco_complemento' => $request->complemento,
-                    'endereco_cep' => $request->cep,
-                    'endereco_pais' => $request->pais,
-                    'cidades_cidade_id' => $request->cidade,
-                    'estados_estado_id' => $request->estado,
-                    
 
-                //'pessoa_pessoa_cod' => $idPessoas,
-                //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
-                    'tpessoa' => $request->tpessoa,
+            //'pessoa_pessoa_cod' => $idPessoas,
+            //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
+                'tpessoa' => $request->tpessoa,
 
-                    'telefone_area' => $request->area,
-                    'telefone_num' => $request->telefone,
-                //'pessoa_pessoa_cod' => $idPessoas,
-                    'pessoa_pessoa_cpf' => $request->cpf,
-                
-                   // "pessoa_pessoa_cpf" => $request->pessoa_cpf,
-                    "paciente_sus_nr" => $request->sus_nr,
-                    "paciente_tipo_sang" => $request->tipoSang,
-                    "paciente_fator_rh" => $request->fatorRh,
-                    //"pessoa_pessoa_cod" => $idPessoas
+                'telefone_area' => $request->area,
+                'telefone_num' => $request->telefone,
+            //'pessoa_pessoa_cod' => $idPessoas,
+                'pessoa_pessoa_cpf' => $request->cpf,
+            
+               // "pessoa_pessoa_cpf" => $request->pessoa_cpf,
+                "paciente_sus_nr" => $request->sus_nr,
+                "paciente_tipo_sang" => $request->tipoSang,
+                "paciente_fator_rh" => $request->fatorRh,
+                //"pessoa_pessoa_cod" => $idPessoas
 
-                    "tipoDoc" => $request->tipoDoc
+                "tipoDoc" => $request->tipoDoc
 
-        
+    
             ]
-            ]);
+        ]);
+    }catch(Exception $e){
+
+        return view('/pessoa/cadastrar/paciente/');
+
+        }
 
             return redirect()->back()->with('status','Paciente Cadastrado, com sucesso!');
 

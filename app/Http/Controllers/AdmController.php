@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Hash;
             $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
+            session()->forget('tipo');
+            session()->put('tipo', 4);
+
             
         return view('/adm/index/index',[
                 'pessoa' => $pessoas,
@@ -182,6 +185,22 @@ use Illuminate\Support\Facades\Hash;
 
         
                 ]
+            ]);
+        }
+
+        public function relatorioAtendimento(Request $request)
+        {
+            
+           
+            $client =  new Client();
+            $response = $client->get('http://api.hml01.com.br/api/adm/relatorios/consulta/dia/'. $request->dataIni .'/'. $request->dataFim);
+            $consultas = json_decode($response->getBody(), true);
+
+            return view('/adm/relatorios/consultas',[
+                'consultas' => $consultas,
+                //'clinicaDoAdm' => $clinicaDoAdm
+                
+                
             ]);
         }
 }
