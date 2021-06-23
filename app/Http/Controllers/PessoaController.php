@@ -179,7 +179,7 @@ use Illuminate\Support\Facades\Hash;
             ]
             ]);
 
-            return view('/formularios/cadastro/telasalva/');
+            return redirect()->back()->with('status','Paciente Cadastrado, com sucesso!');
 
         }
 

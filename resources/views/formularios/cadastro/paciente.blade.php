@@ -9,7 +9,16 @@ Registrar novo Paciente
 
 
 @section('conteudo')
-
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+@if (session('erro'))
+    <div class="alert alert-danger">
+        {{ session('erro') }}
+    </div>
+@endif
 <form action="/pessoa/cadastrar" method="post">
 @csrf
     <div class="separadores col-md-12 mb-12">
