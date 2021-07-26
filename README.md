@@ -1,5 +1,5 @@
 
 
-## Sobre o projeto Global Clinica
+## Sobre a Global Clinica
 
 Documentaçãoo em construção
