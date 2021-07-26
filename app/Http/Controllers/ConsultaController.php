@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers;
 use Exception;
 use GuzzleHttp\Client;
@@ -6,75 +6,75 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
-{ 
-    
+{
+
     public function consulta($cpf)
     {
     $client = new Client();
-    $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
+    $response = $client->get('http://localhost:8000/api/pessoa/'.$cpf);
     $pessoas = json_decode($response->getBody(),true);
 
     $client = new Client();
-    $response = $client->get('http://api.hml01.com.br/api/prontuario/'.$cpf);
+    $response = $client->get('http://localhost:8000/api/prontuario/'.$cpf);
     $consultas = json_decode($response->getBody(),true);
-    
-    
+
+
     return view('/paciente/consultas/index',[
-        'pessoa' => $pessoas, 
+        'pessoa' => $pessoas,
         'consultas' => $consultas,
     ]);
-        
+
         //$client = new Client();
-       // $response = $client->get('http://api.hml01.com.br/api/prontuario/'.$cpf);
+       // $response = $client->get('http://localhost:8000/api/prontuario/'.$cpf);
         //$consultas = json_decode($response->getBody(),true);
-    
+
         //return view('/paciente/consultas/index',[
         //'consultas' => $consultas,
        // ]);
     }
 
- 
+
 
     public function descricao($id, $cpf)
     {
-        
-        
+
+
         $client = new Client();
-        $response = $client->get('http://api.hml01.com.br/api/prontuario/'. $cpf);
+        $response = $client->get('http://localhost:8000/api/prontuario/'. $cpf);
         $consulta = json_decode($response->getBody(),true);
-        
 
-        
+
+
 
         $client = new Client();
-        $response = $client->get('http://api.hml01.com.br/api/receita/'.$id);
+        $response = $client->get('http://localhost:8000/api/receita/'.$id);
         $receitas = json_decode($response->getBody(),true);
 
         $client = new Client();
-        $response = $client->get('http://api.hml01.com.br/api/exame/2'.$id);
+        $response = $client->get('http://localhost:8000/api/exame/2'.$id);
         $exames = json_decode($response->getBody(),true);
 
 
         return view('/paciente/consultas/descricao',[
             'consultas' => $consulta,
-            'receitas' => $receitas, 
+            'receitas' => $receitas,
             'exames' => $exames,
-        
+
         ]);
     }
 
 
 
     public function store(Request $request)
-    {       
-        
+    {
+
 
 
             $client = new \GuzzleHttp\Client();
-            try{ 
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta', [
+            try{
+            $response = $client->request('POST', 'http://localhost:8000/api/consulta', [
 
-               
+
             'form_params' => [
             'consulta_data' => $request->data,
             'consulta_horario' => $request->hora,
@@ -88,19 +88,19 @@ class ConsultaController extends Controller
         return redirect()->back()->with('erro','Exsistem campos não preenchidos! ');
     }
 
-        
+
 
             return redirect()->back()->with('status','Consulta marcada, aguarde confirmação! ');
             //return view('/agendamentos/index/agradecimento');
 
 
-        
+
     }
 
     public function show($id)
     {
         $client = new Client();
-        $response = $client->get('http://api.hml01.com.br/api/medicamentos/all');
+        $response = $client->get('http://localhost:8000/api/medicamentos/all');
         $medicamentos = json_decode($response->getBody(),true);
 
         return view('medico/consultas/atendimento/forms',[
@@ -115,10 +115,10 @@ class ConsultaController extends Controller
 
         //dd($request->remedio);
     //$listaRemedios =  array_chunk($request->remedio, 4);
-    
+
 
         $json_array = json_encode($request->remedio);
-        
+
         //$json_array = json_encode($request->remedio);
 
         //foreach($request->remedio as $array)
@@ -132,42 +132,42 @@ class ConsultaController extends Controller
        // $keys = array('Remedio', 'Posologia', 'quantidade', 'tipo');
             //foreach($listaRemedios as  &$array) {
                 //$array = (object) array_combine($keys, $array);
-            //} 
+            //}
 
             //$json_array = json_encode($array)  ;
 
         //var_dump($json_array);
         //exit();
-        
+
        // exit();
-        
+
 
         //$t = substr($json_array, 1);
         //var_dump($request->remedio);
         //exit();
 
 
-        
+
 
         //dd(substr ( $json_array , 0 , -1 ));
         //var_dump($request->remedio);
         //var_dump($request->remedio);
-        
 
-        
+
+
         //exit();
 
         $data = date('Y-m-d');
-        
+
 
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST','http://api.hml01.com.br/api/consulta/grava/informacoes', [
+        $response = $client->request('POST','http://localhost:8000/api/consulta/grava/informacoes', [
 
             'form_params' => [
                 'consulta_info' => $request->sintomas,
                 'consulta_laudo' =>$request->laudoConsulta,
                 'consulta_obs' => $request->obsConsulta,
-                'consulta_id' => $request->idConsulta,  
+                'consulta_id' => $request->idConsulta,
                 'exame_data' => $request->dataExame,
                 'exame_resultado' => $request->laudoExame,
                 'consultas_consulta_id' => $request->idConsulta,
@@ -182,7 +182,7 @@ class ConsultaController extends Controller
 
         ]);
 
-        
+
 
 
 
@@ -192,87 +192,87 @@ class ConsultaController extends Controller
 
     public function alteraHora(Request $request)
     {
-        
+
 
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/alteraHora',[
+        $response = $client->request('POST', 'http://localhost:8000/api/consulta/alteraHora',[
 
             'form_params' =>[
 
                 'consulta_horario' => $request->hora,
                 'consulta_id' => $request->id
 
-                
+
             ]
         ]);
 
 
-        
+
     }
     public function alteraStatus(Request $request)
     {
 
-    
+
 
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/alteraStatus',[
+        $response = $client->request('POST', 'http://localhost:8000/api/consulta/alteraStatus',[
 
             'form_params' =>[
 
                 'consulta_status' => $request->status,
                 'consulta_id' => $request->id
 
-                
+
             ]
         ]);
 
 
-        
+
     }
-    
+
     public function alteraData(Request $request)
     {
 
-    
+
 
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/alteraData',[
+        $response = $client->request('POST', 'http://localhost:8000/api/consulta/alteraData',[
 
             'form_params' =>[
 
                 'consulta_data' => $request->data,
                 'consulta_id' => $request->id
 
-                
+
             ]
         ]);
 
 
-        
+
     }
 
     public function consultaDoPaciente($cpf)
     {
     $client = new Client();
-    $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
+    $response = $client->get('http://localhost:8000/api/pessoa/'.$cpf);
     $pessoas = json_decode($response->getBody(),true);
 
     $client = new Client();
-    $response = $client->get('http://api.hml01.com.br/api/prontuario/'.$cpf);
+    $response = $client->get('http://localhost:8000/api/prontuario/'.$cpf);
     $consultas = json_decode($response->getBody(),true);
-    
-    
+
+
     return view('/secretaria/busca-paciente/listadeconsultas',[
-        'pessoa' => $pessoas, 
+        'pessoa' => $pessoas,
         'consultas' => $consultas,
     ]);
-    
+
     }
 
     public function deletaConsulta(Request $request)
     {
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'http://api.hml01.com.br/api/consulta/deleta', [
+        $response = $client->request('POST', 'http://localhost:8000/api/consulta/deleta', [
 
             'form_params'=>[
                 'consulta_id' => $request->id,
@@ -288,9 +288,9 @@ class ConsultaController extends Controller
     public function consultaReceita($id)
     {
 
-           
+
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/consulta/consulta/'. $id);
+            $response = $client->get('http://localhost:8000/api/consulta/consulta/'. $id);
             $consultas = json_decode($response->getBody(),true);
 
             

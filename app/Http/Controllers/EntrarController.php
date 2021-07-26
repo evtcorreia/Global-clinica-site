@@ -20,22 +20,22 @@ class EntrarController extends Controller
     {
         //echo $request->cpf;
 
-            
+
             $result="";
         try{
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/login/'. $request->cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/login/'. $request->cpf);
             $pessoas = json_decode($response->getBody(), true);
 
-           //dd($pessoas); 
+           //dd($pessoas);
         }catch(Exception $e){
 
             session()->flash('erro', 'usuario ou senha errados');
             return redirect('/entrar');
 
         }
-           
+
         try{
 
                  //dd($pessoas['$request->password']);
@@ -47,9 +47,9 @@ class EntrarController extends Controller
             return redirect()->back()->with('error','Usuario ou senha invalida! ');
             //return redirect('/entrar');
         }
-         
-           
-        
+
+
+
 
             try {
 
@@ -57,9 +57,9 @@ class EntrarController extends Controller
                     {
                         session()->put('user', $pessoas['pessoa_cpf']);
                         //session()->push('user', $pessoas['tipo_pessoa_tpessoa_cod']);
-                        
-                        
-                        
+
+
+
                         //return redirect('/paciente/index/'. $pessoas['pessoa_cpf']);
                     /*
                         if($request->tipo == 4 and $pessoas['pessoa_tipo'])
@@ -67,7 +67,7 @@ class EntrarController extends Controller
                             return redirect('/admin/glc-admin'.'/'.$pessoas['pessoa_cpf'] );
                         }
                         */
-                        
+
                         return redirect('/tipo-login'.'/'. $pessoas['pessoa_cpf'] );
                     }
                     else
@@ -82,13 +82,13 @@ class EntrarController extends Controller
                    // return redirect('/entrar');
                    return redirect()->back()->with('error','Usuario ou senha invalida! ');
             }
-            
+
 
             echo $result;
             //echo $pessoas['pessoa_cpf'];
             //echo $pessoas['pessoa_senha'];
             //var_dump($ret);
-            
+
     }
 
 
@@ -96,10 +96,10 @@ class EntrarController extends Controller
     {
 
         $client =  new Client();
-        $response = $client->get('http://api.hml01.com.br/api/pessoa/tipo/'. $cpf);
+        $response = $client->get('http://localhost:8000/api/pessoa/tipo/'. $cpf);
         $pessoa = json_decode($response->getBody(), true);
 
-        
+
 
         return view('/entrar/selecao-tipo-acesso',[
 
@@ -107,12 +107,12 @@ class EntrarController extends Controller
             'pessoas' => $pessoa
         ]
             );
-            
+
     }
 
     public function admin($cpf)
     {
         return view('/admin/index');
     }
-    
+
 }

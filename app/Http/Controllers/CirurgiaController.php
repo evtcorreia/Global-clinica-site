@@ -13,14 +13,14 @@ class CirurgiaController extends Controller
         $client = new \GuzzleHttp\Client();
 
 
-            
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/prontuario/cirurgia/store', [
+
+            $response = $client->request('POST', 'http://localhost:8000/api/prontuario/cirurgia/store', [
 
             'form_params' => [
                 'prontuarios_prontuario_cod' => $request->prontuario,
                 'cirurgia_desc' => $request->cirurgia
 
-        
+
             ]
             ]);
     }

@@ -16,35 +16,35 @@ use Illuminate\Support\Facades\Hash;
 
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
             session()->forget('tipo');
             session()->put('tipo', 4);
 
-            
+
         return view('/adm/index/index',[
                 'pessoa' => $pessoas,
-                
-                
+
+
             ]);
         }
 
         public function  clinica($cpf)
         {
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/estados/');
+            $response = $client->get('http://localhost:8000/api/estados/');
             $estados = json_decode($response->getBody(),true);
-            
+
         return view('/adm/criar/clinica',[
             'pessoa' => $pessoas,
             'estados' => $estados,
-                
-                
+
+
             ]);
         }
 
@@ -52,25 +52,25 @@ use Illuminate\Support\Facades\Hash;
         {
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/estados/');
+            $response = $client->get('http://localhost:8000/api/estados/');
             $estados = json_decode($response->getBody(),true);
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/especialidades/');
+            $response = $client->get('http://localhost:8000/api/especialidades/');
             $especialidades = json_decode($response->getBody(), true);
 
-            
 
-            
+
+
         return view('/adm/criar/medico',[
             'pessoa' => $pessoas,
             'estados' => $estados,
             'especialidades' => $especialidades
-                
+
             ]);
         }
 
@@ -78,18 +78,18 @@ use Illuminate\Support\Facades\Hash;
         {
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/estados/');
+            $response = $client->get('http://localhost:8000/api/estados/');
             $estados = json_decode($response->getBody(),true);
 
-            
+
         return view('/adm/criar/recep',[
             'pessoa' => $pessoas,
             'estados' => $estados,
-                
+
             ]);
         }
 
@@ -97,14 +97,14 @@ use Illuminate\Support\Facades\Hash;
         {
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
-            
+
         return view('/adm/criar/relatorio',[
             'pessoa' => $pessoas,
 
-                
+
             ]);
         }
 
@@ -114,18 +114,18 @@ use Illuminate\Support\Facades\Hash;
 
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/buscar/funcionarios/'. $id);
+            $response = $client->get('http://localhost:8000/api/buscar/funcionarios/'. $id);
             $pessoas = json_decode($response->getBody(), true);
 
 
-           
 
-            
+
+
         return view('/adm/listar/listar_func',[
                 'pessoas' => $pessoas,
                 //'clinicaDoAdm' => $clinicaDoAdm
-                
-                
+
+
             ]);
         }
 
@@ -135,20 +135,20 @@ use Illuminate\Support\Facades\Hash;
 
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/clinicaDoAdm/'.$cpf);
+            $response = $client->get('http://localhost:8000/api/clinicaDoAdm/'.$cpf);
             $clinicaDoAdm = json_decode($response->getBody(), true);
 
-            
+
         return view('/adm/listar/listar_clinicas',[
                 'pessoa' => $pessoas,
                 'clinicaDoAdm' => $clinicaDoAdm
-                
-                
+
+
             ]);
         }
 
@@ -157,14 +157,14 @@ use Illuminate\Support\Facades\Hash;
         {
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/informacoes/funcionarios/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/informacoes/funcionarios/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
             return view('/adm/funcionarios/informacoes',[
                 'pessoa' => $pessoas,
                 //'clinicaDoAdm' => $clinicaDoAdm
-                
-                
+
+
             ]);
         }
 
@@ -174,33 +174,33 @@ use Illuminate\Support\Facades\Hash;
             $client = new \GuzzleHttp\Client();
 
 
-            
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/demissao/funcionario/data', [
+
+            $response = $client->request('POST', 'http://localhost:8000/api/demissao/funcionario/data', [
 
             'form_params' => [
 
                 'funcionario_dataDemissao' => $request->data,
                 'pessoa_pessoa_cpf' => $request->cpf,
-                
 
-        
+
+
                 ]
             ]);
         }
 
         public function relatorioAtendimento(Request $request)
         {
-            
-           
+
+
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/adm/relatorios/consulta/dia/'. $request->dataIni .'/'. $request->dataFim);
+            $response = $client->get('http://localhost:8000/api/adm/relatorios/consulta/dia/'. $request->dataIni .'/'. $request->dataFim);
             $consultas = json_decode($response->getBody(), true);
 
             return view('/adm/relatorios/consultas',[
                 'consultas' => $consultas,
                 //'clinicaDoAdm' => $clinicaDoAdm
-                
-                
+
+
             ]);
         }
 
@@ -208,12 +208,12 @@ use Illuminate\Support\Facades\Hash;
 
             return view('/adm/quemSomos',[
 
-                
-                
+
+
             ]);
 
         }
-        
-            
+
+
 
 }

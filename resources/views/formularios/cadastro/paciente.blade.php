@@ -23,6 +23,7 @@ Registrar novo Paciente
 @csrf
     <div class="separadores col-md-12 mb-12">
 
+    <!-- <div class="alert alert-danger">O paciente informado já está cadastrado no sistema</div> -->
     </div>
     <h2 class="separadores">Dados Pessoais</h2>
     <div class="form-row">

@@ -13,14 +13,14 @@ class DoencaFamController extends Controller
         $client = new \GuzzleHttp\Client();
 
 
-            
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/prontuario/historico/store', [
+
+            $response = $client->request('POST', 'http://localhost:8000/api/prontuario/historico/store', [
 
             'form_params' => [
                 'prontuarios_prontuario_cod' => $request->prontuario,
                 'hisFam_desc' => $request->doencaFam
 
-        
+
             ]
             ]);
     }

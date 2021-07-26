@@ -14,10 +14,10 @@ use Exception;
         public function  index($cpf)
         {
 
-            
+
 
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
 
             session()->forget('tipo');
@@ -25,8 +25,8 @@ use Exception;
             
         return view('/paciente/index/index',[
                 'pessoa' => $pessoas,
-                
-                
+
+
             ]);
         }
 
@@ -35,75 +35,75 @@ use Exception;
         {
 
 
-            
+
             $endereco = '';
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'.$cpf);
             $pessoas = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/paciente/'.$cpf);
+            $response = $client->get('http://localhost:8000/api/paciente/'.$cpf);
             $paciente = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response  = $client->get('http://api.hml01.com.br/api/telefone/'.$cpf);
+            $response  = $client->get('http://localhost:8000/api/telefone/'.$cpf);
             $telefones = json_decode($response->getBody(), true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/endereco/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/endereco/'. $cpf);
             $endereco = json_decode($response->getBody(),true);
 
-            
+
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/estado/busca/' . $endereco['endereco_id'] );
+            $response = $client->get('http://localhost:8000/api/estado/busca/' . $endereco['endereco_id'] );
             $estado = json_decode($response->getBody(),true);
 
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/cidade/busca/' . $endereco['cidades_cidade_id'] );
+            $response = $client->get('http://localhost:8000/api/cidade/busca/' . $endereco['cidades_cidade_id'] );
             $cidade = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/estados/');
+            $response = $client->get('http://localhost:8000/api/estados/');
             $estados = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/cidades/'.$estado['id']);
+            $response = $client->get('http://localhost:8000/api/cidades/'.$estado['id']);
             $cidadesDoEstado = json_decode($response->getBody(),true);
-          
+
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/comorbidade/'. $paciente['prontuario_cod']);
+            $response = $client->get('http://localhost:8000/api/prontuario/informa/comorbidade/'. $paciente['prontuario_cod']);
             $comorbidades = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/cirurgia/'. $paciente['prontuario_cod']);
+            $response = $client->get('http://localhost:8000/api/prontuario/informa/cirurgia/'. $paciente['prontuario_cod']);
             $cirurgias = json_decode($response->getBody(),true);
-          
+
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/DoencaFam/'. $paciente['prontuario_cod']);
+            $response = $client->get('http://localhost:8000/api/prontuario/informa/DoencaFam/'. $paciente['prontuario_cod']);
             $DoencaFams = json_decode($response->getBody(),true);
-          
+
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/dst/'. $paciente['prontuario_cod']);
+            $response = $client->get('http://localhost:8000/api/prontuario/informa/dst/'. $paciente['prontuario_cod']);
             $dsts = json_decode($response->getBody(),true);
-            
+
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/medControl/'. $paciente['prontuario_cod']);
+            $response = $client->get('http://localhost:8000/api/prontuario/informa/medControl/'. $paciente['prontuario_cod']);
             $medControls = json_decode($response->getBody(),true);
-            
+
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/prontuario/informa/alergias/'. $paciente['prontuario_cod']);
+            $response = $client->get('http://localhost:8000/api/prontuario/informa/alergias/'. $paciente['prontuario_cod']);
             $alergias = json_decode($response->getBody(),true);
 
 
-          
-            
 
 
 
-            
-            
+
+
+
+
 
             return view('/paciente/informacoes/index',[
                 'pessoa' => $pessoas,
@@ -123,23 +123,23 @@ use Exception;
                 'alergias' => $alergias
 
 
-            ]);        
+            ]);
         }
 
 
         public function store(Request $request)
-        {   
+        {
             $senha = Hash::make($request->senha);
 
 
-            
+
             $client = new \GuzzleHttp\Client();
 
             try{
-            
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/pessoa/cadastrar', [
 
-       
+            $response = $client->request('POST', 'http://localhost:8000/api/pessoa/cadastrar', [
+
+
 
             'form_params' => [
                 'pessoa_nome' => $request->nome,
@@ -153,10 +153,10 @@ use Exception;
                 'pessoa_senha' => $senha,
                 //'pessoa_endereco' => $idEndereco
                 'enderecos_endereco_id' => 1,
-               
 
-            
-                'endereco_logradouro' => $request->logradouro, 
+
+
+                'endereco_logradouro' => $request->logradouro,
                 'endereco_bairro' => $request->bairro,
                 'endereco_numero' => $request->numero,
                 'endereco_complemento' => $request->complemento,
@@ -164,7 +164,7 @@ use Exception;
                 'endereco_pais' => $request->pais,
                 'cidades_cidade_id' => $request->cidade,
                 'estados_estado_id' => $request->estado,
-                
+
 
             //'pessoa_pessoa_cod' => $idPessoas,
             //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
@@ -174,7 +174,7 @@ use Exception;
                 'telefone_num' => $request->telefone,
             //'pessoa_pessoa_cod' => $idPessoas,
                 'pessoa_pessoa_cpf' => $request->cpf,
-            
+
                // "pessoa_pessoa_cpf" => $request->pessoa_cpf,
                 "paciente_sus_nr" => $request->sus_nr,
                 "paciente_tipo_sang" => $request->tipoSang,
@@ -183,7 +183,7 @@ use Exception;
 
                 "tipoDoc" => $request->tipoDoc
 
-    
+
             ]
         ]);
     }catch(Exception $e){
@@ -199,9 +199,9 @@ use Exception;
 
         public function nome(Request $request)
         {
-            
+
             $client = new \GuzzleHttp\Client();
-            $response = $client->request('GET', 'http://api.hml01.com.br/api/pessoa/nome/' . $request->nome);
+            $response = $client->request('GET', 'http://localhost:8000/api/pessoa/nome/' . $request->nome);
 
             $pessoas = json_decode($response->getBody(), true);
 
@@ -209,26 +209,26 @@ use Exception;
                 'pessoas' => $pessoas
             ]);
 
-            
+
         }
 
 
         public function formulario()
         {
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/estados/');
+            $response = $client->get('http://localhost:8000/api/estados/');
             $estados = json_decode($response->getBody(),true);
 
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/convenios/all');
+            $response = $client->get('http://localhost:8000/api/convenios/all');
             $planosSaude = json_decode($response->getBody(), true);
 
             return view('/formularios/cadastro/paciente',[
-                
+
                 'estados' => $estados,
                 'planos' => $planosSaude
-                
+
                 ]);
         }
 
@@ -238,8 +238,8 @@ use Exception;
             $client = new \GuzzleHttp\Client();
 
 
-            
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/pessoa/altera/telefone', [
+
+            $response = $client->request('POST', 'http://localhost:8000/api/pessoa/altera/telefone', [
 
             'form_params' => [
 
@@ -247,9 +247,9 @@ use Exception;
                 'telefone_area' => $request->area,
                 'telefone_num' => $request->telefone
 
-        
+
                 ]
             ]);
         }
-        
+
     }

@@ -12,58 +12,58 @@ class MedicosController extends Controller
     public function busca($id)
     {
         $client = new Client();
-        $response = $client->get('http://api.hml01.com.br/api/clinicas/medicos/especialidade/'. $id);
+        $response = $client->get('http://localhost:8000/api/clinicas/medicos/especialidade/'. $id);
         $medicos = json_decode($response->getBody(), true);
 
         return $medicos;
     }
-    
+
 
 
     public function  index($cpf)
     {
-        
+
         $client =  new Client();
-        $response = $client->get('http://api.hml01.com.br/api/pessoa/medico/'. $cpf);
+        $response = $client->get('http://localhost:8000/api/pessoa/medico/'. $cpf);
         $pessoas = json_decode($response->getBody(), true);
 
         session()->forget('tipo');
         session()->put('tipo', 1);
-            
-            
+
+
         return view('/medico/index/index',[
-            'pessoa' => $pessoas        
-                
+            'pessoa' => $pessoas
+
         ]);
     }
 
     public function  consulta($cpf)
     {
         $client = new Client();
-        $response = $client->get('http://api.hml01.com.br/api/consultas/medico/'. $cpf);
+        $response = $client->get('http://localhost:8000/api/consultas/medico/'. $cpf);
         $consulta = json_decode($response->getBody(),true);
-        
+
 
         return view('/medico/consultas/index',[
            'consultas' => $consulta,
            'tipoPessoa' => 1
-                    
-                    
+
+
         ]);
-    
+
     }
-    
+
     public function store(Request $request)
-    {   
+    {
         $senha = Hash::make($request->senha);
 
 
-        
+
         $client = new \GuzzleHttp\Client();
 
 
-        
-        $response = $client->request('POST', 'http://api.hml01.com.br/api/medico/cadastrar', [
+
+        $response = $client->request('POST', 'http://localhost:8000/api/medico/cadastrar', [
 
         'form_params' => [
                 'pessoa_nome' => $request->nome,
@@ -77,10 +77,10 @@ class MedicosController extends Controller
                 'pessoa_senha' => $senha,
                 //'pessoa_endereco' => $idEndereco
                 'enderecos_endereco_id' => 1,
-               
 
-            
-                'endereco_logradouro' => $request->logradouro, 
+
+
+                'endereco_logradouro' => $request->logradouro,
                 'endereco_bairro' => $request->bairro,
                 'endereco_numero' => $request->numero,
                 'endereco_complemento' => $request->complemento,
@@ -88,7 +88,7 @@ class MedicosController extends Controller
                 'endereco_pais' => $request->pais,
                 'cidades_cidade_id' => $request->cidade,
                 'estados_estado_id' => $request->estado,
-                
+
 
                 //'pessoa_pessoa_cod' => $idPessoas,
                 //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
@@ -108,7 +108,7 @@ class MedicosController extends Controller
 
                 "tipoDoc" => $request->tipoDoc
 
-    
+
         ]
         ]);
 

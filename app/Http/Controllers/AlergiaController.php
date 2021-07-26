@@ -13,14 +13,14 @@ class alergiaController extends Controller
         $client = new \GuzzleHttp\Client();
 
 
-            
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/prontuario/alergias/store', [
+
+            $response = $client->request('POST', 'http://localhost:8000/api/prontuario/alergias/store', [
 
             'form_params' => [
                 'prontuarios_prontuario_cod' => $request->prontuario,
                 'alergia_desc' => $request->alergia
 
-        
+
             ]
             ]);
     }

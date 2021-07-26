@@ -13,14 +13,14 @@ class DstController extends Controller
         $client = new \GuzzleHttp\Client();
 
 
-            
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/prontuario/dst/store', [
+
+            $response = $client->request('POST', 'http://localhost:8000/api/prontuario/dst/store', [
 
             'form_params' => [
                 'prontuarios_prontuario_cod' => $request->prontuario,
                 'dst_desc' => $request->dst
 
-        
+
             ]
             ]);
     }

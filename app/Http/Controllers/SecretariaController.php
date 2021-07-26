@@ -13,17 +13,17 @@ use Illuminate\Support\Facades\Hash;
         public function  index($cpf)
         {
             $client =  new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/recepcao/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/recepcao/'. $cpf);
             $pessoas = json_decode($response->getBody(), true);
-            
+
             session()->forget('tipo');
             session()->put('tipo', 3);
 
         return view('/secretaria/index/index',[
                 'pessoa' => $pessoas
-                
-                
-                
+
+
+
             ]);
         }
 
@@ -31,20 +31,20 @@ use Illuminate\Support\Facades\Hash;
             public function  consulta($id)
             {
                 //$client =  new Client();
-                //$response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
+                //$response = $client->get('http://localhost:8000/api/pessoa/'.$cpf);
                // $pessoas = json_decode($response->getBody(), true);
-                
+
                 $client = new Client();
-                $response = $client->get('http://api.hml01.com.br/api/secretaria/consultas/clinica/'. $id);
+                $response = $client->get('http://localhost:8000/api/secretaria/consultas/clinica/'. $id);
                 $consulta = json_decode($response->getBody(),true);
-                
+
             return view('/secretaria/consultas/index',[
-                    
+
                     'consultas' => $consulta,
-                    
-                    
+
+
                 ]);
-    
+
             }
 
 
@@ -53,29 +53,29 @@ use Illuminate\Support\Facades\Hash;
             $endereco = '';
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/pessoa/'.$cpf);
+            $response = $client->get('http://localhost:8000/api/pessoa/'.$cpf);
             $pessoas = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/paciente/'.$cpf);
+            $response = $client->get('http://localhost:8000/api/paciente/'.$cpf);
             $paciente = json_decode($response->getBody(),true);
 
             $client = new Client();
-            $response  = $client->get('http://api.hml01.com.br/api/telefone/'.$cpf);
+            $response  = $client->get('http://localhost:8000/api/telefone/'.$cpf);
             $telefones = json_decode($response->getBody(), true);
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/endereco/'. $cpf);
+            $response = $client->get('http://localhost:8000/api/endereco/'. $cpf);
             $endereco = json_decode($response->getBody(),true);
 
-            
+
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/estado/busca/' . $endereco['endereco_id'] );
+            $response = $client->get('http://localhost:8000/api/estado/busca/' . $endereco['endereco_id'] );
             $estado = json_decode($response->getBody(),true);
 
 
             $client = new Client();
-            $response = $client->get('http://api.hml01.com.br/api/cidade/busca/' . $endereco['endereco_id'] );
+            $response = $client->get('http://localhost:8000/api/cidade/busca/' . $endereco['endereco_id'] );
             $cidade = json_decode($response->getBody(),true);
 
 
@@ -87,20 +87,20 @@ use Illuminate\Support\Facades\Hash;
                 'endereco' => $endereco,
                 'estado' => $estado,
                 'cidade' => $cidade
-            ]);        
+            ]);
         }
 
         public function store(Request $request)
-    {   
+    {
         $senha = Hash::make($request->senha);
 
 
-        
+
         $client = new \GuzzleHttp\Client();
 
 
-        
-        $response = $client->request('POST', 'http://api.hml01.com.br/api/funcionario/cadastrar', [
+
+        $response = $client->request('POST', 'http://localhost:8000/api/funcionario/cadastrar', [
 
         'form_params' => [
             //dados pessoais
@@ -115,10 +115,10 @@ use Illuminate\Support\Facades\Hash;
                 'pessoa_senha' => $senha,
                 //'pessoa_endereco' => $idEndereco
                 'enderecos_endereco_id' => 1,
-               
 
-            
-                'endereco_logradouro' => $request->logradouro, 
+
+
+                'endereco_logradouro' => $request->logradouro,
                 'endereco_bairro' => $request->bairro,
                 'endereco_numero' => $request->numero,
                 'endereco_complemento' => $request->complemento,
@@ -126,7 +126,7 @@ use Illuminate\Support\Facades\Hash;
                 'endereco_pais' => $request->pais,
                 'cidades_cidade_id' => $request->cidade,
                 'estados_estado_id' => $request->estado,
-                
+
 
                 //'pessoa_pessoa_cod' => $idPessoas,
                 //'tipo_pessoa_tpessoa_cod' => $request->tpessoa,
@@ -140,18 +140,17 @@ use Illuminate\Support\Facades\Hash;
                 'clinica_id' => $request->clinica,
                 'funcionario_horarioTrabalho' => $request->horario,
                 'funcionario_dataAdmissao' => $request->admissao,
-            
+
 
                 "tipoDoc" => $request->tipoDoc
 
-    
+
         ]
         ]);
 
         return view('/adm/criar/confirma_clinica');
 
     }
-    
+
 }
 
-    

@@ -11,18 +11,18 @@ class MedControlController extends Controller
     public function store(Request $request)
     {
 
-        
+
         $client = new \GuzzleHttp\Client();
 
 
-            
-            $response = $client->request('POST', 'http://api.hml01.com.br/api/prontuario/medControl/store', [
+
+            $response = $client->request('POST', 'http://localhost:8000/api/prontuario/medControl/store', [
 
             'form_params' => [
                 'prontuarios_prontuario_cod' => $request->prontuario,
                 'medControl_desc' => $request->medControl
 
-        
+
             ]
             ]);
     }
